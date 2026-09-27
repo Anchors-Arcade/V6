@@ -74,22 +74,62 @@ document.querySelectorAll('.waffle-item, .app-tile').forEach(btn => {
   })
 })
 
-const gridPopup = document.getElementById('app-grid-popup')
-const gridPopupName = document.getElementById('app-grid-popup-name')
-const gridPopupDesc = document.getElementById('app-grid-popup-desc')
-if (gridPopup) {
-  document.querySelectorAll('.app-tile').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      gridPopupName.textContent = btn.dataset.name || ''
-      gridPopupDesc.textContent = btn.dataset.desc || ''
-      gridPopup.classList.add('visible')
-    })
-    btn.addEventListener('mouseleave', () => {
-      gridPopup.classList.remove('visible')
-    })
+const searchStack = document.querySelector('.search-stack')
+const searchInput = document.getElementById('newtab-search')
+const searchFlyout = document.getElementById('search-app-flyout')
+if (searchStack && searchInput && searchFlyout) {
+  let flyoutTimer = null
+
+  const setFlyoutState = (isOpen) => {
+    searchFlyout.classList.toggle('is-open', isOpen)
+    searchFlyout.setAttribute('aria-hidden', String(!isOpen))
+    searchFlyout.style.opacity = isOpen ? '1' : '0'
+    searchFlyout.style.visibility = isOpen ? 'visible' : 'hidden'
+    searchFlyout.style.pointerEvents = isOpen ? 'auto' : 'none'
+    searchFlyout.style.transform = isOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(8px)'
+  }
+
+  const showFlyout = () => {
+    clearTimeout(flyoutTimer)
+    setFlyoutState(true)
+  }
+
+  const hideFlyout = (delay = 200) => {
+    clearTimeout(flyoutTimer)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setFlyoutState(false)
+      return
+    }
+
+    flyoutTimer = setTimeout(() => setFlyoutState(false), delay)
+  }
+
+  searchStack.addEventListener('mouseenter', showFlyout)
+  searchStack.addEventListener('mouseleave', () => hideFlyout(200))
+  searchInput.addEventListener('focus', showFlyout)
+  searchInput.addEventListener('blur', e => {
+    if (!searchStack.contains(e.relatedTarget)) hideFlyout(180)
+  })
+
+  searchFlyout.addEventListener('mouseenter', showFlyout)
+  searchFlyout.addEventListener('mouseleave', () => hideFlyout(200))
+  searchFlyout.addEventListener('focusin', showFlyout)
+  searchFlyout.addEventListener('focusout', e => {
+    if (!searchStack.contains(e.relatedTarget)) hideFlyout(180)
+  })
+
+  document.addEventListener('click', e => {
+    if (!searchStack.contains(e.target)) {
+      setFlyoutState(false)
+    }
+  })
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      setFlyoutState(false)
+    }
   })
 }
-
 
 const customizeWrap = document.getElementById('customize-wrap')
 const customizeBtn = document.getElementById('btn-customize')
