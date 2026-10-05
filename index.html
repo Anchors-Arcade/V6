@@ -42,13 +42,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="shortcut icon" id="app-favicon" href="img/favicon.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/style.css?v=34">
 <link rel="stylesheet" href="css/glass.css?v=3">
 <link rel="stylesheet" href="css/plu-tokens.css">
 <link rel="stylesheet" href="css/workspace.css">
 <link rel="stylesheet" href="css/history.css?v=3">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@real-human/liquid-glass@1.2.0/dist/liquid-glass.es.js"></script>
 <script src="js/pwa.js" defer></script>
 <!--
   Global control plane. Loaded before version.js and device-detect.js so both
@@ -158,25 +157,27 @@
 
 <div class="logo" id="logo" role="img" aria-label="Plutonium"></div>
 
-<div class="search-stack" aria-label="Quick app launcher">
-  <div class="search-box glass">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" id="newtab-search" name="plu-newtab-query" placeholder="Search the web, enter a url, or use / commands." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-form-type="other" data-lpignore="true" data-1p-ignore>
-    <button class="net-info-btn" id="newtab-net-info-btn" type="button" title="What is this?" aria-label="Networking info" style="display:none">
-      <i class="fa-solid fa-circle-info"></i>
-    </button>
-    <div class="search-suggest glass" id="search-suggest" hidden></div>
+<div class="search-box glass">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="text" id="newtab-search" name="plu-newtab-query" placeholder="Search the web, enter a url, or use / commands." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-form-type="other" data-lpignore="true" data-1p-ignore>
+  <button class="net-info-btn" id="newtab-net-info-btn" type="button" title="What is this?" aria-label="Networking info" style="display:none">
+    <i class="fa-solid fa-circle-info"></i>
+  </button>
+  <div class="search-suggest glass" id="search-suggest" hidden></div>
+</div>
 
-    <div class="search-app-flyout" id="search-app-flyout" aria-hidden="true">
-      <div class="search-app-flyout__connector" aria-hidden="true"></div>
-      <div class="search-app-flyout__panel glass" role="menu" aria-label="Quick app shortcuts">
-        <button class="app-tile" type="button" aria-label="Games" data-local-uri="pluto://games" data-name="Games" data-desc="Play hundreds of browser games instantly"><span class="app-tile-icon"><i class="fa-solid fa-gamepad"></i></span></button>
-        <button class="app-tile" type="button" aria-label="Artificial Intelligence" data-local-uri="pluto://ai" data-name="Artificial Intelligence" data-desc="Chat with AI assistants and tools"><span class="app-tile-icon"><i class="fa-solid fa-robot"></i></span></button>
-        <button class="app-tile" type="button" aria-label="Cloud Gaming" data-local-uri="pluto://cloud" data-name="Cloud Gaming" data-desc="Stream high-end games from the cloud"><span class="app-tile-icon"><i class="fa-solid fa-cloud"></i></span></button>
-        <button class="app-tile" type="button" aria-label="Media" data-local-uri="pluto://media" data-name="Media" data-desc="Watch movies, TV, and anime"><span class="app-tile-icon"><i class="fa-solid fa-film"></i></span></button>
-        <button class="app-tile" type="button" aria-label="Virtual Machines" data-local-uri="pluto://vms" data-name="Virtual Machines" data-desc="Access remote virtual machines"><span class="app-tile-icon"><i class="fa-solid fa-server"></i></span></button>
-      </div>
-    </div>
+<div class="app-flanks" id="app-flanks">
+  <div class="app-grid-popup" id="app-grid-popup">
+    <span class="app-grid-popup-name" id="app-grid-popup-name"></span>
+    <span class="app-grid-popup-line"></span>
+    <span class="app-grid-popup-desc" id="app-grid-popup-desc"></span>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://games" data-name="Games" data-desc="Play hundreds of browser games instantly"><span class="app-tile-icon"><i class="fa-solid fa-gamepad"></i></span><span>Games</span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://ai" data-name="Artificial Intelligence" data-desc="Chat with AI assistants and tools"><span class="app-tile-icon"><i class="fa-solid fa-robot"></i></span><span>AI</span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://cloud" data-name="Cloud Gaming" data-desc="Stream high-end games from the cloud"><span class="app-tile-icon"><i class="fa-solid fa-cloud"></i></span><span>Cloud Gaming</span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://media" data-name="Media" data-desc="Watch movies, TV, and anime"><span class="app-tile-icon"><i class="fa-solid fa-film"></i></span><span>Media</span></button></div>
+    <div class="app-tile-wrap app-tile-wrap--wide"><button class="app-tile glass" data-local-uri="pluto://vms" data-name="Virtual Machines" data-desc="Access remote virtual machines"><span class="app-tile-icon"><i class="fa-solid fa-server"></i></span><span>VMs</span></button></div>
   </div>
 </div>
 
