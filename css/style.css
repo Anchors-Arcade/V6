@@ -960,23 +960,25 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
    a five-row rail is taller than these viewports can centre without shoving
    the logo and engine switch off screen. */
 @media (max-width: 980px){
-  /* relative, not static: the wheel popout anchors to this box (right:100%). */
-  .app-flanks{position:relative;transform:none;align-items:center}
+  /* The rail leaves the page flow down here. As a flow item it stacked under
+     the clock, which pushed its last row off the bottom of the window at any
+     tile size; pinned to the bottom-right corner it always lands on screen.
+     Still a positioning context, which is what anchors the wheel popout
+     (right:100%). */
+  .app-flanks{position:absolute;top:auto;right:12px;bottom:16px;transform:none;align-items:flex-end}
   .app-grid{
     display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);
     gap:15px;align-items:stretch;
   }
   .app-tile-wrap{position:relative;display:inline-flex;justify-content:center}
   .app-tile-wrap--wide{grid-column:1 / -1;justify-self:center}
-  /* Smaller step than the desktop rail: this fallback is a three-row grid, so
-     the extra height would push the last row off the bottom of the window. */
-  .app-grid .app-tile{width:80px;height:80px;border-radius:2.5rem;transform-origin:50% 50%}
+  .app-grid .app-tile{width:93px;height:93px;border-radius:3rem;transform-origin:50% 50%}
   /* Centred tiles, so the right-edge pivot is meaningless down here: go back to
      growing evenly in both directions. */
   .app-tile:hover{--tile-x:1.08;--tile-y:1.08}
-  .app-tile-icon{font-size:27px}
+  .app-tile-icon{font-size:31px}
   /* No room to float a big wheel beside a centred rail down here. */
-  .app-flanks .app-wheel{--app-wheel-title-size:24px;width:min(320px,72vw);height:min(380px,52vh);margin-right:16px;gap:14px}
+  .app-flanks .app-wheel{--app-wheel-title-size:24px;width:min(320px,72vw);height:min(380px,52vh);margin-right:14px;gap:12px}
   .app-grid-popup{position:static;transform:none;margin-right:0;padding:0 12px 2px;align-items:center}
   .app-grid-popup-name{font-size:12px}
   .app-grid-popup-desc{font-size:10px}

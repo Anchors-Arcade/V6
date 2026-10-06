@@ -71,8 +71,12 @@ const WHEELS = {
 // gives every wheel the same arc to travel, and puts the wrap-around well past
 // the point where a row has already faded to nothing.
 const RING_MIN = 8
-// Rows between the selection and full transparency.
-const FADE_ROWS = 2
+// Rows between the selection and full transparency. Three puts two options in
+// the band above the selection and two below it (at 2/3 and 1/3 opacity) before
+// anything reaches the edge, which is the depth the wheel is meant to read at;
+// at two, the second neighbour sat at exactly zero and the wheel showed only
+// one row either side. RING_MIN keeps the wrap-around past the last faded row.
+const FADE_ROWS = 3
 
 // Repeat the option list around the ring so even a two-entry app has enough
 // arc to fade across, and hand back the index that carries a remembered
