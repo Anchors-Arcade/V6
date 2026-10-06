@@ -1300,7 +1300,7 @@ class AccountManager {
       btn.textContent = 'Sending…'
       try {
         if (typeof PlutoniumStore !== 'undefined') await PlutoniumStore.resetPassword(email)
-        if (errEl) { errEl.classList.add('ok'); errEl.textContent = 'Reset email sent — check your inbox.' }
+        if (errEl) { errEl.classList.add('ok'); errEl.textContent = 'Reset email sent. check your inbox.' }
         btn.textContent = 'Sent ✓'
       } catch (e) {
         if (errEl) { errEl.classList.remove('ok'); errEl.textContent = 'Could not send reset email.' }

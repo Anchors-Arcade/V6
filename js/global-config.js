@@ -1,5 +1,5 @@
 /*
- * PlutoniumConfig — the global control-plane reader.
+ * PlutoniumConfig: the global control-plane reader.
  *
  * One document, `global/public/config/state`, is world-readable. This module
  * fetches it and never blocks: a synchronous view of the defaults exists from
@@ -11,14 +11,14 @@
  * Firestore's free plan allows roughly 50,000 document reads per day. A 5-minute
  * poll is 288 reads per user per day, which ~170 users would exhaust on config
  * alone. So this module fetches at most once per CACHE_TTL_MS per browser, on
- * page load and on returning to a visible tab — never on a timer. A user who
+ * page load and on returning to a visible tab, never on a timer. A user who
  * opens twenty pages in ten minutes causes exactly one read.
  *
  * Therefore: do NOT add setInterval here, and do not shorten CACHE_TTL_MS
  * without doing the multiplication first.
  *
  * Security note: these switches hide product surface. They are not a spend
- * control — a modified client can still call the underlying APIs directly.
+ * control: a modified client can still call the underlying APIs directly.
  */
 
 (function () {
@@ -183,7 +183,7 @@
   function writeCache(config) {
     try {
       localStorage.setItem(STORE_KEY, JSON.stringify({ at: Date.now(), config: config }));
-    } catch (err) { /* private mode, quota — both harmless */ }
+    } catch (err) { /* private mode, quota: both harmless */ }
   }
 
   function workerUrl() {

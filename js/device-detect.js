@@ -4,7 +4,7 @@
   /*
    * Device gating.
    *
-   * Detection stays local — nothing about the user is transmitted. What changed
+   * Detection stays local: nothing about the user is transmitted. What changed
    * is that the *decision* now comes from the global config rather than being
    * hardcoded, so an operator can turn mobile access on or off without a
    * deploy.

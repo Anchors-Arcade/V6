@@ -1,15 +1,15 @@
 /*
- * PlutoniumPresence — tells the console this browser exists, and obeys it.
+ * PlutoniumPresence: tells the console this browser exists, and obeys it.
  *
  * Transport: one POST on page load, then one long-lived SSE connection that
  * carries commands back. There is no polling and no database use, so presence
- * costs zero Firestore reads — which is why it can exist at all on the free
+ * costs zero Firestore reads, which is why it can exist at all on the free
  * plan. Do not "improve" this into a polling loop.
  *
  * What the console can do to this client:
- *   identify — show this browser its own number in the corner for 5 seconds
- *   message  — put a message on this screen
- *   disable  — replace the page with a block screen (and remember it)
+ *   identify: show this browser its own number in the corner for 5 seconds
+ *   message:  put a message on this screen
+ *   disable:  replace the page with a block screen (and remember it)
  *
  * Honest limitation: `disable` here is a convenience control, not a security
  * boundary. Clearing storage, blocking this request, or running a modified copy
@@ -222,7 +222,7 @@
 
     stream.onerror = function () {
       // EventSource reconnects on its own. If the whole service is unreachable
-      // we simply have no presence — the site keeps working regardless.
+      // we simply have no presence; the site keeps working regardless.
       if (stream && stream.readyState === 2) {
         stream = null;
         setTimeout(openStream, 15000);

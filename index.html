@@ -42,7 +42,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="shortcut icon" id="app-favicon" href="img/favicon.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="stylesheet" href="css/style.css?v=34">
+<link rel="stylesheet" href="css/style.css?v=47">
+<link rel="stylesheet" href="css/option-wheel.css?v=2">
 <link rel="stylesheet" href="css/glass.css?v=3">
 <link rel="stylesheet" href="css/plu-tokens.css">
 <link rel="stylesheet" href="css/workspace.css">
@@ -172,12 +173,16 @@
     <span class="app-grid-popup-line"></span>
     <span class="app-grid-popup-desc" id="app-grid-popup-desc"></span>
   </div>
+  <div class="app-wheel" id="app-wheel" role="dialog" aria-modal="false" aria-label="App options" hidden>
+    <div class="app-wheel__title" id="app-wheel-title"></div>
+    <div class="option-wheel app-wheel__wheel" id="app-wheel-options"></div>
+  </div>
   <div class="app-grid">
-    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://games" data-name="Games" data-desc="Play hundreds of browser games instantly"><span class="app-tile-icon"><i class="fa-solid fa-gamepad"></i></span><span>Games</span></button></div>
-    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://ai" data-name="Artificial Intelligence" data-desc="Chat with AI assistants and tools"><span class="app-tile-icon"><i class="fa-solid fa-robot"></i></span><span>AI</span></button></div>
-    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://cloud" data-name="Cloud Gaming" data-desc="Stream high-end games from the cloud"><span class="app-tile-icon"><i class="fa-solid fa-cloud"></i></span><span>Cloud Gaming</span></button></div>
-    <div class="app-tile-wrap"><button class="app-tile glass" data-local-uri="pluto://media" data-name="Media" data-desc="Watch movies, TV, and anime"><span class="app-tile-icon"><i class="fa-solid fa-film"></i></span><span>Media</span></button></div>
-    <div class="app-tile-wrap app-tile-wrap--wide"><button class="app-tile glass" data-local-uri="pluto://vms" data-name="Virtual Machines" data-desc="Access remote virtual machines"><span class="app-tile-icon"><i class="fa-solid fa-server"></i></span><span>VMs</span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Games" data-local-uri="pluto://games" data-name="Games" data-desc="Play hundreds of browser games instantly"><span class="app-tile-icon" aria-hidden="true"><i class="fa-solid fa-gamepad"></i></span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Artificial Intelligence" data-local-uri="pluto://ai" data-name="Artificial Intelligence" data-desc="Chat with AI assistants and tools"><span class="app-tile-icon" aria-hidden="true"><i class="fa-solid fa-robot"></i></span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Cloud Gaming" data-local-uri="pluto://cloud" data-name="Cloud Gaming" data-desc="Stream high-end games from the cloud"><span class="app-tile-icon" aria-hidden="true"><i class="fa-solid fa-cloud"></i></span></button></div>
+    <div class="app-tile-wrap"><button class="app-tile glass" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Media" data-local-uri="pluto://media" data-name="Media" data-desc="Watch movies, TV, and anime"><span class="app-tile-icon" aria-hidden="true"><i class="fa-solid fa-film"></i></span></button></div>
+    <div class="app-tile-wrap app-tile-wrap--wide"><button class="app-tile glass" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Virtual Machines" data-local-uri="pluto://vms" data-name="Virtual Machines" data-desc="Access remote virtual machines"><span class="app-tile-icon" aria-hidden="true"><i class="fa-solid fa-server"></i></span></button></div>
   </div>
 </div>
 
@@ -233,15 +238,28 @@
 
   <div class="help-wrap" id="help-wrap">
     <div class="help-legal">
-      <a class="help-legal-link" href="legal.html#terms" target="_blank" rel="noopener noreferrer">TOS</a>
-      <a class="help-legal-link" href="legal.html#privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
       <span class="help-copy">&copy; Plutonium Network 2026</span>
+      <a class="help-legal-link" id="feedback-link" href="#" role="button" aria-haspopup="dialog">Feedback</a>
+      <a class="help-legal-link" href="https://about.plutoniumnet.work" target="_blank" rel="noopener noreferrer">About</a>
+      <a class="help-legal-link" href="legal.html#terms" target="_blank" rel="noopener noreferrer">Terms</a>
+      <a class="help-legal-link" href="legal.html#privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
     </div>
     <a class="help-btn help-discord" href="https://discord.gg/sQvNX6SVfA" target="_blank" rel="noopener noreferrer" title="Join our Discord" aria-label="Join our Discord"><i class="fab fa-discord"></i></a>
     <a class="help-btn help-tiktok" href="https://www.tiktok.com/@plutoniumnetwrk" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok" aria-label="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
-    <button class="help-btn" id="help-btn" type="button" title="Help" aria-label="Help" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-circle-question"></i></button>
+    <button class="help-btn" id="help-btn" type="button" title="Help" aria-label="Help" aria-haspopup="true" aria-expanded="false">
+      <span class="help-btn-icons" aria-hidden="true">
+        <svg class="help-btn-ico help-btn-ico-help" viewBox="0 0 24 24" fill="none" focusable="false">
+          <path d="M8.7 8.9c0-2.4 1.5-3.9 3.6-3.9 2 0 3.5 1.4 3.5 3.4 0 2.1-1.6 3-2.8 4.2-.8.8-1 1.5-1 2.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11.9" cy="18.3" r="1.4" fill="currentColor"/>
+        </svg>
+        <svg class="help-btn-ico help-btn-ico-close" viewBox="0 0 24 24" fill="none" focusable="false">
+          <path d="M5.9 5.9 18.1 18.1M18.1 5.9 5.9 18.1" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
     <div class="help-menu glass" id="help-menu" hidden>
       <div class="help-menu-title">Help</div>
+      <button class="help-item" id="help-feedback" type="button"><i class="fa-solid fa-comment-dots"></i><span>Send feedback</span></button>
       <button class="help-item" id="help-redo" type="button"><i class="fa-solid fa-rotate-right"></i><span>Redo onboarding</span></button>
       <button class="help-item" id="help-clear-cache" type="button"><i class="fa-solid fa-trash-can"></i><span>Clear cache &amp; reload</span></button>
     </div>
@@ -423,7 +441,9 @@
 <script src="js/logo.js"></script>
 <script src="js/newtab-search.js?v=1"></script>
 <script src="js/online-count.js?v=1"></script>
-<script src="js/main.js?v=11"></script>
+<script src="js/feedback.js?v=3"></script>
+<script src="js/main.js?v=13"></script>
+<script type="module" src="js/home-wheel.js?v=7"></script>
 <script src="js/tabs.js"></script>
 <script src="js/context-menu.js?v=3"></script>
 <script src="js/loading.js?v=2"></script>

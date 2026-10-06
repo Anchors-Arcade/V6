@@ -66,7 +66,7 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
-/* Sheen overlay — only for AI panels that clip their own contents.
+/* Sheen overlay: only for AI panels that clip their own contents.
    `.composer` must stay position:fixed, the sidebar and the chooser popups
    scroll, and the chat panel is transparent, so they all keep their own
    backgrounds only. */

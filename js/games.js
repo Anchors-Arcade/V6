@@ -20,14 +20,14 @@
   const SAVE_MAX_CHARS = 900000;
 
   /* How long a launched game gets to announce itself. PluStore says
-     `plu_text_ready` while its own file loads — before any player script — so
+     `plu_text_ready` while its own file loads (before any player script), so
      a page that stays quiet is not running the current bridge at all, which is
      exactly what a games CDN serving an older js/plustore.js looks like.
      Silence is a fault to report, never a game with nothing to save. */
   const READY_TIMEOUT = 12000;
 
   /* A document with no blocks is a build that has not saved anything yet, not a
-     save worth storing — the same guard the old bridge put on an empty key
+     save worth storing: the same guard the old bridge put on an empty key
      list. */
   const SAVE_BLOCK = /^@/m;
 
@@ -176,7 +176,7 @@
                          { plu: true, type: 'plu_text_request' }
 
      Each game's document is one cloud record keyed by its id, so what is
-     stored is exactly what the game wrote — no key list, no IndexedDB blobs,
+     stored is exactly what the game wrote: no key list, no IndexedDB blobs,
      and nothing to translate between engines.
   ─────────────────────────────────────────────────────────────────────── */
 

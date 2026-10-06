@@ -67,7 +67,10 @@ if (waffleBtn) {
   })
 }
 
-document.querySelectorAll('.waffle-item, .app-tile').forEach(btn => {
+// Rail tiles are not in here on purpose: clicking one opens its option wheel
+// (js/home-wheel.js), which owns the navigation. Right-clicking a tile still
+// offers the plain "open" actions from context-menu.js.
+document.querySelectorAll('.waffle-item').forEach(btn => {
   btn.addEventListener('click', () => {
     closeWaffleMenu()
     navigate(btn.dataset.localUri)
@@ -78,10 +81,20 @@ const gridPopup = document.getElementById('app-grid-popup')
 const gridPopupName = document.getElementById('app-grid-popup-name')
 const gridPopupDesc = document.getElementById('app-grid-popup-desc')
 if (gridPopup) {
+  const flanks = document.getElementById('app-flanks')
   document.querySelectorAll('.app-tile').forEach(btn => {
     btn.addEventListener('mouseenter', () => {
       gridPopupName.textContent = btn.dataset.name || ''
       gridPopupDesc.textContent = btn.dataset.desc || ''
+      // The rail is a right-edge column now, so the caption tracks the hovered
+      // tile vertically instead of sitting above the whole list. Both rects
+      // share the rail's own coordinate space, so the delta survives the
+      // translateY(-50%) centring in CSS.
+      if (flanks) {
+        const railRect = flanks.getBoundingClientRect()
+        const tileRect = btn.getBoundingClientRect()
+        gridPopup.style.top = (tileRect.top + tileRect.height / 2 - railRect.top) + 'px'
+      }
       gridPopup.classList.add('visible')
     })
     btn.addEventListener('mouseleave', () => {
@@ -567,6 +580,19 @@ const helpWrap = document.getElementById('help-wrap')
 const helpBtn = document.getElementById('help-btn')
 const helpMenu = document.getElementById('help-menu')
 
+// Nudge the help button with a soft glow until the user opens it for the first time.
+const HELP_SEEN_KEY = 'plu_help_seen'
+if (helpWrap) {
+  let helpSeen = true
+  try { helpSeen = localStorage.getItem(HELP_SEEN_KEY) === '1' } catch (_) {}
+  if (!helpSeen) helpWrap.classList.add('help-attn')
+}
+
+function markHelpSeen() {
+  if (helpWrap) helpWrap.classList.remove('help-attn')
+  try { localStorage.setItem(HELP_SEEN_KEY, '1') } catch (_) {}
+}
+
 function closeHelpMenu() {
   if (!helpWrap) return
   helpWrap.classList.remove('is-open')
@@ -580,6 +606,7 @@ function toggleHelpMenu() {
   helpWrap.classList.add('is-open')
   helpBtn.setAttribute('aria-expanded', 'true')
   helpMenu.hidden = false
+  markHelpSeen()
   requestAnimationFrame(() => helpMenu.classList.add('is-open'))
 }
 

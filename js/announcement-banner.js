@@ -1,5 +1,5 @@
 /*
- * PlutoniumNotices — broadcast surfaces and the per-user inbox.
+ * PlutoniumNotices: broadcast surfaces and the per-user inbox.
  *
  * Reads ONE document, `global/public/config/feed`, which the admin console
  * keeps up to date with the notices that are live or imminent. Reading the

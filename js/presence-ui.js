@@ -1,5 +1,5 @@
 /*
- * PlutoniumPresenceUI — the on-screen pieces of the presence system.
+ * PlutoniumPresenceUI: the on-screen pieces of the presence system.
  *
  * Split from js/client-presence.js purely so each file stays small. All styling
  * is inline and namespaced: this must not depend on the site's stylesheet, and
@@ -30,7 +30,7 @@
   /* ------------------------------------------------------------------ *
    * Identify: show this client's own number, briefly.
    *
-   * This is the whole point of the feature — the operator reads the number off
+   * This is the whole point of the feature: the operator reads the number off
    * the console and the person tells them what they see. So it has to be
    * unmissable and it has to disappear on its own.
    * ------------------------------------------------------------------ */

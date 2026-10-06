@@ -673,7 +673,7 @@ async function chooseBestPickerServer() {
   // A source with a preferred row is settled here, before any network work:
   // VanilliaPXY is fronted by Vercel worldwide, so neither the IP lookup nor a
   // ping race could improve on it, and either could quietly pick a regional
-  // host instead. Nothing is measured here — the probe that follows fills in
+  // host instead. Nothing is measured here; the probe that follows fills in
   // the latency shown next to the row.
   const preferred = getPreferredPickerServer(servers)
   if (preferred && preferred.preferred) {
@@ -826,7 +826,7 @@ const LEGACY_NET_MODE_KEY = 'plu_proxy_engine'
 const LEGACY_NET_MODE_MAP = { uv: 'core', sj: 'runtime', hb: 'remote' }
 // VanilliaPXY serves a page and injects a runtime that registers its own
 // service worker (`/service-worker.js?target=`) on that origin, so the app only
-// has to build the frame URL — no local SW, relay or bridge is involved. Which
+// has to build the frame URL; no local SW, relay or bridge is involved. Which
 // host that URL names comes from the server picked in the switcher.
 const REMOTE_WORKER_URL    = 'https://net.cdn.plutoniumnet.work'
 

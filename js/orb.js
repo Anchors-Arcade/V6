@@ -1,4 +1,4 @@
-/* Talk-mode orb — powered by thinking-orbs (https://libraries.dev/orbs)
+/* Talk-mode orb, powered by thinking-orbs (https://libraries.dev/orbs)
  * Vendored engine: js/orbs-engine.js (MIT © Jakub Antalik).
  *
  * The engine renders hand-tuned dotted animations on a plain 2D canvas.
@@ -63,7 +63,7 @@ window.PlutoniumOrb = (function () {
     var modeDraw = Engine.MODE_DRAWS[resolved.mode];
     if (!modeDraw) return;
     // Draw in the engine's native 64px "avatar" coordinate space, scaled up to
-    // the canvas — keeps the library's exact hand-tuned dot proportions at
+    // the canvas, keeps the library's exact hand-tuned dot proportions at
     // talk-overlay scale. Pulse swells the whole orb a touch.
     var s = 64 * (1 + 0.06 * pulse);
     var k = dpr * (size / 64);
