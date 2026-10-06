@@ -194,8 +194,8 @@
       <div class="apps-page plu-page">
         <header class="apps-head">
           <div class="apps-head__copy">
-            <h1 class="apps-page__title plu-page__title">Apps</h1>
-            <p class="apps-page__subtitle plu-page__subtitle">Launch web apps in an in-app window, routed through the server you choose.</p>
+            <h1 class="apps-page__title plu-page__title">Apps (BETA)</h1>
+            <p class="apps-page__subtitle plu-page__subtitle">CURRENTLY IN BETA. Launch web apps in an in-app window, routed through the server you choose.</p>
           </div>
           <div class="apps-server" id="apps-server">
             <button class="apps-server__btn" id="apps-server-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose app server">
