@@ -60,6 +60,14 @@ const WHEELS = {
       { label: 'New Session', uri: 'pluto://vms?autostart=1' },
       { label: 'Virtual Machines' }
     ]
+  },
+  'pluto://apps': {
+    title: 'Apps',
+    items: [
+      { label: 'Browse' },
+      { label: 'Search Apps', work: (h) => h.focus('#apps-search') },
+      { label: 'Change Server', work: () => call('openAppsServerMenu') }
+    ]
   }
 }
 

@@ -177,6 +177,25 @@ async function _openPinPicker(anchorEl) {
   filterItems.push({ el: vmItem, name: 'virtual machines' })
   if (currentSection) currentSection.items.push(vmItem)
 
+  const appsItem = document.createElement('div')
+  appsItem.className = 'pin-picker__item' + (pinned.has('apps') ? ' pin-picker__item--pinned' : '')
+  appsItem.innerHTML = `
+    <div class="pin-picker__icon"><i class="fa-solid fa-cube"></i></div>
+    <span class="pin-picker__name">Apps</span>
+    ${pinned.has('apps') ? '<i class="fa-solid fa-check pin-picker__check"></i>' : ''}
+  `
+  appsItem.addEventListener('click', () => {
+    if (Pins.find('apps')) {
+      Pins.remove('apps')
+    } else {
+      Pins.add({ id: 'apps', name: 'Apps', type: 'apps' })
+    }
+    _dismissPicker()
+  })
+  list.appendChild(appsItem)
+  filterItems.push({ el: appsItem, name: 'apps' })
+  if (currentSection) currentSection.items.push(appsItem)
+
   if (games.length) {
     const sep = document.createElement('div')
     sep.className = 'pin-picker__sep'
@@ -335,6 +354,7 @@ function renderPins() {
     item.dataset.pinId = pin.id
     item.dataset.pinName = pin.name
     item.dataset.pinType = pin.type || ''
+    if (pin.appId) item.dataset.pinAppId = pin.appId
 
     const thumb = document.createElement('div')
     thumb.className = 'icon'
@@ -342,6 +362,10 @@ function renderPins() {
     if (pin.type === 'vm') {
       thumb.innerHTML = VmsMark.svg(30)
       item.classList.add('vm-tile')
+    } else if (pin.type === 'app' || pin.type === 'apps') {
+      thumb.innerHTML = `<i class="${pin.icon || 'fa-solid fa-cube'}"></i>`
+      if (pin.color) thumb.style.color = pin.color
+      item.classList.add('apps-tile')
     } else if (pin.type === 'cloud' && pin.image) {
       const img = document.createElement('img')
       img.src = pin.image
@@ -393,6 +417,8 @@ function renderPins() {
     item.appendChild(removeBtn)
     item.addEventListener('click', () => {
       if (pin.type === 'vm') navigate('pluto://vms?autostart=1')
+      else if (pin.type === 'apps') navigate('pluto://apps')
+      else if (pin.type === 'app') navigate(`pluto://apps#${encodeURIComponent(pin.appId || pin.id)}`)
       else if (pin.type === 'cloud') navigate(`pluto://cloud#${encodeURIComponent(pin.id)}`)
       else navigate(`pluto://games?autostart=1#${encodeURIComponent(pin.id)}`)
     })

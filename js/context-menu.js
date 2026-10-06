@@ -235,9 +235,12 @@ document.addEventListener('contextmenu', e => {
   const pinId = shortcut.dataset.pinId
   const pinName = shortcut.dataset.pinName
   const pinType = shortcut.dataset.pinType
+  const pinAppId = shortcut.dataset.pinAppId
   if (!pinId || !pinName) return
   e.preventDefault()
   const url = pinType === 'vm' ? 'pluto://vms?autostart=1'
+    : pinType === 'apps' ? 'pluto://apps'
+    : pinType === 'app' ? `pluto://apps#${encodeURIComponent(pinAppId || pinId)}`
     : pinType === 'cloud' ? `pluto://cloud#${encodeURIComponent(pinId)}`
     : `pluto://games?autostart=1#${encodeURIComponent(pinId)}`
   ContextMenu.show([

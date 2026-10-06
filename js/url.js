@@ -6,6 +6,7 @@ const LOCAL_PAGES = {
   ai: 'ai',
   vms: 'vms',
   cloud: 'cloud',
+  apps: 'apps',
 }
 
 const LOCAL_PAGE_ALIASES = {

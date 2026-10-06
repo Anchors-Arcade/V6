@@ -11,6 +11,7 @@
     { key: 'cloud', name: 'Cloud Gaming', icon: 'fa-cloud',        desc: 'Stream high-end games from the cloud' },
     { key: 'media', name: 'Media',        icon: 'fa-film',         desc: 'Movies, TV and anime' },
     { key: 'vms',   name: 'VMs',          icon: 'fa-server',       desc: 'Remote virtual machines' },
+    { key: 'apps',  name: 'Apps',         icon: 'fa-cube',         desc: 'Launch web apps through a server' },
   ];
 
   var COMMANDS = [

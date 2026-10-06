@@ -188,6 +188,61 @@
 
     vms: `<section class="workspace-view workspace-vms" data-workspace="vms">
       <main id="main-content"><header class="page-header"><div class="page-header-left"><div class="page-header-icon">${VmsMark.svg(26)}</div><div><h1 class="page-title">Virtual Machines</h1><p class="page-subtitle">Launch a temporary cloud browser session directly inside Plutonium Network.</p></div></div><div class="page-header-right"><button class="vm-pin-btn" id="vm-pin-btn" title="Pin a quick-launch to your home screen"><i class="fa-solid fa-thumbtack"></i><span>Pin to Home</span></button></div></header><section class="vm-layout"><aside class="vm-sidebar"><div class="vm-panel vm-panel-hero glass"><div class="vm-panel-label">Session</div><div class="vm-status-card"><div class="vm-status-dot"></div><div class="vm-status-copy"><div class="vm-status-title">Current Status</div><div class="vm-status" id="status">No active session</div></div></div><div class="vm-timer" id="timer" style="display:none"><i class="fa-solid fa-clock"></i><span>Time remaining: 15:00</span></div></div><div class="vm-panel glass"><div class="vm-panel-label">Controls</div><div class="vm-controls"><button class="vm-btn vm-btn-primary" id="startBtn"><i class="fas fa-play"></i><span>Start Session</span></button><button class="vm-btn" id="endBtn" disabled><i class="fas fa-stop"></i><span>End Session</span></button><button class="vm-btn" id="fullscreenBtn" style="display:none"><i class="fas fa-expand"></i><span>Fullscreen</span></button></div></div><div class="vm-panel glass"><div class="vm-panel-label">How It Works</div><div class="vm-note-list"><div class="vm-note"><i class="fa-solid fa-cloud"></i><span>Each session runs in the cloud and expires automatically after 15 minutes.</span></div><div class="vm-note"><i class="fa-solid fa-shield"></i><span>Use fullscreen when you want a cleaner browsing workspace.</span></div><div class="vm-note"><i class="fa-solid fa-rotate"></i><span>Ending the session destroys the temporary browser instance.</span></div></div></div></aside><section class="vm-stage"><div class="vm-frame-shell glass"><div id="remote-container"><div id="containerMessage"><div class="vm-empty-state"><div class="vm-empty-icon">${VmsMark.svg(40)}</div><div class="vm-empty-title">No browser session running</div><div class="vm-empty-subtitle">Start a session from the left to load your virtual machine here.</div></div></div></div></div></section></section></main>
+    </section>`,
+
+    apps: `<section class="workspace-view workspace-apps" data-workspace="apps">
+      <div class="apps-page plu-page">
+        <header class="apps-head">
+          <div class="apps-head__copy">
+            <h1 class="apps-page__title plu-page__title">Apps</h1>
+            <p class="apps-page__subtitle plu-page__subtitle">Launch web apps in an in-app window, routed through the server you choose.</p>
+          </div>
+          <div class="apps-server" id="apps-server">
+            <button class="apps-server__btn" id="apps-server-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose app server">
+              <span class="apps-server__dot" aria-hidden="true"></span>
+              <span class="apps-server__icon" id="apps-server-icon" aria-hidden="true"></span>
+              <span class="apps-server__name" id="apps-server-label">Loading…</span>
+              <i class="fa-solid fa-chevron-down apps-server__caret" aria-hidden="true"></i>
+            </button>
+            <div class="apps-server__menu" id="apps-server-menu" role="listbox" hidden></div>
+          </div>
+        </header>
+        <div class="apps-toolbar">
+          <div class="apps-search-wrap">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input class="apps-search" id="apps-search" type="search" placeholder="Search apps..." autocomplete="off" spellcheck="false">
+            <button class="apps-search__clear" id="apps-search-clear" type="button" aria-label="Clear search" hidden><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="apps-cats" id="apps-cats" role="tablist" aria-label="Filter apps by category"></div>
+          <span class="apps-count" id="apps-count"></span>
+        </div>
+        <div class="apps-grid" id="apps-grid"></div>
+        <div class="apps-empty" id="apps-empty" hidden><i class="fa-solid fa-cube"></i><span>No apps match your search.</span></div>
+      </div>
+      <div class="apps-viewer" id="apps-viewer" hidden aria-hidden="true">
+        <div class="apps-viewer__bar glass">
+          <button class="apps-viewer__btn" id="apps-viewer-back" type="button" title="Back to apps"><i class="fa-solid fa-arrow-left"></i><span>Apps</span></button>
+          <div class="apps-viewer__id">
+            <span class="apps-viewer__icon" id="apps-viewer-icon" aria-hidden="true"><i class="fa-solid fa-cube"></i></span>
+            <span class="apps-viewer__title" id="apps-viewer-title"></span>
+          </div>
+          <div class="apps-viewer__server" id="apps-viewer-server">
+            <button class="apps-viewer__btn apps-viewer__server-btn" id="apps-viewer-server-btn" type="button" aria-haspopup="listbox" aria-expanded="false" title="Change server">
+              <span class="apps-viewer__server-icon" id="apps-viewer-server-icon" aria-hidden="true"></span>
+              <span id="apps-viewer-server-label">—</span>
+              <i class="fa-solid fa-chevron-down apps-server__caret" aria-hidden="true"></i>
+            </button>
+            <div class="apps-server__menu" id="apps-viewer-server-menu" role="listbox" hidden></div>
+          </div>
+          <div class="apps-viewer__actions">
+            <button class="apps-viewer__btn" id="apps-viewer-reload" type="button" title="Reload app" aria-label="Reload app"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="apps-viewer__btn" id="apps-viewer-open" type="button" title="Open in browser" aria-label="Open in browser"><i class="fa-solid fa-up-right-from-square"></i></button>
+            <button class="apps-viewer__btn" id="apps-viewer-full" type="button" title="Fullscreen" aria-label="Fullscreen"><i class="fa-solid fa-expand"></i></button>
+          </div>
+        </div>
+        <div class="apps-viewer__notice" id="apps-viewer-notice" hidden></div>
+        <iframe class="apps-viewer__frame" id="apps-frame" title="App" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+      </div>
     </section>`
   };
 
@@ -196,7 +251,8 @@
     ai: { css: 'css/ai.css?v=9', scripts: ['js/orbs-engine.js', 'js/orb.js', 'js/ai.js?v=7'] },
     cloud: { css: 'css/cloud.css', scripts: ['js/cloud.js?v=1'] },
     media: { css: 'css/stream.css', scripts: ['js/stream.js?v=20260825'] },
-    vms: { css: 'css/vms.css', scripts: ['js/vms.js'], module: true }
+    vms: { css: 'css/vms.css', scripts: ['js/vms.js'], module: true },
+    apps: { css: 'css/apps.css?v=8', scripts: ['js/apps.js?v=6'] }
   };
 
   function build() {
