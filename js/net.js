@@ -1,5 +1,15 @@
 const RELAY_QUERY_OVERRIDE = new URLSearchParams(window.location.search).get('relay')
+
+// Wisp relay infrastructure. Each region is served from its own host, so the
+// list below is the only place that decides where proxied browsing traffic
+// goes: adding a region is a row here plus a matching `wisp-<id>` host. The
+// first row is the fallback when neither geolocation nor ping picks a region.
 const RELAY_URL_TEMPLATE = 'wss://wisp-{id}.plutoniumnet.work/'
+
+// Optional discovery worker: answers `<base>/<region-id>/` with `{ redirect }`
+// (or an `X-Relay-Redirect` header) naming that region's live relay. Left null
+// because the hosts above are static; point it at a worker to let relays move
+// without shipping a client change.
 const RELAY_DISCOVERY_BASE = null
 
 const RELAY_CONNECT_TIMEOUT_MS = 15000
@@ -13,6 +23,12 @@ const RELAY_SERVERS = [
   { id: 'asia',    label: 'Asia',    location: 'Singapore',          flagSrc: 'img/flags/sg.png', lat: 1.3521,   lon: 103.8198  },
 ]
 
+// VanilliaPXY runs its own hosts, and picking one is independent of the wisp
+// relay, so it has its own list, stored choice and probe. `preferred: true`
+// marks the host the app picks on its own: Vercel fronts every region, so it
+// wins outright rather than racing the IP lookup and ping that decide a wisp
+// relay. No row here carries coordinates, because this source is never picked
+// by distance. `vanillia-europe` needs its DNS record before it answers.
 const VANILLIA_SERVERS = [
   { id: 'vercel',  label: 'Vercel',  location: 'Global CDN',         host: 'vanillia-vercel.plutoniumnet.work',  flagSrc: 'img/3rd-party/vercel.png', preferred: true },
   { id: 'us-west', label: 'US West', location: 'Oregon, USA',        host: 'vanillia-us-west.plutoniumnet.work', flagSrc: 'img/flags/us.png' },
@@ -105,6 +121,11 @@ function getRelayServerById(id) {
 function getCurrentRelayServer() {
   return getRelayServerById(currentRelayServerId) || getConfiguredRelayServers()[0] || null
 }
+
+// The row under the engine switch picks the wisp relay for the UV/Scramjet
+// engines and the VanilliaPXY host for the vanillia engine. Everything the
+// picker draws goes through these, so the two choices stay independent: the
+// wisp helpers above always mean the wisp relay.
 function loadVanilliaServerId() {
   const stored = localStorage.getItem(VANILLIA_SERVER_KEY)
   if (stored && VANILLIA_SERVERS.some(server => server.id === stored)) return stored
@@ -112,6 +133,8 @@ function loadVanilliaServerId() {
   return fallback ? fallback.id : ''
 }
 
+// The row the app falls back to within a source: `preferred` when the source
+// marks one, otherwise the first row (the wisp relay's documented fallback).
 function getPreferredPickerServer(servers = getPickerServers()) {
   return servers.find(server => server.preferred) || servers[0] || null
 }
@@ -148,20 +171,20 @@ function setPickerServerId(id) {
   localStorage.setItem('plu_relay_server', id)
 }
 
+// Ping results are keyed per source: both lists use ids like `europe`, so a
+// shared namespace would let a wisp reading masquerade as a vanillia one.
 function pickerPingKey(id) { return (isVanilliaEngine() ? 'vanillia:' : 'wisp:') + id }
 function wispPingKey(id) { return 'wisp:' + id }
 
 function getVanilliaRouteUrl() {
   const server = getPickerServerById(currentVanilliaServerId) || getDefaultVanilliaServer()
-  return server ? `/vanillia-embed/${server.id}/vanillia?url=` : ''
+  return server ? `https://${server.host}/vanillia?url=` : ''
 }
 
 function isVanilliaFrameUrl(raw) {
   try {
     const absolute = new URL(raw, window.location.origin)
-    const localRoute = VANILLIA_SERVERS.some(server => absolute.pathname === `/vanillia-embed/${server.id}/vanillia`)
-    return (absolute.origin === window.location.origin && localRoute)
-      || (absolute.pathname === '/vanillia' && VANILLIA_SERVERS.some(server => server.host === absolute.hostname))
+    return absolute.pathname === '/vanillia' && VANILLIA_SERVERS.some(server => server.host === absolute.hostname)
   } catch (e) {
     return false
   }
@@ -486,18 +509,20 @@ async function measureRelayServer(server, options = {}) {
   })
 }
 
+// Vanillia hosts answer /health with JSON and `access-control-allow-origin: *`,
+// so a plain cross-origin fetch doubles as a reachability and latency probe.
 async function measureVanilliaServer(server, options = {}) {
   const timeoutMs = options.timeoutMs || RELAY_PING_TIMEOUT_MS
   if (!server) return { ok: false, latency: null, server }
 
   const startedAt = performance.now()
   try {
-    const res = await fetch(`/vanillia-embed/${server.id}/health`, {
+    const res = await fetch(`https://${server.host}/health`, {
       cache: 'no-store',
       headers: { Accept: 'application/json' },
       signal: AbortSignal.timeout(timeoutMs),
     })
-    if (!res.ok || (await res.json()).status !== 'ok') return { ok: false, latency: null, server }
+    if (!res.ok) return { ok: false, latency: null, server }
     return { ok: true, latency: Math.max(1, Math.round(performance.now() - startedAt)), server }
   } catch (e) {
     return { ok: false, latency: null, server }
@@ -582,6 +607,9 @@ async function pingConfiguredRelayServers() {
     .filter(result => result.ok && Number.isFinite(result.latency))
     .sort((a, b) => a.latency - b.latency)[0] || null
 
+  // The HUD badge marks the row the picker itself would land on. A source with
+  // a preferred row keeps it there rather than on whichever host answered
+  // fastest, because that source is never chosen by a ping race.
   const preferred = getPreferredPickerServer(servers)
   bestRelayServerId = preferred && preferred.preferred
     ? preferred.id
@@ -624,6 +652,9 @@ function startBackgroundRelayPingLoop() {
   }, RELAY_BACKGROUND_PING_MS)
 }
 
+// Picks the server for whichever source the row is showing: the saved choice
+// first, then the source's preferred row, then the nearest by IP, then the
+// fastest responder.
 async function chooseBestPickerServer() {
   const servers = getPickerServers()
   if (!servers.length) return null
@@ -639,6 +670,11 @@ async function chooseBestPickerServer() {
     return getPickerServerById(savedServer)
   }
 
+  // A source with a preferred row is settled here, before any network work:
+  // VanilliaPXY is fronted by Vercel worldwide, so neither the IP lookup nor a
+  // ping race could improve on it, and either could quietly pick a regional
+  // host instead. Nothing is measured here; the probe that follows fills in
+  // the latency shown next to the row.
   const preferred = getPreferredPickerServer(servers)
   if (preferred && preferred.preferred) {
     setPickerServerId(preferred.id)
@@ -708,6 +744,8 @@ async function switchRelayServer(serverId) {
 
   hideRelaySwitcherMenu()
 
+  // A VanilliaPXY server is picked, not connected: the frame just points at the
+  // other host, so there is no socket, bridge or transport to tear down.
   if (isVanilliaEngine()) {
     setPickerServerId(targetServer.id)
     currentRelayLatencyMs = relayPingByServerId.get(pickerPingKey(targetServer.id))?.latency ?? null
@@ -743,6 +781,10 @@ async function switchRelayServer(serverId) {
   return ready
 }
 
+// Changing engine changes which list the row shows, so re-point it and re-probe.
+// The probe is what refreshes the status: the background loop only keeps a
+// status that is already `ok`, so a stale error from the other source would
+// otherwise stick forever.
 let lastPickerSource = ''
 
 function refreshPickerForEngine() {
@@ -758,6 +800,7 @@ function refreshPickerForEngine() {
   renderRelaySwitcherMenu()
   refreshConnectionHud()
 
+  // Switching UV <-> SJ keeps the same relay, so don't churn its socket.
   if (source === lastPickerSource) return
   lastPickerSource = source
   setRelayStatus('connecting', { server: getPickerServer() })
@@ -781,6 +824,10 @@ async function probeCurrentPickerServer() {
 const NET_MODE_KEY = 'plu_net_mode'
 const LEGACY_NET_MODE_KEY = 'plu_proxy_engine'
 const LEGACY_NET_MODE_MAP = { uv: 'core', sj: 'runtime', hb: 'remote' }
+// VanilliaPXY serves a page and injects a runtime that registers its own
+// service worker (`/service-worker.js?target=`) on that origin, so the app only
+// has to build the frame URL; no local SW, relay or bridge is involved. Which
+// host that URL names comes from the server picked in the switcher.
 const REMOTE_WORKER_URL    = 'https://net.cdn.plutoniumnet.work'
 
 function loadNetMode() {
@@ -941,9 +988,11 @@ async function initBridge() {
 }
 
 async function initNetStack() {
-  if (getNetEngine() === 'vanillia') return
   await initCore()
   await initRuntime()
+  // VanilliaPXY is a host of its own: it needs no BareMux transport and no wisp
+  // relay, and skipping the bridge keeps its connection status truthful.
+  if (getNetEngine() === 'vanillia') return
   await initBridge()
 }
 
@@ -981,7 +1030,6 @@ async function launchRemoteSession(raw) {
     const newTabPage = document.getElementById('new-tab-page')
     if (newTabPage) newTabPage.style.display = 'none'
     if (pageFrame) {
-      pageFrame.removeAttribute('sandbox')
       pageFrame.style.display = 'block'
       pageFrame.src = data.embed_url + '&controls=false'
     }
@@ -1012,14 +1060,6 @@ window.launchRemoteSession = launchRemoteSession
 window.endRemoteSession = endRemoteSession
 
 function getNetUrl(url) {
-  const frame = document.getElementById('page-frame')
-  if (frame) {
-    if (selectedNet === 'vanillia') {
-      frame.setAttribute('sandbox', 'allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads')
-    } else {
-      frame.removeAttribute('sandbox')
-    }
-  }
   if (selectedNet === 'remote') return url
   if (selectedNet === 'vanillia') return getVanilliaRouteUrl() + encodeURIComponent(url)
   if (selectedNet === 'runtime') {
@@ -1034,6 +1074,8 @@ function getRealUrlFromNet(maybeNetUrl) {
   if (currentRemoteTargetUrl) return currentRemoteTargetUrl
 
   if (selectedNet === 'vanillia') {
+    // Any vanillia host decodes, not just the selected one: a frame loaded before
+    // a server switch is still a valid target URL.
     if (isVanilliaFrameUrl(maybeNetUrl)) {
       try {
         return new URL(maybeNetUrl, window.location.origin).searchParams.get('url') || maybeNetUrl
@@ -1165,6 +1207,7 @@ async function runNetInit() {
     await chooseBestPickerServer()
     lastPickerSource = isVanilliaEngine() ? 'vanillia' : 'wisp'
     if (isVanilliaEngine()) {
+      // Nothing to preload: the vanillia host is probed over HTTP instead.
       updateRelaySwitcherButton()
       renderRelaySwitcherMenu()
       probeCurrentPickerServer()
