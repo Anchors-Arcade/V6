@@ -1,9 +1,10 @@
-import { relayVanillia } from '../../bridge/vanillia-relay.mjs'
+import { relayVanillia, VANILLIA_EMBED_PREFIX } from './bridge/vanillia-relay.mjs'
 
 export default {
-  fetch(request) {
-    const url = new URL(request.url)
-    url.pathname = url.pathname.replace(/^\/api\/vanillia\//, '/vanillia-embed/')
-    return relayVanillia(new Request(url, request))
+  fetch(request, env) {
+    if (new URL(request.url).pathname.startsWith(VANILLIA_EMBED_PREFIX)) {
+      return relayVanillia(request)
+    }
+    return env.ASSETS.fetch(request)
   },
 }
