@@ -2,13 +2,6 @@
 <html lang="en">
 <head>
 <meta name="plu-build" content="8">
-<!--
-  Presence endpoint (the admin console service on Render). Leave empty to
-  disable the live-client feature entirely; the site works normally without it.
-  This is the console ORIGIN only. The client appends /rt/presence/* to it, and
-  those routes sit outside the console's secret path prefix, so the prefix can
-  be rotated without touching this.
--->
 <meta name="plu-presence" content="https://admin.plutoniumnet.work">
 <meta charset="utf-8">
 <title>Plutonium Network</title>
@@ -50,12 +43,6 @@
 <link rel="stylesheet" href="css/history.css?v=3">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <script src="js/pwa.js" defer></script>
-<!--
-  Global control plane. Loaded before version.js and device-detect.js so both
-  can consult it, and deliberately NOT deferred: it hydrates its cached copy
-  synchronously and never blocks, so the first gate decision is correct on
-  first paint. It fetches at most once per 15 minutes, never on a timer.
--->
 <script src="js/global-config.js"></script>
 <script src="js/version.js?v=8" defer></script>
 </head>
@@ -429,7 +416,7 @@
 <script src="js/chrome-tabs.js"></script>
 <script src="js/bookmarks.js"></script>
 <script src="js/bookmarks-bar.js"></script>
-<script src="js/net.js?v=9"></script>
+<script src="js/net.js?v=10"></script>
 <script src="js/url.js?v=1"></script>
 <script src="js/vms-mark.js"></script>
 <script src="js/workspaces.js?v=21"></script>
