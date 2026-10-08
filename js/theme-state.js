@@ -70,7 +70,7 @@ const BrowserThemeState = (() => {
 
   // Versioned so a changed background page isn't served from cache; the date rides along so a
   // simulated day reaches the background page too.
-  const BG_SOURCE_VERSION = 2
+  const BG_SOURCE_VERSION = 3
 
   function getBackgroundSourceURL(source) {
     const page = normalizeBgSource(source) === 'custom' ? 'bg.html' : 'bg-default.html'
@@ -95,9 +95,10 @@ const BrowserThemeState = (() => {
     return _dateOverride || new Date()
   }
 
-  // Today's image + accent from data/bg-default.json. Months split into weeks (days 1-7, 8-14, ...)
-  // carrying the accent colour, and days carrying the image shown full-bleed. Both resolve through
-  // a day override -> its week / the config's `default` block -> the built-in stock values.
+  // Today's image + accent + darkening tint from data/bg-default.json. Months split into weeks
+  // (days 1-7, 8-14, ...) carrying the accent colour, and days carrying the image shown full-bleed.
+  // Each resolves through a day override -> its week / the config's `default` block -> the built-in
+  // stock values. `tint` is per-day so a single day can be darkened without touching its week.
   function resolveDailyBackground(config, date) {
     const cfg = config && typeof config === 'object' ? config : {}
     const fallback = cfg.default && typeof cfg.default === 'object' ? cfg.default : {}
@@ -115,12 +116,19 @@ const BrowserThemeState = (() => {
     return {
       image: pick(entry.image, fallback.image),
       accentColor: pick(entry.accentColor, week.accentColor || fallback.accentColor),
+      tint: normalizeTint(entry.tint == null ? fallback.tint : entry.tint),
+      logo: normalizeLogoId(entry.logo || week.logo || fallback.logo),
     }
   }
 
   function defaultThemeAccent() {
     const resolved = resolveDailyBackground(_defaultConfig)
     return isHexColor(resolved.accentColor) ? resolved.accentColor.trim().toLowerCase() : DEFAULT_THEME_STATE.accentColor
+  }
+
+  // Today's logo colourway from the config, or '' when the day's entry names none.
+  function defaultThemeLogo() {
+    return normalizeLogoId(resolveDailyBackground(_defaultConfig).logo)
   }
 
   function loadDefaultBackgroundConfig() {
@@ -183,6 +191,26 @@ const BrowserThemeState = (() => {
       dark: { base: '#16181b', surface: '#22262b', surface2: '#1c2024', accent: '#7dd3fc' },
       light: { base: '#eef2f7', surface: '#ffffff', surface2: '#e8edf4', accent: '#3b82f6' },
     },
+  }
+
+  // Brand logo colourways that ship in img/logos (icon-<id>.png). The daily background config
+  // names one of these per entry so the logo can follow the season's palette.
+  const LOGO_IDS = [
+    'plutonium-pink', 'violet', 'blue', 'emerald', 'amber', 'red', 'cyan', 'fuchsia', 'white',
+  ]
+
+  // An unknown or missing name returns '' so callers can fall back to the accent-derived logo.
+  function normalizeLogoId(value) {
+    const id = typeof value === 'string' ? value.trim().toLowerCase() : ''
+    return LOGO_IDS.indexOf(id) === -1 ? '' : id
+  }
+
+  // How much the daily background image should be darkened. 0 leaves the art untouched,
+  // 100 is solid black; anything else is clamped into that range.
+  function normalizeTint(value) {
+    const n = typeof value === 'string' ? parseFloat(value) : value
+    if (typeof n !== 'number' || !isFinite(n)) return 0
+    return Math.min(100, Math.max(0, n))
   }
 
   function isHexColor(value) {
@@ -400,7 +428,14 @@ const BrowserThemeState = (() => {
   }
 
   function getAccentIconFile() {
-    return ACCENT_ICON_MAP[normalizeAccentColor(getEffectiveThemeState().accentColor)] || 'plutonium-pink'
+    const state = getEffectiveThemeState()
+    // With the stock background the day's entry owns the palette, so let it pick the logo too;
+    // a custom background keeps following the accent the user chose.
+    if (normalizeBgSource(state.bgSource) === DEFAULT_THEME_STATE.bgSource) {
+      const daily = defaultThemeLogo()
+      if (daily) return daily
+    }
+    return ACCENT_ICON_MAP[normalizeAccentColor(state.accentColor)] || 'plutonium-pink'
   }
 
   function getAccentIconPath() {
@@ -428,7 +463,11 @@ const BrowserThemeState = (() => {
     getAccentIconPath,
     loadDefaultBackgroundConfig,
     resolveDailyBackground,
+    normalizeTint,
+    normalizeLogoId,
+    LOGO_IDS,
     getDefaultThemeAccent: defaultThemeAccent,
+    getDefaultThemeLogo: defaultThemeLogo,
     overrideDate,
     formatDateParam,
   }

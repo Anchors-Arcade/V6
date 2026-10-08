@@ -66,11 +66,12 @@
       <span class="season" id="sim-season">—</span>
     </div>
     <div class="path" id="sim-path">—</div>
+    <div class="path" id="sim-tint">—</div>
     <div class="hint">Embeds the real home screen. Only the seasonal background &amp; theme follow the date.</div>
   </div>
 </div>
 
-<script src="js/theme-state.js?v=9"></script>
+<script src="js/theme-state.js?v=10"></script>
 <script>
 (function () {
   'use strict';
@@ -83,6 +84,7 @@
   var weekEl   = document.getElementById('sim-week');
   var seasonEl = document.getElementById('sim-season');
   var pathEl   = document.getElementById('sim-path');
+  var tintEl   = document.getElementById('sim-tint');
   var hud      = document.getElementById('hud');
   var cfg      = null;
 
@@ -117,6 +119,7 @@
     seasonEl.textContent = season.name;
     seasonEl.className = 'season ' + season.cls;
     pathEl.textContent = resolved.image || '—';
+    tintEl.textContent = 'tint ' + resolved.tint + '% darkening' + (resolved.tint === 0 ? ' (none)' : '');
     slider.value = dayOfYear(d);
   }
 

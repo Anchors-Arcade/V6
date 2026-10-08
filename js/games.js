@@ -1530,6 +1530,14 @@
 
 
   function accentIconName() {
+    // Prefer the shared resolver so the logo can follow the daily palette config, not just the
+    // accent the user picked; this local map stays as the fallback if theme-state hasn't loaded.
+    try {
+      if (typeof BrowserThemeState !== 'undefined' && BrowserThemeState.getAccentIconFile) {
+        const shared = BrowserThemeState.getAccentIconFile()
+        if (shared) return shared
+      }
+    } catch (_) {}
     const map = {
       '#e8175d': 'plutonium-pink',
       '#7c3aed': 'violet',
