@@ -6,6 +6,8 @@
 [![GitHub Stars](https://img.shields.io/github/stars/Plutonium-Net/Plutonium)](https://github.com/Plutonium-Net/Plutonium/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/Plutonium-Net/Plutonium)](https://github.com/Plutonium-Net/Plutonium/issues)
 
+[![join our discord](https://invidget.switchblade.xyz/R3dJ7hpUXX)](https://discord.gg/R3dJ7hpUXX)
+
 Plutonium is a web-based platform for games, browsing, media, and customization, built around a familiar browser-style interface.
 
 ## Features
