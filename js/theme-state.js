@@ -63,8 +63,19 @@ const BrowserThemeState = (() => {
     return fallback && BG_SOURCES[fallback] ? fallback : DEFAULT_THEME_STATE.bgSource
   }
 
+  function formatDateParam(d) {
+    const pad = n => String(n).padStart(2, '0')
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate())
+  }
+
+  // Versioned so a changed background page isn't served from cache; the date rides along so a
+  // simulated day reaches the background page too.
+  const BG_SOURCE_VERSION = 2
+
   function getBackgroundSourceURL(source) {
-    return normalizeBgSource(source) === 'custom' ? 'bg.html' : 'bg-default.html'
+    const page = normalizeBgSource(source) === 'custom' ? 'bg.html' : 'bg-default.html'
+    const base = page + '?v=' + BG_SOURCE_VERSION
+    return _dateOverride ? base + '&date=' + formatDateParam(_dateOverride) : base
   }
 
   // The default background page and its stock accent live in data/bg-default.json so they can change
@@ -72,13 +83,25 @@ const BrowserThemeState = (() => {
   const DEFAULT_CONFIG_URL = 'data/bg-default.json'
   let _defaultConfig = null
 
-  // Today's page + accent from data/bg-default.json. Months split into weeks (days 1-7, 8-14, ...)
-  // carrying the accent colour, and days carrying the page. The accent resolves day override ->
-  // its week -> the config's `default` block, and an absent config falls back to the stock values.
+  // Testing hook: a host page can pin "today" so another day's background/theme can be previewed
+  // without changing the system clock. Pass null to go back to the real clock.
+  let _dateOverride = null
+  function overrideDate(date) {
+    _dateOverride = date == null ? null : (date instanceof Date ? date : new Date(date))
+    if (_dateOverride && isNaN(_dateOverride.getTime())) _dateOverride = null
+    return _dateOverride
+  }
+  function currentDate() {
+    return _dateOverride || new Date()
+  }
+
+  // Today's image + accent from data/bg-default.json. Months split into weeks (days 1-7, 8-14, ...)
+  // carrying the accent colour, and days carrying the image shown full-bleed. Both resolve through
+  // a day override -> its week / the config's `default` block -> the built-in stock values.
   function resolveDailyBackground(config, date) {
     const cfg = config && typeof config === 'object' ? config : {}
     const fallback = cfg.default && typeof cfg.default === 'object' ? cfg.default : {}
-    const d = date instanceof Date ? date : new Date()
+    const d = date instanceof Date ? date : currentDate()
     const months = cfg.months && typeof cfg.months === 'object' ? cfg.months : {}
     const month = months[String(d.getMonth() + 1)]
     const days = month && month.days && typeof month.days === 'object' ? month.days : {}
@@ -90,7 +113,7 @@ const BrowserThemeState = (() => {
       return typeof chosen === 'string' ? chosen : (chosen && chosen.src) || ''
     }
     return {
-      iframe: pick(entry.iframe, fallback.iframe),
+      image: pick(entry.image, fallback.image),
       accentColor: pick(entry.accentColor, week.accentColor || fallback.accentColor),
     }
   }
@@ -406,6 +429,8 @@ const BrowserThemeState = (() => {
     loadDefaultBackgroundConfig,
     resolveDailyBackground,
     getDefaultThemeAccent: defaultThemeAccent,
+    overrideDate,
+    formatDateParam,
   }
 })()
 

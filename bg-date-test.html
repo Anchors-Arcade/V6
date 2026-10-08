@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Date simulation — Plutonium home screen</title>
+<script>
+  // Runs before the stage iframe is parsed so the embedded home screen doesn't bounce to onboarding.
+  try { localStorage.setItem('plu_onboarded', '1') } catch (e) {}
+</script>
+<style>
+  html,body{margin:0;height:100%;background:#000;color:#e7e9ec;overflow:hidden;
+    font:12px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  #stage{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  #hud{position:fixed;left:14px;bottom:14px;z-index:2147483647;width:322px;
+    background:rgba(18,20,24,.94);border:1px solid #2a2f36;border-radius:13px;
+    box-shadow:0 14px 40px rgba(0,0,0,.6);backdrop-filter:blur(10px);padding:12px 13px}
+  #hud.collapsed .body{display:none}
+  #hud h1{margin:0;font-size:12px;letter-spacing:.3px;flex:1}
+  .head{display:flex;align-items:center;gap:8px}
+  .toggle{border:1px solid #333941;background:#22262b;color:#c8cdd3;border-radius:7px;
+    padding:3px 8px;font:11px/1 inherit;cursor:pointer}
+  .toggle:hover{color:#fff}
+  .body{margin-top:10px;display:flex;flex-direction:column;gap:9px}
+  .row{display:flex;align-items:center;gap:7px}
+  input[type=date]{flex:1;min-width:0;background:#181b20;color:#e7e9ec;border:1px solid #333941;
+    border-radius:8px;padding:6px 8px;font:12px/1 inherit;font-variant-numeric:tabular-nums}
+  button.step{border:1px solid #333941;background:#22262b;color:#e7e9ec;border-radius:8px;
+    padding:7px 9px;font:12px/1 inherit;cursor:pointer}
+  button.step:hover{background:#2b3138}
+  input[type=range]{width:100%;accent-color:#8b949e}
+  .readout{display:flex;align-items:center;gap:9px;border-top:1px solid #262b31;padding-top:9px}
+  .swatch{width:34px;height:34px;border-radius:9px;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+  .meta{min-width:0;flex:1}
+  .meta .big{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+  .meta .sub{color:#8b949e;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .season{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:999px;background:#22262b;flex:none}
+  .season.winter{color:#5a97c8}.season.spring{color:#6bbf79}.season.summer{color:#d94f96}.season.fall{color:#d9702a}
+  .path{color:#6f7883;font:10.5px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hint{color:#6f7883;font-size:10.5px}
+</style>
+</head>
+<body>
+<iframe id="stage" src="index.html" title="Plutonium home screen"></iframe>
+
+<div id="hud">
+  <div class="head">
+    <h1>Date simulation</h1>
+    <button class="toggle" id="sim-collapse" type="button" aria-expanded="true">–</button>
+  </div>
+  <div class="body">
+    <div class="row">
+      <button class="step" id="sim-prev" type="button" title="Previous day">‹</button>
+      <input type="date" id="sim-date" aria-label="Simulated date">
+      <button class="step" id="sim-next" type="button" title="Next day">›</button>
+      <button class="step" id="sim-today" type="button" title="Jump to today">Today</button>
+    </div>
+    <input type="range" id="sim-slider" min="1" max="365" step="1" aria-label="Scrub the year">
+    <div class="readout">
+      <span class="swatch" id="sim-swatch"></span>
+      <span class="meta">
+        <span class="big" id="sim-out">—</span>
+        <span class="sub" id="sim-week">—</span>
+      </span>
+      <span class="season" id="sim-season">—</span>
+    </div>
+    <div class="path" id="sim-path">—</div>
+    <div class="hint">Embeds the real home screen. Only the seasonal background &amp; theme follow the date.</div>
+  </div>
+</div>
+
+<script src="js/theme-state.js?v=9"></script>
+<script>
+(function () {
+  'use strict';
+
+  var stage    = document.getElementById('stage');
+  var dateEl   = document.getElementById('sim-date');
+  var slider   = document.getElementById('sim-slider');
+  var swatch   = document.getElementById('sim-swatch');
+  var outEl    = document.getElementById('sim-out');
+  var weekEl   = document.getElementById('sim-week');
+  var seasonEl = document.getElementById('sim-season');
+  var pathEl   = document.getElementById('sim-path');
+  var hud      = document.getElementById('hud');
+  var cfg      = null;
+
+  var pad = function (n) { return String(n).padStart(2, '0') };
+  var toISO = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) };
+
+  function seasonOf(m) {
+    if (m === 12 || m === 1 || m === 2)  return { name: 'Winter', cls: 'winter' };
+    if (m === 3  || m === 4 || m === 5)  return { name: 'Spring', cls: 'spring' };
+    if (m === 6  || m === 7 || m === 8)  return { name: 'Summer', cls: 'summer' };
+    return { name: 'Fall', cls: 'fall' };
+  }
+  function dayOfYear(d) { return Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000) }
+
+  function selectedDate() {
+    var d = new Date(dateEl.value + 'T12:00:00');
+    return isNaN(d.getTime()) ? new Date() : d;
+  }
+
+  function render() {
+    var d = selectedDate();
+    if (!cfg || !window.BrowserThemeState) return;
+    var resolved = BrowserThemeState.resolveDailyBackground(cfg, d);
+    var month = (cfg.months && cfg.months[String(d.getMonth() + 1)]) || {};
+    var w = Math.ceil(d.getDate() / 7);
+    var wk = (month.weeks && month.weeks[String(w)]) || {};
+    var season = seasonOf(d.getMonth() + 1);
+
+    swatch.style.background = resolved.accentColor;
+    outEl.textContent = resolved.accentColor;
+    weekEl.textContent = month.name + ' · week ' + w + (wk.name ? ' · ' + wk.name : '');
+    seasonEl.textContent = season.name;
+    seasonEl.className = 'season ' + season.cls;
+    pathEl.textContent = resolved.image || '—';
+    slider.value = dayOfYear(d);
+  }
+
+  function apply() {
+    render();
+    var d = selectedDate();
+    try {
+      var w = stage.contentWindow;
+      if (!w) return;
+      if (w.BrowserThemeState && w.BrowserThemeState.overrideDate) w.BrowserThemeState.overrideDate(d);
+      // theme.js keeps `Theme` in a script-scoped const, not on `window`, so ask it to repaint
+      // through the refresh hook it already listens for.
+      w.dispatchEvent(new w.MessageEvent('message', { data: { type: 'plu_theme_refresh' } }));
+    } catch (e) {}
+  }
+
+  function setDate(d) {
+    dateEl.value = toISO(d);
+    apply();
+  }
+
+  dateEl.addEventListener('input', apply);
+
+  slider.addEventListener('input', function () {
+    var year = selectedDate().getFullYear();
+    setDate(new Date(year, 0, parseInt(slider.value, 10)));
+  });
+
+  document.getElementById('sim-prev').addEventListener('click', function () {
+    var d = selectedDate(); d.setDate(d.getDate() - 1); setDate(d);
+  });
+  document.getElementById('sim-next').addEventListener('click', function () {
+    var d = selectedDate(); d.setDate(d.getDate() + 1); setDate(d);
+  });
+  document.getElementById('sim-today').addEventListener('click', function () {
+    setDate(new Date());
+  });
+
+  document.getElementById('sim-collapse').addEventListener('click', function () {
+    var collapsed = hud.classList.toggle('collapsed');
+    this.textContent = collapsed ? '+' : '–';
+    this.setAttribute('aria-expanded', String(!collapsed));
+  });
+
+  // The home screen may still be booting; re-apply once it has loaded.
+  stage.addEventListener('load', apply);
+
+  dateEl.value = toISO(new Date());
+  render();
+
+  BrowserThemeState.loadDefaultBackgroundConfig().then(function (c) {
+    cfg = c;
+    apply();
+  });
+})();
+</script>
+</body>
+</html>

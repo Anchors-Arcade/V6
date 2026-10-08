@@ -1,6 +1,6 @@
 {
   "default": {
-    "iframe": "bg/js/default-bg.html",
+    "image": "img/bg-default/default.png",
     "accentColor": "#e8175d"
   },
   "months": {
@@ -30,97 +30,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/01-01.html"
+          "image": "img/bg-default/january/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/01-02.html"
+          "image": "img/bg-default/january/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/01-03.html"
+          "image": "img/bg-default/january/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/01-04.html"
+          "image": "img/bg-default/january/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/01-05.html"
+          "image": "img/bg-default/january/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/01-06.html"
+          "image": "img/bg-default/january/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/01-07.html"
+          "image": "img/bg-default/january/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/01-08.html"
+          "image": "img/bg-default/january/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/01-09.html"
+          "image": "img/bg-default/january/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/01-10.html"
+          "image": "img/bg-default/january/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/01-11.html"
+          "image": "img/bg-default/january/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/01-12.html"
+          "image": "img/bg-default/january/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/01-13.html"
+          "image": "img/bg-default/january/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/01-14.html"
+          "image": "img/bg-default/january/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/01-15.html"
+          "image": "img/bg-default/january/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/01-16.html"
+          "image": "img/bg-default/january/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/01-17.html"
+          "image": "img/bg-default/january/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/01-18.html"
+          "image": "img/bg-default/january/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/01-19.html"
+          "image": "img/bg-default/january/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/01-20.html"
+          "image": "img/bg-default/january/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/01-21.html"
+          "image": "img/bg-default/january/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/01-22.html"
+          "image": "img/bg-default/january/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/01-23.html"
+          "image": "img/bg-default/january/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/01-24.html"
+          "image": "img/bg-default/january/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/01-25.html"
+          "image": "img/bg-default/january/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/01-26.html"
+          "image": "img/bg-default/january/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/01-27.html"
+          "image": "img/bg-default/january/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/01-28.html"
+          "image": "img/bg-default/january/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/01-29.html"
+          "image": "img/bg-default/january/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/01-30.html"
+          "image": "img/bg-default/january/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/01-31.html"
+          "image": "img/bg-default/january/31.png"
         }
       }
     },
@@ -146,88 +146,88 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/02-01.html"
+          "image": "img/bg-default/february/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/02-02.html"
+          "image": "img/bg-default/february/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/02-03.html"
+          "image": "img/bg-default/february/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/02-04.html"
+          "image": "img/bg-default/february/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/02-05.html"
+          "image": "img/bg-default/february/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/02-06.html"
+          "image": "img/bg-default/february/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/02-07.html"
+          "image": "img/bg-default/february/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/02-08.html"
+          "image": "img/bg-default/february/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/02-09.html"
+          "image": "img/bg-default/february/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/02-10.html"
+          "image": "img/bg-default/february/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/02-11.html"
+          "image": "img/bg-default/february/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/02-12.html"
+          "image": "img/bg-default/february/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/02-13.html"
+          "image": "img/bg-default/february/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/02-14.html"
+          "image": "img/bg-default/february/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/02-15.html"
+          "image": "img/bg-default/february/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/02-16.html"
+          "image": "img/bg-default/february/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/02-17.html"
+          "image": "img/bg-default/february/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/02-18.html"
+          "image": "img/bg-default/february/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/02-19.html"
+          "image": "img/bg-default/february/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/02-20.html"
+          "image": "img/bg-default/february/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/02-21.html"
+          "image": "img/bg-default/february/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/02-22.html"
+          "image": "img/bg-default/february/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/02-23.html"
+          "image": "img/bg-default/february/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/02-24.html"
+          "image": "img/bg-default/february/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/02-25.html"
+          "image": "img/bg-default/february/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/02-26.html"
+          "image": "img/bg-default/february/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/02-27.html"
+          "image": "img/bg-default/february/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/02-28.html"
+          "image": "img/bg-default/february/28.png"
         }
       }
     },
@@ -257,97 +257,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/03-01.html"
+          "image": "img/bg-default/march/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/03-02.html"
+          "image": "img/bg-default/march/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/03-03.html"
+          "image": "img/bg-default/march/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/03-04.html"
+          "image": "img/bg-default/march/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/03-05.html"
+          "image": "img/bg-default/march/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/03-06.html"
+          "image": "img/bg-default/march/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/03-07.html"
+          "image": "img/bg-default/march/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/03-08.html"
+          "image": "img/bg-default/march/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/03-09.html"
+          "image": "img/bg-default/march/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/03-10.html"
+          "image": "img/bg-default/march/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/03-11.html"
+          "image": "img/bg-default/march/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/03-12.html"
+          "image": "img/bg-default/march/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/03-13.html"
+          "image": "img/bg-default/march/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/03-14.html"
+          "image": "img/bg-default/march/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/03-15.html"
+          "image": "img/bg-default/march/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/03-16.html"
+          "image": "img/bg-default/march/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/03-17.html"
+          "image": "img/bg-default/march/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/03-18.html"
+          "image": "img/bg-default/march/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/03-19.html"
+          "image": "img/bg-default/march/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/03-20.html"
+          "image": "img/bg-default/march/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/03-21.html"
+          "image": "img/bg-default/march/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/03-22.html"
+          "image": "img/bg-default/march/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/03-23.html"
+          "image": "img/bg-default/march/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/03-24.html"
+          "image": "img/bg-default/march/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/03-25.html"
+          "image": "img/bg-default/march/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/03-26.html"
+          "image": "img/bg-default/march/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/03-27.html"
+          "image": "img/bg-default/march/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/03-28.html"
+          "image": "img/bg-default/march/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/03-29.html"
+          "image": "img/bg-default/march/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/03-30.html"
+          "image": "img/bg-default/march/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/03-31.html"
+          "image": "img/bg-default/march/31.png"
         }
       }
     },
@@ -377,94 +377,94 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/04-01.html"
+          "image": "img/bg-default/april/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/04-02.html"
+          "image": "img/bg-default/april/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/04-03.html"
+          "image": "img/bg-default/april/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/04-04.html"
+          "image": "img/bg-default/april/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/04-05.html"
+          "image": "img/bg-default/april/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/04-06.html"
+          "image": "img/bg-default/april/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/04-07.html"
+          "image": "img/bg-default/april/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/04-08.html"
+          "image": "img/bg-default/april/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/04-09.html"
+          "image": "img/bg-default/april/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/04-10.html"
+          "image": "img/bg-default/april/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/04-11.html"
+          "image": "img/bg-default/april/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/04-12.html"
+          "image": "img/bg-default/april/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/04-13.html"
+          "image": "img/bg-default/april/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/04-14.html"
+          "image": "img/bg-default/april/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/04-15.html"
+          "image": "img/bg-default/april/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/04-16.html"
+          "image": "img/bg-default/april/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/04-17.html"
+          "image": "img/bg-default/april/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/04-18.html"
+          "image": "img/bg-default/april/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/04-19.html"
+          "image": "img/bg-default/april/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/04-20.html"
+          "image": "img/bg-default/april/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/04-21.html"
+          "image": "img/bg-default/april/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/04-22.html"
+          "image": "img/bg-default/april/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/04-23.html"
+          "image": "img/bg-default/april/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/04-24.html"
+          "image": "img/bg-default/april/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/04-25.html"
+          "image": "img/bg-default/april/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/04-26.html"
+          "image": "img/bg-default/april/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/04-27.html"
+          "image": "img/bg-default/april/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/04-28.html"
+          "image": "img/bg-default/april/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/04-29.html"
+          "image": "img/bg-default/april/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/04-30.html"
+          "image": "img/bg-default/april/30.png"
         }
       }
     },
@@ -494,97 +494,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/05-01.html"
+          "image": "img/bg-default/may/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/05-02.html"
+          "image": "img/bg-default/may/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/05-03.html"
+          "image": "img/bg-default/may/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/05-04.html"
+          "image": "img/bg-default/may/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/05-05.html"
+          "image": "img/bg-default/may/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/05-06.html"
+          "image": "img/bg-default/may/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/05-07.html"
+          "image": "img/bg-default/may/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/05-08.html"
+          "image": "img/bg-default/may/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/05-09.html"
+          "image": "img/bg-default/may/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/05-10.html"
+          "image": "img/bg-default/may/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/05-11.html"
+          "image": "img/bg-default/may/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/05-12.html"
+          "image": "img/bg-default/may/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/05-13.html"
+          "image": "img/bg-default/may/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/05-14.html"
+          "image": "img/bg-default/may/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/05-15.html"
+          "image": "img/bg-default/may/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/05-16.html"
+          "image": "img/bg-default/may/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/05-17.html"
+          "image": "img/bg-default/may/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/05-18.html"
+          "image": "img/bg-default/may/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/05-19.html"
+          "image": "img/bg-default/may/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/05-20.html"
+          "image": "img/bg-default/may/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/05-21.html"
+          "image": "img/bg-default/may/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/05-22.html"
+          "image": "img/bg-default/may/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/05-23.html"
+          "image": "img/bg-default/may/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/05-24.html"
+          "image": "img/bg-default/may/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/05-25.html"
+          "image": "img/bg-default/may/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/05-26.html"
+          "image": "img/bg-default/may/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/05-27.html"
+          "image": "img/bg-default/may/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/05-28.html"
+          "image": "img/bg-default/may/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/05-29.html"
+          "image": "img/bg-default/may/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/05-30.html"
+          "image": "img/bg-default/may/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/05-31.html"
+          "image": "img/bg-default/may/31.png"
         }
       }
     },
@@ -614,94 +614,94 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/06-01.html"
+          "image": "img/bg-default/june/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/06-02.html"
+          "image": "img/bg-default/june/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/06-03.html"
+          "image": "img/bg-default/june/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/06-04.html"
+          "image": "img/bg-default/june/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/06-05.html"
+          "image": "img/bg-default/june/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/06-06.html"
+          "image": "img/bg-default/june/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/06-07.html"
+          "image": "img/bg-default/june/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/06-08.html"
+          "image": "img/bg-default/june/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/06-09.html"
+          "image": "img/bg-default/june/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/06-10.html"
+          "image": "img/bg-default/june/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/06-11.html"
+          "image": "img/bg-default/june/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/06-12.html"
+          "image": "img/bg-default/june/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/06-13.html"
+          "image": "img/bg-default/june/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/06-14.html"
+          "image": "img/bg-default/june/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/06-15.html"
+          "image": "img/bg-default/june/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/06-16.html"
+          "image": "img/bg-default/june/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/06-17.html"
+          "image": "img/bg-default/june/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/06-18.html"
+          "image": "img/bg-default/june/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/06-19.html"
+          "image": "img/bg-default/june/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/06-20.html"
+          "image": "img/bg-default/june/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/06-21.html"
+          "image": "img/bg-default/june/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/06-22.html"
+          "image": "img/bg-default/june/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/06-23.html"
+          "image": "img/bg-default/june/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/06-24.html"
+          "image": "img/bg-default/june/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/06-25.html"
+          "image": "img/bg-default/june/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/06-26.html"
+          "image": "img/bg-default/june/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/06-27.html"
+          "image": "img/bg-default/june/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/06-28.html"
+          "image": "img/bg-default/june/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/06-29.html"
+          "image": "img/bg-default/june/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/06-30.html"
+          "image": "img/bg-default/june/30.png"
         }
       }
     },
@@ -731,97 +731,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/07-01.html"
+          "image": "img/bg-default/july/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/07-02.html"
+          "image": "img/bg-default/july/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/07-03.html"
+          "image": "img/bg-default/july/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/07-04.html"
+          "image": "img/bg-default/july/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/07-05.html"
+          "image": "img/bg-default/july/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/07-06.html"
+          "image": "img/bg-default/july/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/07-07.html"
+          "image": "img/bg-default/july/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/07-08.html"
+          "image": "img/bg-default/july/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/07-09.html"
+          "image": "img/bg-default/july/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/07-10.html"
+          "image": "img/bg-default/july/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/07-11.html"
+          "image": "img/bg-default/july/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/07-12.html"
+          "image": "img/bg-default/july/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/07-13.html"
+          "image": "img/bg-default/july/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/07-14.html"
+          "image": "img/bg-default/july/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/07-15.html"
+          "image": "img/bg-default/july/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/07-16.html"
+          "image": "img/bg-default/july/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/07-17.html"
+          "image": "img/bg-default/july/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/07-18.html"
+          "image": "img/bg-default/july/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/07-19.html"
+          "image": "img/bg-default/july/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/07-20.html"
+          "image": "img/bg-default/july/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/07-21.html"
+          "image": "img/bg-default/july/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/07-22.html"
+          "image": "img/bg-default/july/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/07-23.html"
+          "image": "img/bg-default/july/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/07-24.html"
+          "image": "img/bg-default/july/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/07-25.html"
+          "image": "img/bg-default/july/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/07-26.html"
+          "image": "img/bg-default/july/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/07-27.html"
+          "image": "img/bg-default/july/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/07-28.html"
+          "image": "img/bg-default/july/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/07-29.html"
+          "image": "img/bg-default/july/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/07-30.html"
+          "image": "img/bg-default/july/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/07-31.html"
+          "image": "img/bg-default/july/31.png"
         }
       }
     },
@@ -851,97 +851,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/08-01.html"
+          "image": "img/bg-default/august/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/08-02.html"
+          "image": "img/bg-default/august/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/08-03.html"
+          "image": "img/bg-default/august/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/08-04.html"
+          "image": "img/bg-default/august/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/08-05.html"
+          "image": "img/bg-default/august/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/08-06.html"
+          "image": "img/bg-default/august/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/08-07.html"
+          "image": "img/bg-default/august/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/08-08.html"
+          "image": "img/bg-default/august/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/08-09.html"
+          "image": "img/bg-default/august/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/08-10.html"
+          "image": "img/bg-default/august/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/08-11.html"
+          "image": "img/bg-default/august/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/08-12.html"
+          "image": "img/bg-default/august/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/08-13.html"
+          "image": "img/bg-default/august/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/08-14.html"
+          "image": "img/bg-default/august/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/08-15.html"
+          "image": "img/bg-default/august/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/08-16.html"
+          "image": "img/bg-default/august/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/08-17.html"
+          "image": "img/bg-default/august/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/08-18.html"
+          "image": "img/bg-default/august/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/08-19.html"
+          "image": "img/bg-default/august/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/08-20.html"
+          "image": "img/bg-default/august/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/08-21.html"
+          "image": "img/bg-default/august/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/08-22.html"
+          "image": "img/bg-default/august/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/08-23.html"
+          "image": "img/bg-default/august/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/08-24.html"
+          "image": "img/bg-default/august/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/08-25.html"
+          "image": "img/bg-default/august/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/08-26.html"
+          "image": "img/bg-default/august/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/08-27.html"
+          "image": "img/bg-default/august/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/08-28.html"
+          "image": "img/bg-default/august/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/08-29.html"
+          "image": "img/bg-default/august/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/08-30.html"
+          "image": "img/bg-default/august/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/08-31.html"
+          "image": "img/bg-default/august/31.png"
         }
       }
     },
@@ -971,94 +971,94 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/09-01.html"
+          "image": "img/bg-default/september/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/09-02.html"
+          "image": "img/bg-default/september/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/09-03.html"
+          "image": "img/bg-default/september/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/09-04.html"
+          "image": "img/bg-default/september/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/09-05.html"
+          "image": "img/bg-default/september/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/09-06.html"
+          "image": "img/bg-default/september/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/09-07.html"
+          "image": "img/bg-default/september/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/09-08.html"
+          "image": "img/bg-default/september/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/09-09.html"
+          "image": "img/bg-default/september/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/09-10.html"
+          "image": "img/bg-default/september/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/09-11.html"
+          "image": "img/bg-default/september/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/09-12.html"
+          "image": "img/bg-default/september/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/09-13.html"
+          "image": "img/bg-default/september/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/09-14.html"
+          "image": "img/bg-default/september/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/09-15.html"
+          "image": "img/bg-default/september/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/09-16.html"
+          "image": "img/bg-default/september/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/09-17.html"
+          "image": "img/bg-default/september/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/09-18.html"
+          "image": "img/bg-default/september/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/09-19.html"
+          "image": "img/bg-default/september/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/09-20.html"
+          "image": "img/bg-default/september/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/09-21.html"
+          "image": "img/bg-default/september/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/09-22.html"
+          "image": "img/bg-default/september/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/09-23.html"
+          "image": "img/bg-default/september/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/09-24.html"
+          "image": "img/bg-default/september/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/09-25.html"
+          "image": "img/bg-default/september/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/09-26.html"
+          "image": "img/bg-default/september/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/09-27.html"
+          "image": "img/bg-default/september/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/09-28.html"
+          "image": "img/bg-default/september/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/09-29.html"
+          "image": "img/bg-default/september/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/09-30.html"
+          "image": "img/bg-default/september/30.png"
         }
       }
     },
@@ -1088,97 +1088,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/10-01.html"
+          "image": "img/bg-default/october/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/10-02.html"
+          "image": "img/bg-default/october/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/10-03.html"
+          "image": "img/bg-default/october/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/10-04.html"
+          "image": "img/bg-default/october/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/10-05.html"
+          "image": "img/bg-default/october/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/10-06.html"
+          "image": "img/bg-default/october/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/10-07.html"
+          "image": "img/bg-default/october/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/10-08.html"
+          "image": "img/bg-default/october/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/10-09.html"
+          "image": "img/bg-default/october/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/10-10.html"
+          "image": "img/bg-default/october/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/10-11.html"
+          "image": "img/bg-default/october/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/10-12.html"
+          "image": "img/bg-default/october/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/10-13.html"
+          "image": "img/bg-default/october/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/10-14.html"
+          "image": "img/bg-default/october/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/10-15.html"
+          "image": "img/bg-default/october/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/10-16.html"
+          "image": "img/bg-default/october/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/10-17.html"
+          "image": "img/bg-default/october/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/10-18.html"
+          "image": "img/bg-default/october/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/10-19.html"
+          "image": "img/bg-default/october/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/10-20.html"
+          "image": "img/bg-default/october/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/10-21.html"
+          "image": "img/bg-default/october/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/10-22.html"
+          "image": "img/bg-default/october/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/10-23.html"
+          "image": "img/bg-default/october/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/10-24.html"
+          "image": "img/bg-default/october/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/10-25.html"
+          "image": "img/bg-default/october/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/10-26.html"
+          "image": "img/bg-default/october/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/10-27.html"
+          "image": "img/bg-default/october/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/10-28.html"
+          "image": "img/bg-default/october/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/10-29.html"
+          "image": "img/bg-default/october/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/10-30.html"
+          "image": "img/bg-default/october/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/10-31.html"
+          "image": "img/bg-default/october/31.png"
         }
       }
     },
@@ -1208,94 +1208,94 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/11-01.html"
+          "image": "img/bg-default/november/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/11-02.html"
+          "image": "img/bg-default/november/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/11-03.html"
+          "image": "img/bg-default/november/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/11-04.html"
+          "image": "img/bg-default/november/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/11-05.html"
+          "image": "img/bg-default/november/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/11-06.html"
+          "image": "img/bg-default/november/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/11-07.html"
+          "image": "img/bg-default/november/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/11-08.html"
+          "image": "img/bg-default/november/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/11-09.html"
+          "image": "img/bg-default/november/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/11-10.html"
+          "image": "img/bg-default/november/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/11-11.html"
+          "image": "img/bg-default/november/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/11-12.html"
+          "image": "img/bg-default/november/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/11-13.html"
+          "image": "img/bg-default/november/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/11-14.html"
+          "image": "img/bg-default/november/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/11-15.html"
+          "image": "img/bg-default/november/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/11-16.html"
+          "image": "img/bg-default/november/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/11-17.html"
+          "image": "img/bg-default/november/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/11-18.html"
+          "image": "img/bg-default/november/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/11-19.html"
+          "image": "img/bg-default/november/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/11-20.html"
+          "image": "img/bg-default/november/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/11-21.html"
+          "image": "img/bg-default/november/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/11-22.html"
+          "image": "img/bg-default/november/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/11-23.html"
+          "image": "img/bg-default/november/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/11-24.html"
+          "image": "img/bg-default/november/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/11-25.html"
+          "image": "img/bg-default/november/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/11-26.html"
+          "image": "img/bg-default/november/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/11-27.html"
+          "image": "img/bg-default/november/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/11-28.html"
+          "image": "img/bg-default/november/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/11-29.html"
+          "image": "img/bg-default/november/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/11-30.html"
+          "image": "img/bg-default/november/30.png"
         }
       }
     },
@@ -1325,97 +1325,97 @@
       },
       "days": {
         "1": {
-          "iframe": "bg/js/days/12-01.html"
+          "image": "img/bg-default/december/1.png"
         },
         "2": {
-          "iframe": "bg/js/days/12-02.html"
+          "image": "img/bg-default/december/2.png"
         },
         "3": {
-          "iframe": "bg/js/days/12-03.html"
+          "image": "img/bg-default/december/3.png"
         },
         "4": {
-          "iframe": "bg/js/days/12-04.html"
+          "image": "img/bg-default/december/4.png"
         },
         "5": {
-          "iframe": "bg/js/days/12-05.html"
+          "image": "img/bg-default/december/5.png"
         },
         "6": {
-          "iframe": "bg/js/days/12-06.html"
+          "image": "img/bg-default/december/6.png"
         },
         "7": {
-          "iframe": "bg/js/days/12-07.html"
+          "image": "img/bg-default/december/7.png"
         },
         "8": {
-          "iframe": "bg/js/days/12-08.html"
+          "image": "img/bg-default/december/8.png"
         },
         "9": {
-          "iframe": "bg/js/days/12-09.html"
+          "image": "img/bg-default/december/9.png"
         },
         "10": {
-          "iframe": "bg/js/days/12-10.html"
+          "image": "img/bg-default/december/10.png"
         },
         "11": {
-          "iframe": "bg/js/days/12-11.html"
+          "image": "img/bg-default/december/11.png"
         },
         "12": {
-          "iframe": "bg/js/days/12-12.html"
+          "image": "img/bg-default/december/12.png"
         },
         "13": {
-          "iframe": "bg/js/days/12-13.html"
+          "image": "img/bg-default/december/13.png"
         },
         "14": {
-          "iframe": "bg/js/days/12-14.html"
+          "image": "img/bg-default/december/14.png"
         },
         "15": {
-          "iframe": "bg/js/days/12-15.html"
+          "image": "img/bg-default/december/15.png"
         },
         "16": {
-          "iframe": "bg/js/days/12-16.html"
+          "image": "img/bg-default/december/16.png"
         },
         "17": {
-          "iframe": "bg/js/days/12-17.html"
+          "image": "img/bg-default/december/17.png"
         },
         "18": {
-          "iframe": "bg/js/days/12-18.html"
+          "image": "img/bg-default/december/18.png"
         },
         "19": {
-          "iframe": "bg/js/days/12-19.html"
+          "image": "img/bg-default/december/19.png"
         },
         "20": {
-          "iframe": "bg/js/days/12-20.html"
+          "image": "img/bg-default/december/20.png"
         },
         "21": {
-          "iframe": "bg/js/days/12-21.html"
+          "image": "img/bg-default/december/21.png"
         },
         "22": {
-          "iframe": "bg/js/days/12-22.html"
+          "image": "img/bg-default/december/22.png"
         },
         "23": {
-          "iframe": "bg/js/days/12-23.html"
+          "image": "img/bg-default/december/23.png"
         },
         "24": {
-          "iframe": "bg/js/days/12-24.html"
+          "image": "img/bg-default/december/24.png"
         },
         "25": {
-          "iframe": "bg/js/days/12-25.html"
+          "image": "img/bg-default/december/25.png"
         },
         "26": {
-          "iframe": "bg/js/days/12-26.html"
+          "image": "img/bg-default/december/26.png"
         },
         "27": {
-          "iframe": "bg/js/days/12-27.html"
+          "image": "img/bg-default/december/27.png"
         },
         "28": {
-          "iframe": "bg/js/days/12-28.html"
+          "image": "img/bg-default/december/28.png"
         },
         "29": {
-          "iframe": "bg/js/days/12-29.html"
+          "image": "img/bg-default/december/29.png"
         },
         "30": {
-          "iframe": "bg/js/days/12-30.html"
+          "image": "img/bg-default/december/30.png"
         },
         "31": {
-          "iframe": "bg/js/days/12-31.html"
+          "image": "img/bg-default/december/31.png"
         }
       }
     }
