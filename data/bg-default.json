@@ -579,33 +579,33 @@
       "days": {
         "1": {
           "image": "img/bg-default/april/1.png",
-          "accentColor": "#8fca85",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 20
         },
         "2": {
           "image": "img/bg-default/april/2.png",
-          "accentColor": "#8fca85",
-          "tint": 0
+          "accentColor": "#9bd5de",
+          "tint": 20
         },
         "3": {
           "image": "img/bg-default/april/3.png",
-          "accentColor": "#8fca85",
-          "tint": 0
+          "accentColor": "#e8c9f5",
+          "tint": 20
         },
         "4": {
           "image": "img/bg-default/april/4.png",
-          "accentColor": "#8fca85",
+          "accentColor": "#9bd5de",
           "tint": 0
         },
         "5": {
           "image": "img/bg-default/april/5.png",
-          "accentColor": "#8fca85",
+          "accentColor": "#3d2945",
           "tint": 0
         },
         "6": {
           "image": "img/bg-default/april/6.png",
-          "accentColor": "#8fca85",
-          "tint": 0
+          "accentColor": "#c691db",
+          "tint": 30
         },
         "7": {
           "image": "img/bg-default/april/7.png",
@@ -614,8 +614,8 @@
         },
         "8": {
           "image": "img/bg-default/april/8.png",
-          "accentColor": "#5c5c5c",
-          "tint": 0
+          "accentColor": "#778f96",
+          "tint": 30
         },
         "9": {
           "image": "img/bg-default/april/9.png",
@@ -624,28 +624,28 @@
         },
         "10": {
           "image": "img/bg-default/april/10.png",
-          "accentColor": "#ccc9ad",
+          "accentColor": "#778f96",
           "tint": 40
         },
         "11": {
           "image": "img/bg-default/april/11.png",
-          "accentColor": "#a6d08d",
+          "accentColor": "#59407a",
           "tint": 0
         },
         "12": {
           "image": "img/bg-default/april/12.png",
           "accentColor": "#a6d08d",
-          "tint": 0
+          "tint": 20
         },
         "13": {
           "image": "img/bg-default/april/13.png",
-          "accentColor": "#a6d08d",
-          "tint": 0
+          "accentColor": "#f0f0f0",
+          "tint": 40
         },
         "14": {
           "image": "img/bg-default/april/14.png",
-          "accentColor": "#a6d08d",
-          "tint": 0
+          "accentColor": "#59407a",
+          "tint": 20
         },
         "15": {
           "image": "img/bg-default/april/15.png",
@@ -654,23 +654,23 @@
         },
         "16": {
           "image": "img/bg-default/april/16.png",
-          "accentColor": "#d98ba8",
+          "accentColor": "#59407a",
           "tint": 0
         },
         "17": {
           "image": "img/bg-default/april/17.png",
           "accentColor": "#d98ba8",
-          "tint": 0
+          "tint": 20
         },
         "18": {
           "image": "img/bg-default/april/18.png",
-          "accentColor": "#d98ba8",
+          "accentColor": "#ffffff",
           "tint": 0
         },
         "19": {
           "image": "img/bg-default/april/19.png",
-          "accentColor": "#d98ba8",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 30
         },
         "20": {
           "image": "img/bg-default/april/20.png",
@@ -680,17 +680,17 @@
         "21": {
           "image": "img/bg-default/april/21.png",
           "accentColor": "#d98ba8",
-          "tint": 0
+          "tint": 40
         },
         "22": {
           "image": "img/bg-default/april/22.png",
-          "accentColor": "#db8fae",
+          "accentColor": "#ffffff",
           "tint": 0
         },
         "23": {
           "image": "img/bg-default/april/23.png",
           "accentColor": "#db8fae",
-          "tint": 0
+          "tint": 25
         },
         "24": {
           "image": "img/bg-default/april/24.png",
@@ -709,23 +709,23 @@
         },
         "27": {
           "image": "img/bg-default/april/27.png",
-          "accentColor": "#db8fae",
-          "tint": 0
+          "accentColor": "#9c8759",
+          "tint": 55
         },
         "28": {
           "image": "img/bg-default/april/28.png",
-          "accentColor": "#db8fae",
+          "accentColor": "#ffffff",
           "tint": 0
         },
         "29": {
           "image": "img/bg-default/april/29.png",
           "accentColor": "#cf7fa6",
-          "tint": 20
+          "tint": 40
         },
         "30": {
           "image": "img/bg-default/april/30.png",
           "accentColor": "#cf7fa6",
-          "tint": 30
+          "tint": 50
         }
       }
     },
