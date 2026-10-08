@@ -67,11 +67,11 @@
     </div>
     <div class="path" id="sim-path">—</div>
     <div class="path" id="sim-tint">—</div>
-    <div class="hint">Embeds the real home screen. Only the seasonal background &amp; theme follow the date.</div>
+    <div class="hint" id="sim-hint">Embeds the real home screen. Only the seasonal background &amp; theme follow the date.</div>
   </div>
 </div>
 
-<script src="js/theme-state.js?v=10"></script>
+<script src="js/theme-state.js?v=15"></script>
 <script>
 (function () {
   'use strict';
@@ -86,10 +86,35 @@
   var pathEl   = document.getElementById('sim-path');
   var tintEl   = document.getElementById('sim-tint');
   var hud      = document.getElementById('hud');
+  var hintEl   = document.getElementById('sim-hint');
   var cfg      = null;
+
+  var DATE_KEY = 'plu_sim_date';
 
   var pad = function (n) { return String(n).padStart(2, '0') };
   var toISO = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) };
+
+  // Remember the simulated day so a reload keeps you on it instead of snapping back to the real
+  // date. Every read and write is guarded, since storage throws when the browser blocks it.
+  function loadSavedDate() {
+    try {
+      var raw = localStorage.getItem(DATE_KEY);
+      if (!raw || !/^\d{4}-\d{2}-\d{2}$/.test(raw)) return null;
+      var d = new Date(raw + 'T12:00:00');
+      return isNaN(d.getTime()) ? null : d;
+    } catch (e) { return null; }
+  }
+  function saveDate(d) {
+    try { localStorage.setItem(DATE_KEY, toISO(d)); } catch (e) {}
+  }
+  function forgetSavedDate() {
+    try { localStorage.removeItem(DATE_KEY); } catch (e) {}
+  }
+  function isToday(d) {
+    var n = new Date();
+    return d.getFullYear() === n.getFullYear() &&
+           d.getMonth() === n.getMonth() && d.getDate() === n.getDate();
+  }
 
   function seasonOf(m) {
     if (m === 12 || m === 1 || m === 2)  return { name: 'Winter', cls: 'winter' };
@@ -138,10 +163,15 @@
 
   function setDate(d) {
     dateEl.value = toISO(d);
+    saveDate(d);
     apply();
   }
 
-  dateEl.addEventListener('input', apply);
+  // The picker writes straight to the field, so it has to save as well as repaint.
+  dateEl.addEventListener('input', function () {
+    saveDate(selectedDate());
+    apply();
+  });
 
   slider.addEventListener('input', function () {
     var year = selectedDate().getFullYear();
@@ -154,8 +184,12 @@
   document.getElementById('sim-next').addEventListener('click', function () {
     var d = selectedDate(); d.setDate(d.getDate() + 1); setDate(d);
   });
+  // Today means the real today, so drop the saved override rather than pinning the current date:
+  // the next reload then follows the clock again.
   document.getElementById('sim-today').addEventListener('click', function () {
-    setDate(new Date());
+    forgetSavedDate();
+    dateEl.value = toISO(new Date());
+    apply();
   });
 
   document.getElementById('sim-collapse').addEventListener('click', function () {
@@ -167,7 +201,11 @@
   // The home screen may still be booting; re-apply once it has loaded.
   stage.addEventListener('load', apply);
 
-  dateEl.value = toISO(new Date());
+  var restored = loadSavedDate();
+  dateEl.value = toISO(restored || new Date());
+  if (restored && !isToday(restored) && hintEl) {
+    hintEl.textContent = 'Restored the last simulated date. Press Today for the real date.';
+  }
   render();
 
   BrowserThemeState.loadDefaultBackgroundConfig().then(function (c) {

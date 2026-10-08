@@ -533,11 +533,11 @@
         "29": {
           "image": "img/bg-default/march/29.png",
           "accentColor": "#97cd7e",
-          "tint": 0
+          "tint": 50
         },
         "30": {
           "image": "img/bg-default/march/30.png",
-          "accentColor": "#97cd7e",
+          "accentColor": "#948e59",
           "tint": 0
         },
         "31": {
@@ -614,18 +614,18 @@
         },
         "8": {
           "image": "img/bg-default/april/8.png",
-          "accentColor": "#a6d08d",
+          "accentColor": "#5c5c5c",
           "tint": 0
         },
         "9": {
           "image": "img/bg-default/april/9.png",
-          "accentColor": "#a6d08d",
+          "accentColor": "#5c5c5c",
           "tint": 0
         },
         "10": {
           "image": "img/bg-default/april/10.png",
-          "accentColor": "#a6d08d",
-          "tint": 0
+          "accentColor": "#ccc9ad",
+          "tint": 40
         },
         "11": {
           "image": "img/bg-default/april/11.png",
@@ -649,8 +649,8 @@
         },
         "15": {
           "image": "img/bg-default/april/15.png",
-          "accentColor": "#d98ba8",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 30
         },
         "16": {
           "image": "img/bg-default/april/16.png",
@@ -720,12 +720,12 @@
         "29": {
           "image": "img/bg-default/april/29.png",
           "accentColor": "#cf7fa6",
-          "tint": 0
+          "tint": 20
         },
         "30": {
           "image": "img/bg-default/april/30.png",
           "accentColor": "#cf7fa6",
-          "tint": 0
+          "tint": 30
         }
       }
     },
@@ -877,17 +877,17 @@
         "24": {
           "image": "img/bg-default/may/24.png",
           "accentColor": "#45a5ad",
-          "tint": 0
+          "tint": 30
         },
         "25": {
           "image": "img/bg-default/may/25.png",
           "accentColor": "#45a5ad",
-          "tint": 0
+          "tint": 40
         },
         "26": {
           "image": "img/bg-default/may/26.png",
-          "accentColor": "#45a5ad",
-          "tint": 0
+          "accentColor": "#dbbadb",
+          "tint": 20
         },
         "27": {
           "image": "img/bg-default/may/27.png",

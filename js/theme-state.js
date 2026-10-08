@@ -117,7 +117,11 @@ const BrowserThemeState = (() => {
       image: pick(entry.image, fallback.image),
       accentColor: pick(entry.accentColor, week.accentColor || fallback.accentColor),
       tint: normalizeTint(entry.tint == null ? fallback.tint : entry.tint),
-      logo: normalizeLogoId(entry.logo || week.logo || fallback.logo),
+      // First *valid* name wins, so a typo in a day falls through to its week rather than blanking
+      // the logo. A day listing its own accent keeps that accent's colourway, so an explicit
+      // per-day colour (the white ones, say) still brands the app accordingly.
+      logo: normalizeLogoId(entry.logo) || logoForAccent(entry.accentColor) ||
+            normalizeLogoId(week.logo) || normalizeLogoId(fallback.logo),
     }
   }
 
@@ -131,12 +135,25 @@ const BrowserThemeState = (() => {
     return normalizeLogoId(resolveDailyBackground(_defaultConfig).logo)
   }
 
+  // The logo the accent colour implies on its own, or '' when that accent has no colourway.
+  function logoForAccent(accentColor) {
+    return normalizeLogoId(ACCENT_ICON_MAP[isHexColor(accentColor) ? accentColor.trim().toLowerCase() : ''])
+  }
+
   function loadDefaultBackgroundConfig() {
     if (_defaultConfig || !window.fetch) return Promise.resolve(_defaultConfig)
     return fetch(DEFAULT_CONFIG_URL, { cache: 'no-cache' })
       .then(res => (res.ok ? res.json() : null))
       .then(cfg => {
-        if (cfg && typeof cfg === 'object') _defaultConfig = cfg
+        if (cfg && typeof cfg === 'object') {
+          _defaultConfig = cfg
+          // The daily palette arrives late, and it owns both the accent and the logo. Tell the
+          // page to repaint so nothing is left showing the pre-config stock branding. Fires once,
+          // because _defaultConfig is now set and later calls return before reaching here.
+          try {
+            window.dispatchEvent(new MessageEvent('message', { data: { type: 'plu_theme_refresh' } }))
+          } catch (_) {}
+        }
         return _defaultConfig
       })
       .catch(() => null)

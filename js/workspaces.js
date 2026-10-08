@@ -247,7 +247,7 @@
   };
 
   const bundles = {
-    games: { css: 'css/games.css?v=4', scripts: ['https://cdn.jsdelivr.net/gh/luminsdk/script@latest/lumin.min.js', 'js/games.js?v=10', 'js/personal-games.js'] },
+    games: { css: 'css/games.css?v=4', scripts: ['https://cdn.jsdelivr.net/gh/luminsdk/script@latest/lumin.min.js', 'js/games.js?v=11', 'js/personal-games.js'] },
     ai: { css: 'css/ai.css?v=9', scripts: ['js/orbs-engine.js', 'js/orb.js', 'js/ai.js?v=7'] },
     cloud: { css: 'css/cloud.css', scripts: ['js/cloud.js?v=1'] },
     media: { css: 'css/stream.css', scripts: ['js/stream.js?v=20260825'] },

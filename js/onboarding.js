@@ -122,6 +122,13 @@
     if (accImg) accImg.src = 'img/logos/icon-' + file + '.png'
   }
 
+  // The logo colourway comes from the daily background config, which loads asynchronously; the
+  // first pass runs before it lands, so repaint once it arrives. updateLogo() re-reads the current
+  // state, so it stays correct if the user has already switched to a custom accent.
+  if (window.BrowserThemeState && BrowserThemeState.loadDefaultBackgroundConfig) {
+    BrowserThemeState.loadDefaultBackgroundConfig().then(updateLogo).catch(() => {})
+  }
+
 
   const sourcesEl = document.getElementById('onb-sources')
   const effectsEl = document.getElementById('onb-effects')
