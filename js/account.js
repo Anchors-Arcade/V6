@@ -1329,9 +1329,23 @@ class AccountManager {
   }
 
   async deleteAccount() {
-    if (typeof PlutoniumStore !== 'undefined') {
-      await PlutoniumStore.deleteAccount()
-    }
+    if (typeof PlutoniumStore === 'undefined') throw new Error('Not signed in')
+
+    // Removes the auth user and every Firestore document (the worker refuses
+    // the delete unless the whole cloud purge succeeds).
+    await PlutoniumStore.deleteAccount()
+
+    // The cloud copy is gone, but the device kept its own copy of everything
+    // (history, AI chats/memory, bookmarks, uploaded games, avatar…). Remove
+    // that too so "delete my account" really means everything.
+    removePlutoniumLocalKeys()
+    try { sessionStorage.clear() } catch (_) {}
+
+    // IndexedDB and Cache Storage cannot be reliably deleted while another
+    // frame holds them open, so leave a marker and finish the job after the
+    // reload below tears those frames down.
+    try { localStorage.setItem(PURGE_PENDING_KEY, '1') } catch (_) {}
+    location.reload()
   }
 
   async resetPassword(email) {
@@ -1410,6 +1424,69 @@ class AccountManager {
     if (submitEl) submitEl.addEventListener('click', trySignIn)
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Account deletion — on-device data
+ *
+ * The worker purges the account's Firestore documents and the auth user.
+ * Everything this app persists to the origin is namespaced `plu_*` (with
+ * pre-migration `cg_*` keys still present on older devices), so deletion also
+ * clears the device copy: localStorage, sessionStorage, the uploaded-games
+ * IndexedDB, the proxy engine's scratch DB, and Cache Storage.
+ * ------------------------------------------------------------------ */
+
+const PURGE_PENDING_KEY = 'plu_purge_pending'
+const PURGE_DATABASES   = ['plutonium_personal_games', '$scramjet']
+
+function plutoniumLocalKeys() {
+  const keys = []
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (key && (key.startsWith('plu_') || key.startsWith('cg_'))) keys.push(key)
+    }
+  } catch (_) {}
+  return keys
+}
+
+function removePlutoniumLocalKeys(except) {
+  plutoniumLocalKeys().forEach(key => {
+    if (key === except) return
+    try { localStorage.removeItem(key) } catch (_) {}
+  })
+}
+
+function deleteLocalDatabase(name) {
+  return new Promise(resolve => {
+    try {
+      const req = indexedDB.deleteDatabase(name)
+      // onblocked still resolves: the deletion completes once the last open
+      // connection closes, which the following reload guarantees.
+      req.onsuccess = req.onerror = req.onblocked = () => resolve()
+    } catch (_) { resolve() }
+  })
+}
+
+async function purgeRemainingDeviceData() {
+  await Promise.all(PURGE_DATABASES.map(deleteLocalDatabase))
+  if ('caches' in window) {
+    try {
+      const names = await caches.keys()
+      await Promise.all(names.map(name => caches.delete(name)))
+    } catch (_) {}
+  }
+}
+
+// Finish a purge that began before the last reload. IndexedDB and Cache Storage
+// are cleared here, once the frames that held them open are gone.
+;(async function finishPendingDevicePurge() {
+  let pending = false
+  try { pending = localStorage.getItem(PURGE_PENDING_KEY) === '1' } catch (_) {}
+  if (!pending) return
+  removePlutoniumLocalKeys(PURGE_PENDING_KEY)
+  await purgeRemainingDeviceData()
+  try { localStorage.removeItem(PURGE_PENDING_KEY) } catch (_) {}
+})()
 
 const accountManager = new AccountManager()
 window.accountManager = accountManager

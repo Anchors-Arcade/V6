@@ -211,6 +211,8 @@ Additionally, `deleteFirestoreCollection` fetches at most 300 documents and does
 
 **Recommended action:** verify the rules immediately (see [§10](#10-open-questions--not-verifiable-from-this-repository)), then (a) forward the caller's verified credential on every delete, (b) paginate the collection loops, (c) add the five missing paths, and (d) stop swallowing errors so a partial deletion surfaces to the user.
 
+**Status:** fixed. `deleteUserFirestoreData` now sends the caller's ID token on every request, walks collections page by page, and covers every path the client writes — including `history`, `ai_memory`, `ai_personas`, `nav_prefs`, `pg_files`, and `notices`. It also no longer reports a delete that did not fully happen: if any document survives, the handler returns an error and leaves the auth user in place (retryable) instead of destroying the token and stranding the leftovers. Deletion now removes the **on-device** copy too — `localStorage`/`sessionStorage`, the uploaded-games (`plutonium_personal_games`) and proxy (`$scramjet`) IndexedDBs, and Cache Storage (`js/account.js`).
+
 ### 9.2 High-risk — The Firestore proxy does not enforce per-user path scoping
 
 **File:** `cf-worker/firebase-gateway/index.js` · `handleFirestore()` (≈ lines 539–546)

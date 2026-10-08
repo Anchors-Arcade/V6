@@ -252,6 +252,20 @@ async function handleAccountDelete(request, env, allowed) {
     }, 502, allowed);
   }
 
+  // If some documents could not be removed, stop BEFORE deleting the auth
+  // user. Once accounts:delete succeeds this idToken is dead, so any leftover
+  // document could never be purged afterwards. Leaving the account in place
+  // keeps a retry possible and never reports a deletion that did not fully
+  // happen.
+  if (purge.errors.length) {
+    console.error('[firebase-gateway] incomplete purge for', uid, purge.errors);
+    return corsResponse({
+      error:   'Account not deleted: some cloud data could not be removed, so nothing was deleted. Please try again.',
+      removed: purge.removed,
+      errors:  purge.errors,
+    }, 502, allowed);
+  }
+
   const delRes = await fetch(
     `https://identitytoolkit.googleapis.com/v1/accounts:delete?key=${env.FIREBASE_API_KEY}`,
     {
@@ -263,16 +277,6 @@ async function handleAccountDelete(request, env, allowed) {
 
   const data = await delRes.json();
   if (!delRes.ok) return corsResponse(data, delRes.status, allowed);
-
-  if (purge.errors.length) {
-    console.error('[firebase-gateway] partial purge for', uid, purge.errors);
-    return corsResponse({
-      deleted:   true,
-      partial:   true,
-      removed:   purge.removed,
-      errors:    purge.errors,
-    }, 200, allowed);
-  }
 
   return corsResponse({ deleted: true, removed: purge.removed }, 200, allowed);
 }
