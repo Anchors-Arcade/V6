@@ -72,9 +72,9 @@ const BrowserThemeState = (() => {
   const DEFAULT_CONFIG_URL = 'data/bg-default.json'
   let _defaultConfig = null
 
-  // Today's page + accent from data/bg-default.json, which groups each month's days under
-  // months.<1-12>.days.<1-31>. Any field a day leaves blank falls back to the config's `default`
-  // block, and an absent config falls back to the built-in stock values.
+  // Today's page + accent from data/bg-default.json. Months split into weeks (days 1-7, 8-14, ...)
+  // carrying the accent colour, and days carrying the page. The accent resolves day override ->
+  // its week -> the config's `default` block, and an absent config falls back to the stock values.
   function resolveDailyBackground(config, date) {
     const cfg = config && typeof config === 'object' ? config : {}
     const fallback = cfg.default && typeof cfg.default === 'object' ? cfg.default : {}
@@ -82,14 +82,16 @@ const BrowserThemeState = (() => {
     const months = cfg.months && typeof cfg.months === 'object' ? cfg.months : {}
     const month = months[String(d.getMonth() + 1)]
     const days = month && month.days && typeof month.days === 'object' ? month.days : {}
+    const weeks = month && month.weeks && typeof month.weeks === 'object' ? month.weeks : {}
     const entry = days[String(d.getDate())] || {}
+    const week = weeks[String(Math.ceil(d.getDate() / 7))] || {}
     const pick = (value, fallbackValue) => {
       const chosen = value || fallbackValue
       return typeof chosen === 'string' ? chosen : (chosen && chosen.src) || ''
     }
     return {
       iframe: pick(entry.iframe, fallback.iframe),
-      accentColor: pick(entry.accentColor, fallback.accentColor),
+      accentColor: pick(entry.accentColor, week.accentColor || fallback.accentColor),
     }
   }
 

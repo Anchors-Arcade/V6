@@ -6,1521 +6,1416 @@
   "months": {
     "1": {
       "name": "January",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/01-01.html",
-          "accentColor": ""
+          "name": "Frost Blue",
+          "accentColor": "#5a97c8"
         },
         "2": {
-          "iframe": "bg/js/days/01-02.html",
-          "accentColor": ""
+          "name": "Glacier Blue",
+          "accentColor": "#4d8bc0"
         },
         "3": {
-          "iframe": "bg/js/days/01-03.html",
-          "accentColor": ""
+          "name": "Ice Blue",
+          "accentColor": "#4180b8"
         },
         "4": {
-          "iframe": "bg/js/days/01-04.html",
-          "accentColor": ""
+          "name": "Deep Ice",
+          "accentColor": "#3a76ae"
         },
         "5": {
-          "iframe": "bg/js/days/01-05.html",
-          "accentColor": ""
+          "name": "Winter Depths",
+          "accentColor": "#34689f"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/01-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/01-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/01-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/01-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/01-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/01-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/01-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/01-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/01-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/01-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/01-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/01-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/01-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/01-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/01-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/01-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/01-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/01-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/01-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/01-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/01-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/01-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/01-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/01-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/01-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/01-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/01-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/01-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/01-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/01-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/01-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/01-31.html"
         }
       }
     },
     "2": {
       "name": "February",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/02-01.html",
-          "accentColor": ""
+          "name": "Thaw Blue",
+          "accentColor": "#3d7fae"
         },
         "2": {
-          "iframe": "bg/js/days/02-02.html",
-          "accentColor": ""
+          "name": "Cold Teal",
+          "accentColor": "#3a8aa8"
         },
         "3": {
-          "iframe": "bg/js/days/02-03.html",
-          "accentColor": ""
+          "name": "Melting Teal",
+          "accentColor": "#37939c"
         },
         "4": {
-          "iframe": "bg/js/days/02-04.html",
-          "accentColor": ""
+          "name": "First Thaw",
+          "accentColor": "#3a9a8c"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/02-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/02-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/02-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/02-04.html"
         },
         "5": {
-          "iframe": "bg/js/days/02-05.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/02-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/02-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/02-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/02-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/02-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/02-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/02-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/02-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/02-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/02-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/02-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/02-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/02-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/02-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/02-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/02-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/02-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/02-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/02-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/02-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/02-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/02-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/02-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/02-28.html"
         }
       }
     },
     "3": {
       "name": "March",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/03-01.html",
-          "accentColor": ""
+          "name": "Thaw Green",
+          "accentColor": "#4aa87e"
         },
         "2": {
-          "iframe": "bg/js/days/03-02.html",
-          "accentColor": ""
+          "name": "Spring Green",
+          "accentColor": "#57b57b"
         },
         "3": {
-          "iframe": "bg/js/days/03-03.html",
-          "accentColor": ""
+          "name": "Fresh Green",
+          "accentColor": "#6bbf79"
         },
         "4": {
-          "iframe": "bg/js/days/03-04.html",
-          "accentColor": ""
+          "name": "Budding Green",
+          "accentColor": "#82c77a"
         },
         "5": {
-          "iframe": "bg/js/days/03-05.html",
-          "accentColor": ""
+          "name": "New Growth",
+          "accentColor": "#97cd7e"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/03-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/03-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/03-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/03-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/03-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/03-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/03-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/03-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/03-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/03-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/03-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/03-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/03-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/03-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/03-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/03-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/03-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/03-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/03-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/03-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/03-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/03-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/03-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/03-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/03-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/03-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/03-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/03-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/03-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/03-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/03-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/03-31.html"
         }
       }
     },
     "4": {
       "name": "April",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/04-01.html",
-          "accentColor": ""
+          "name": "Leaf",
+          "accentColor": "#8fca85"
         },
         "2": {
-          "iframe": "bg/js/days/04-02.html",
-          "accentColor": ""
+          "name": "Fresh Foliage",
+          "accentColor": "#a6d08d"
         },
         "3": {
-          "iframe": "bg/js/days/04-03.html",
-          "accentColor": ""
+          "name": "Blossom Pink",
+          "accentColor": "#d98ba8"
         },
         "4": {
-          "iframe": "bg/js/days/04-04.html",
-          "accentColor": ""
+          "name": "Cherry Blossom",
+          "accentColor": "#db8fae"
         },
         "5": {
-          "iframe": "bg/js/days/04-05.html",
-          "accentColor": ""
+          "name": "Late Blossom",
+          "accentColor": "#cf7fa6"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/04-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/04-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/04-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/04-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/04-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/04-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/04-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/04-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/04-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/04-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/04-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/04-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/04-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/04-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/04-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/04-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/04-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/04-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/04-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/04-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/04-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/04-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/04-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/04-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/04-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/04-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/04-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/04-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/04-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/04-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/04-30.html"
         }
       }
     },
     "5": {
       "name": "May",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/05-01.html",
-          "accentColor": ""
+          "name": "Verdant",
+          "accentColor": "#6fbf84"
         },
         "2": {
-          "iframe": "bg/js/days/05-02.html",
-          "accentColor": ""
+          "name": "Green Bloom",
+          "accentColor": "#57b58c"
         },
         "3": {
-          "iframe": "bg/js/days/05-03.html",
-          "accentColor": ""
+          "name": "Sea Green",
+          "accentColor": "#4aad9c"
         },
         "4": {
-          "iframe": "bg/js/days/05-04.html",
-          "accentColor": ""
+          "name": "Teal Bloom",
+          "accentColor": "#45a5ad"
         },
         "5": {
-          "iframe": "bg/js/days/05-05.html",
-          "accentColor": ""
+          "name": "Early Summer Sky",
+          "accentColor": "#4a9cc0"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/05-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/05-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/05-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/05-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/05-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/05-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/05-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/05-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/05-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/05-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/05-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/05-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/05-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/05-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/05-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/05-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/05-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/05-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/05-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/05-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/05-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/05-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/05-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/05-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/05-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/05-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/05-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/05-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/05-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/05-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/05-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/05-31.html"
         }
       }
     },
     "6": {
       "name": "June",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/06-01.html",
-          "accentColor": ""
+          "name": "Golden Hour",
+          "accentColor": "#eaa94f"
         },
         "2": {
-          "iframe": "bg/js/days/06-02.html",
-          "accentColor": ""
+          "name": "Amber Sun",
+          "accentColor": "#ef9440"
         },
         "3": {
-          "iframe": "bg/js/days/06-03.html",
-          "accentColor": ""
+          "name": "Coral Sunset",
+          "accentColor": "#f27e44"
         },
         "4": {
-          "iframe": "bg/js/days/06-04.html",
-          "accentColor": ""
+          "name": "Sunset Coral",
+          "accentColor": "#ef6a52"
         },
         "5": {
-          "iframe": "bg/js/days/06-05.html",
-          "accentColor": ""
+          "name": "Dusky Rose",
+          "accentColor": "#e75c68"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/06-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/06-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/06-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/06-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/06-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/06-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/06-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/06-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/06-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/06-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/06-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/06-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/06-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/06-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/06-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/06-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/06-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/06-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/06-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/06-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/06-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/06-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/06-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/06-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/06-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/06-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/06-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/06-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/06-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/06-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/06-30.html"
         }
       }
     },
     "7": {
       "name": "July",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/07-01.html",
-          "accentColor": ""
+          "name": "Sunset Rose",
+          "accentColor": "#e25579"
         },
         "2": {
-          "iframe": "bg/js/days/07-02.html",
-          "accentColor": ""
+          "name": "Hot Magenta",
+          "accentColor": "#d94f96"
         },
         "3": {
-          "iframe": "bg/js/days/07-03.html",
-          "accentColor": ""
+          "name": "Orchid Sunset",
+          "accentColor": "#c94baa"
         },
         "4": {
-          "iframe": "bg/js/days/07-04.html",
-          "accentColor": ""
+          "name": "Violet Sunset",
+          "accentColor": "#b84cbb"
         },
         "5": {
-          "iframe": "bg/js/days/07-05.html",
-          "accentColor": ""
+          "name": "Deep Violet Dusk",
+          "accentColor": "#a74ec4"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/07-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/07-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/07-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/07-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/07-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/07-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/07-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/07-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/07-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/07-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/07-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/07-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/07-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/07-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/07-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/07-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/07-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/07-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/07-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/07-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/07-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/07-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/07-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/07-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/07-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/07-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/07-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/07-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/07-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/07-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/07-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/07-31.html"
         }
       }
     },
     "8": {
       "name": "August",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/08-01.html",
-          "accentColor": ""
+          "name": "Amethyst",
+          "accentColor": "#9b52c0"
         },
         "2": {
-          "iframe": "bg/js/days/08-02.html",
-          "accentColor": ""
+          "name": "Orchid Dusk",
+          "accentColor": "#a95ab0"
         },
         "3": {
-          "iframe": "bg/js/days/08-03.html",
-          "accentColor": ""
+          "name": "Dusky Magenta",
+          "accentColor": "#b96297"
         },
         "4": {
-          "iframe": "bg/js/days/08-04.html",
-          "accentColor": ""
+          "name": "Rose Dusk",
+          "accentColor": "#c76e7a"
         },
         "5": {
-          "iframe": "bg/js/days/08-05.html",
-          "accentColor": ""
+          "name": "Amber Dusk",
+          "accentColor": "#d47c58"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/08-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/08-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/08-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/08-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/08-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/08-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/08-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/08-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/08-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/08-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/08-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/08-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/08-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/08-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/08-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/08-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/08-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/08-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/08-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/08-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/08-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/08-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/08-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/08-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/08-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/08-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/08-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/08-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/08-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/08-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/08-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/08-31.html"
         }
       }
     },
     "9": {
       "name": "September",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/09-01.html",
-          "accentColor": ""
+          "name": "Golden Grain",
+          "accentColor": "#e59a45"
         },
         "2": {
-          "iframe": "bg/js/days/09-02.html",
-          "accentColor": ""
+          "name": "Amber Harvest",
+          "accentColor": "#e5892f"
         },
         "3": {
-          "iframe": "bg/js/days/09-03.html",
-          "accentColor": ""
+          "name": "Autumn Orange",
+          "accentColor": "#e07a24"
         },
         "4": {
-          "iframe": "bg/js/days/09-04.html",
-          "accentColor": ""
+          "name": "Rich Orange",
+          "accentColor": "#d96a1e"
         },
         "5": {
-          "iframe": "bg/js/days/09-05.html",
-          "accentColor": ""
+          "name": "Deep Orange",
+          "accentColor": "#cc5f1a"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/09-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/09-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/09-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/09-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/09-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/09-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/09-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/09-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/09-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/09-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/09-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/09-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/09-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/09-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/09-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/09-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/09-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/09-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/09-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/09-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/09-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/09-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/09-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/09-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/09-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/09-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/09-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/09-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/09-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/09-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/09-30.html"
         }
       }
     },
     "10": {
       "name": "October",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/10-01.html",
-          "accentColor": ""
+          "name": "Pumpkin",
+          "accentColor": "#d9702a"
         },
         "2": {
-          "iframe": "bg/js/days/10-02.html",
-          "accentColor": ""
+          "name": "Burnt Orange",
+          "accentColor": "#cf6423"
         },
         "3": {
-          "iframe": "bg/js/days/10-03.html",
-          "accentColor": ""
+          "name": "Deep Pumpkin",
+          "accentColor": "#c25a1f"
         },
         "4": {
-          "iframe": "bg/js/days/10-04.html",
-          "accentColor": ""
+          "name": "Rust",
+          "accentColor": "#b5511d"
         },
         "5": {
-          "iframe": "bg/js/days/10-05.html",
-          "accentColor": ""
+          "name": "Deep Russet",
+          "accentColor": "#a84a1c"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/10-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/10-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/10-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/10-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/10-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/10-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/10-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/10-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/10-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/10-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/10-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/10-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/10-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/10-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/10-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/10-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/10-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/10-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/10-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/10-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/10-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/10-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/10-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/10-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/10-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/10-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/10-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/10-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/10-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/10-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/10-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/10-31.html"
         }
       }
     },
     "11": {
       "name": "November",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/11-01.html",
-          "accentColor": ""
+          "name": "Copper",
+          "accentColor": "#c07a3a"
         },
         "2": {
-          "iframe": "bg/js/days/11-02.html",
-          "accentColor": ""
+          "name": "Amber Brown",
+          "accentColor": "#b06a33"
         },
         "3": {
-          "iframe": "bg/js/days/11-03.html",
-          "accentColor": ""
+          "name": "Chestnut",
+          "accentColor": "#a05e2f"
         },
         "4": {
-          "iframe": "bg/js/days/11-04.html",
-          "accentColor": ""
+          "name": "Warm Brown",
+          "accentColor": "#9a5a34"
         },
         "5": {
-          "iframe": "bg/js/days/11-05.html",
-          "accentColor": ""
+          "name": "Deep Bark",
+          "accentColor": "#8f5530"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/11-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/11-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/11-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/11-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/11-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/11-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/11-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/11-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/11-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/11-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/11-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/11-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/11-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/11-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/11-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/11-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/11-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/11-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/11-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/11-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/11-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/11-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/11-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/11-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/11-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/11-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/11-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/11-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/11-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/11-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/11-30.html"
         }
       }
     },
     "12": {
       "name": "December",
-      "days": {
+      "weeks": {
         "1": {
-          "iframe": "bg/js/days/12-01.html",
-          "accentColor": ""
+          "name": "Late Fall Brown",
+          "accentColor": "#a86538"
         },
         "2": {
-          "iframe": "bg/js/days/12-02.html",
-          "accentColor": ""
+          "name": "Slate Blue",
+          "accentColor": "#6e7f96"
         },
         "3": {
-          "iframe": "bg/js/days/12-03.html",
-          "accentColor": ""
+          "name": "Winter Arrives",
+          "accentColor": "#5f7f9e"
         },
         "4": {
-          "iframe": "bg/js/days/12-04.html",
-          "accentColor": ""
+          "name": "Cold Blue",
+          "accentColor": "#4a7ba8"
         },
         "5": {
-          "iframe": "bg/js/days/12-05.html",
-          "accentColor": ""
+          "name": "Deep Winter Blue",
+          "accentColor": "#3f6fa0"
+        }
+      },
+      "days": {
+        "1": {
+          "iframe": "bg/js/days/12-01.html"
+        },
+        "2": {
+          "iframe": "bg/js/days/12-02.html"
+        },
+        "3": {
+          "iframe": "bg/js/days/12-03.html"
+        },
+        "4": {
+          "iframe": "bg/js/days/12-04.html"
+        },
+        "5": {
+          "iframe": "bg/js/days/12-05.html"
         },
         "6": {
-          "iframe": "bg/js/days/12-06.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-06.html"
         },
         "7": {
-          "iframe": "bg/js/days/12-07.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-07.html"
         },
         "8": {
-          "iframe": "bg/js/days/12-08.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-08.html"
         },
         "9": {
-          "iframe": "bg/js/days/12-09.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-09.html"
         },
         "10": {
-          "iframe": "bg/js/days/12-10.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-10.html"
         },
         "11": {
-          "iframe": "bg/js/days/12-11.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-11.html"
         },
         "12": {
-          "iframe": "bg/js/days/12-12.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-12.html"
         },
         "13": {
-          "iframe": "bg/js/days/12-13.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-13.html"
         },
         "14": {
-          "iframe": "bg/js/days/12-14.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-14.html"
         },
         "15": {
-          "iframe": "bg/js/days/12-15.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-15.html"
         },
         "16": {
-          "iframe": "bg/js/days/12-16.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-16.html"
         },
         "17": {
-          "iframe": "bg/js/days/12-17.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-17.html"
         },
         "18": {
-          "iframe": "bg/js/days/12-18.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-18.html"
         },
         "19": {
-          "iframe": "bg/js/days/12-19.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-19.html"
         },
         "20": {
-          "iframe": "bg/js/days/12-20.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-20.html"
         },
         "21": {
-          "iframe": "bg/js/days/12-21.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-21.html"
         },
         "22": {
-          "iframe": "bg/js/days/12-22.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-22.html"
         },
         "23": {
-          "iframe": "bg/js/days/12-23.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-23.html"
         },
         "24": {
-          "iframe": "bg/js/days/12-24.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-24.html"
         },
         "25": {
-          "iframe": "bg/js/days/12-25.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-25.html"
         },
         "26": {
-          "iframe": "bg/js/days/12-26.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-26.html"
         },
         "27": {
-          "iframe": "bg/js/days/12-27.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-27.html"
         },
         "28": {
-          "iframe": "bg/js/days/12-28.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-28.html"
         },
         "29": {
-          "iframe": "bg/js/days/12-29.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-29.html"
         },
         "30": {
-          "iframe": "bg/js/days/12-30.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-30.html"
         },
         "31": {
-          "iframe": "bg/js/days/12-31.html",
-          "accentColor": ""
+          "iframe": "bg/js/days/12-31.html"
         }
       }
     }
