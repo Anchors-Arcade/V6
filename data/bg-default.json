@@ -623,6 +623,7 @@
           "tint": 0
         },
         "10": {
+          "image": "img/bg-default/april/10.png",
           "accentColor": "#ccc9ad",
           "tint": 40
         },
@@ -717,6 +718,7 @@
           "tint": 0
         },
         "29": {
+          "image": "img/bg-default/april/29.png",
           "accentColor": "#cf7fa6",
           "tint": 20
         },
@@ -873,6 +875,7 @@
           "tint": 0
         },
         "24": {
+          "image": "img/bg-default/may/24.png",
           "accentColor": "#45a5ad",
           "tint": 30
         },
@@ -1266,14 +1269,17 @@
           "tint": 0
         },
         "29": {
+          "image": "img/bg-default/july/29.png",
           "accentColor": "#a74ec4",
           "tint": 0
         },
         "30": {
+          "image": "img/bg-default/july/30.png",
           "accentColor": "#a74ec4",
           "tint": 0
         },
         "31": {
+          "image": "img/bg-default/july/31.png",
           "accentColor": "#a74ec4",
           "tint": 0
         }
@@ -1310,6 +1316,7 @@
       },
       "days": {
         "1": {
+          "image": "img/bg-default/august/1.png",
           "accentColor": "#9b52c0",
           "tint": 0
         },
@@ -1324,6 +1331,7 @@
           "tint": 0
         },
         "4": {
+          "image": "img/bg-default/august/4.png",
           "accentColor": "#9b52c0",
           "tint": 0
         },
@@ -1333,6 +1341,7 @@
           "tint": 0
         },
         "6": {
+          "image": "img/bg-default/august/6.png",
           "accentColor": "#9b52c0",
           "tint": 0
         },
