@@ -796,13 +796,13 @@
         },
         "8": {
           "image": "img/bg-default/may/8.png",
-          "tint": 0
           "accentColor": "#db8fae",
           "tint": 25
         },
         "9": {
           "image": "img/bg-default/may/9.png",
           "accentColor": "#cf7fa6",
+          "tint": 40
         },
         "10": {
           "image": "img/bg-default/may/10.png",
