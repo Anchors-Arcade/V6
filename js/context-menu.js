@@ -174,6 +174,18 @@ chromeTabsEl.addEventListener('contextmenu', e => {
   }
 })
 
+// The default/custom background is surfaced here as a one-click toggle so it is reachable without
+// opening the customize panel.
+function currentBgSource() {
+  if (typeof BrowserThemeState === 'undefined' || !BrowserThemeState.loadThemeState) return 'default'
+  return BrowserThemeState.loadThemeState().bgSource || BrowserThemeState.DEFAULT_THEME_STATE.bgSource
+}
+
+function toggleBackgroundSource() {
+  if (typeof Theme === 'undefined' || !Theme.setBackgroundSource) return
+  Theme.setBackgroundSource(currentBgSource() === 'default' ? 'custom' : 'default')
+}
+
 function showBrowserMenu(x, y) {
   const btnBackEl = document.getElementById('btn-back')
   const btnForwardEl = document.getElementById('btn-forward')
@@ -186,6 +198,7 @@ function showBrowserMenu(x, y) {
     '-',
     { label: 'Apps', icon: 'fa-solid fa-bars', onClick: () => { if (typeof toggleWaffleMenu === 'function') toggleWaffleMenu() } },
     { label: 'Customize', icon: 'fa-solid fa-paintbrush', onClick: () => { if (typeof toggleCustomizeMenu === 'function') toggleCustomizeMenu() } },
+    { label: currentBgSource() === 'default' ? 'Use Custom Background' : 'Use Default Background', icon: 'fa-solid fa-circle-half-stroke', onClick: toggleBackgroundSource },
     { label: 'History', icon: 'fa-solid fa-clock-rotate-left', onClick: () => { if (typeof openHistoryDialog === 'function') openHistoryDialog() } },
     { label: 'About', icon: 'fa-solid fa-circle-info', onClick: () => { if (typeof openAboutDialog === 'function') openAboutDialog() } },
     { label: 'Account', icon: 'fa-solid fa-user', onClick: () => {

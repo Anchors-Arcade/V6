@@ -16,8 +16,12 @@
 
   function loadState() {
     try {
-      const raw = localStorage.getItem(THEME_KEY)
-      const s = raw ? JSON.parse(raw) : {}
+      // BrowserThemeState owns this state; ask it for the effective look so default mode and custom
+      // mode stay consistent instead of reading the raw (possibly overridden) theme blob.
+      const ts = window.BrowserThemeState
+      const s = ts && ts.getEffectiveThemeState
+        ? ts.getEffectiveThemeState()
+        : JSON.parse(localStorage.getItem(THEME_KEY) || '{}')
       const accent = /^#[0-9a-f]{6}$/i.test(s.accentColor || '') ? s.accentColor : DEFAULT_ACCENT
       return {
         mode: s.mode === 'light' ? 'light' : 'dark',
@@ -127,6 +131,10 @@
   }
 
   apply()
+
+  // theme.js calls this after it repaints so the legacy accent vars follow the effective theme
+  // immediately; a `storage` event never fires in the document that wrote the value.
+  window.PageTheme = { apply }
 
   window.addEventListener('storage', event => {
     if (event.key === THEME_KEY) apply()

@@ -534,6 +534,19 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
   color:var(--ui-text-muted);font-size:10px;font-weight:600;text-transform:uppercase;
   letter-spacing:.6px;padding:8px 8px 6px;
 }
+.customize-source{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:0 6px}
+.customize-source-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 6px;border-radius:9px;
+  border:1px solid var(--ui-border);background:var(--ui-surface-3);color:var(--ui-text-muted);
+  font-size:10.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;
+  transition:border-color .14s,color .14s,background .14s;
+}
+.customize-source-btn i{font-size:12px}
+.customize-source-btn:hover{color:var(--ui-text);background:var(--ui-hover)}
+.customize-source-btn.active{border-color:var(--ui-accent);color:var(--ui-accent);box-shadow:0 0 0 1px var(--ui-accent)}
+.customize-source-note{grid-column:1/-1;color:var(--ui-text-dim);font-size:10.5px;line-height:1.4;padding:2px 2px 0}
+/* In default mode the stock background/theme are in use, so the custom controls are hidden entirely. */
+.customize-menu.is-default .customize-custom-only{display:none}
 .customize-effect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 4px}
 .customize-effect{
   display:flex;flex-direction:column;align-items:center;gap:3px;

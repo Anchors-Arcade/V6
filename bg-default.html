@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  html,body{margin:0;width:100%;height:100%;background:#000;overflow:hidden}
+  #default-bg{display:block;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<script src="js/theme-state.js?v=5"></script>
+<script>
+// Host page for the default background. data/bg-default.json names a page (and accent) for each day
+// of the year, 1-365, plus a `default` fallback. Today's entry decides which page gets embedded.
+(function () {
+  'use strict';
+
+  function mount(src) {
+    if (!src) return;
+    var frame = document.createElement('iframe');
+    frame.id = 'default-bg';
+    frame.title = 'Default background';
+    frame.setAttribute('frameborder', '0');
+    frame.setAttribute('tabindex', '-1');
+    frame.setAttribute('aria-hidden', 'true');
+    frame.src = src;
+    document.body.appendChild(frame);
+  }
+
+  // Only mount once the target is known to exist, otherwise a not-yet-created daily page would paint
+  // the site's 404 over the background. An unsupported HEAD (405/501) is treated as "assume exists".
+  function mountIfAvailable(src) {
+    if (!src || !window.fetch) return;
+    fetch(src, { method: 'HEAD' })
+      .then(function (res) { return res.ok || res.status === 405 || res.status === 501; })
+      .catch(function () { return true; })
+      .then(function (ok) { if (ok) mount(src); });
+  }
+
+  if (!window.BrowserThemeState || !BrowserThemeState.loadDefaultBackgroundConfig) return;
+
+  BrowserThemeState.loadDefaultBackgroundConfig().then(function (cfg) {
+    mountIfAvailable(BrowserThemeState.resolveDailyBackground(cfg).iframe);
+  });
+})();
+</script>
+</body>
+</html>

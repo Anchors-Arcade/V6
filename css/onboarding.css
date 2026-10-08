@@ -215,6 +215,30 @@
     gap: 30px;
   }
 }
+.onb-sources { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.onb-source {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  transition: border-color .14s, color .14s, background .14s, transform .14s;
+}
+.onb-source i { font-size: 13px; }
+.onb-source:hover { transform: scale(1.03); color: #fff; background: rgba(255, 255, 255, 0.07); }
+.onb-source.active { border-color: var(--ui-accent); color: var(--ui-accent); box-shadow: 0 0 0 1px var(--ui-accent); }
+/* In default mode the stock background/theme are in use, so the custom controls are hidden entirely. */
+.onboarding-body.is-default .onb-custom-only { display: none; }
+
 .onb-effects { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)) !important; gap: 7px; }
 .onb-effect {
   display: flex;

@@ -58,20 +58,33 @@
   }
 
   const previewFrame = document.getElementById('onb-bg-frame')
-  function refreshPreview() {
-    if (!previewFrame) return
-    try {
-      previewFrame.src = 'bg.html'
-    } catch (_) {}
+  const accentFrame = document.getElementById('onb-accent-frame')
+
+  function bgSource(state) {
+    if (!window.BrowserThemeState) return 'default'
+    return (state && state.bgSource) || BrowserThemeState.DEFAULT_THEME_STATE.bgSource
   }
 
-  const accentFrame = document.getElementById('onb-accent-frame')
-  function refreshAccentPreview() {
-    if (!accentFrame) return
-    try {
-      accentFrame.src = 'bg.html'
-    } catch (_) {}
+  function bgSourceURL(source) {
+    if (window.BrowserThemeState && BrowserThemeState.getBackgroundSourceURL) {
+      return BrowserThemeState.getBackgroundSourceURL(source)
+    }
+    return source === 'custom' ? 'bg.html' : 'bg-default.html'
   }
+
+  // The previews follow whichever background source is active (default = a plain page, custom = the engine).
+  function syncFrames() {
+    const url = bgSourceURL(bgSource(themeState()))
+    ;[previewFrame, accentFrame].forEach(frame => {
+      if (!frame) return
+      try {
+        if ((frame.getAttribute('src') || '') !== url) frame.setAttribute('src', url)
+      } catch (_) {}
+    })
+  }
+
+  function refreshPreview() { syncFrames() }
+  function refreshAccentPreview() { syncFrames() }
 
   if (backBtn)  backBtn.addEventListener('click', () => showStep(current - 1))
   if (nextBtn)  nextBtn.addEventListener('click', () => showStep(current + 1))
@@ -110,8 +123,27 @@
   }
 
 
+  const sourcesEl = document.getElementById('onb-sources')
   const effectsEl = document.getElementById('onb-effects')
   const wallpapersEl = document.getElementById('onb-wallpapers')
+
+  function buildSources() {
+    if (!sourcesEl || !window.BrowserThemeState) return
+    sourcesEl.innerHTML = ''
+    Object.entries(BrowserThemeState.BG_SOURCES).forEach(([key, meta]) => {
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'onb-source'
+      btn.dataset.source = key
+      btn.title = meta.label
+      btn.innerHTML = '<i class="' + meta.icon + '"></i><span>' + meta.label + '</span>'
+      btn.addEventListener('click', () => {
+        if (typeof Theme !== 'undefined') Theme.setBackgroundSource(key)
+        syncState()
+      })
+      sourcesEl.appendChild(btn)
+    })
+  }
 
   function buildEffects() {
     if (!effectsEl || !window.BrowserThemeState) return
@@ -322,27 +354,35 @@
   function syncState() {
     const state = themeState()
     const accent = state.accentColor || '#e8175d'
+    const isDefault = bgSource(state) === 'default'
 
+    if (sourcesEl) {
+      sourcesEl.querySelectorAll('.onb-source').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.source === bgSource(state))
+      })
+    }
     if (effectsEl) {
       effectsEl.querySelectorAll('.onb-effect').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.effect === state.bgEffect)
+        btn.classList.toggle('active', !isDefault && btn.dataset.effect === state.bgEffect)
       })
     }
     if (wallpapersEl) {
       wallpapersEl.querySelectorAll('.onb-wallpaper').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.wallpaper === state.bgImage)
+        btn.classList.toggle('active', !isDefault && btn.dataset.wallpaper === state.bgImage)
       })
     }
     if (swatchesEl) {
       swatchesEl.querySelectorAll('.onb-swatch').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.color === accent)
+        btn.classList.toggle('active', !isDefault && btn.dataset.color === accent)
       })
     }
+    document.body.classList.toggle('is-default', isDefault)
     if (soundSwitch && window.SoundFX) {
       soundSwitch.checked = SoundFX.isEnabled()
     }
-    document.body.classList.toggle('accent-light', accent === '#ffffff')
+    document.body.classList.toggle('accent-light', !isDefault && accent === '#ffffff')
     updateLogo()
+    syncFrames()
   }
 
   if (localStorage.getItem(FLAG_KEY) === '1') {
@@ -364,6 +404,7 @@
     }
   }
 
+  buildSources()
   buildEffects()
   buildWallpapers()
   buildSwatches()

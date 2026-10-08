@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="css/plu-tokens.css">
-<link rel="stylesheet" href="css/onboarding.css">
+<link rel="stylesheet" href="css/onboarding.css?v=3">
 <link rel="stylesheet" href="css/glass.css">
 </head>
 <body class="onboarding-body">
@@ -98,15 +98,19 @@
       <p class="onb-step-sub">Animated effects or a wallpaper: pick one on the left and watch the live preview.</p>
       <div class="onb-bg-layout">
         <div class="onb-bg-options">
-          <div class="onb-section-label">Effects</div>
-          <div class="onb-effects" id="onb-effects"></div>
-          <div class="onb-section-label">Wallpapers</div>
-          <div class="onb-wallpapers" id="onb-wallpapers"></div>
+          <div class="onb-section-label">Background source</div>
+          <div class="onb-sources" id="onb-sources"></div>
+          <div class="onb-custom-only">
+            <div class="onb-section-label">Effects</div>
+            <div class="onb-effects" id="onb-effects"></div>
+            <div class="onb-section-label">Wallpapers</div>
+            <div class="onb-wallpapers" id="onb-wallpapers"></div>
+          </div>
         </div>
         <div class="onb-bg-preview">
           <div class="onb-bg-preview-label"><i class="fa-solid fa-eye"></i> Live preview</div>
           <div class="onb-bg-preview-frame">
-            <iframe id="onb-bg-frame" src="bg.html" title="Background preview" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe id="onb-bg-frame" src="bg-default.html" title="Background preview" tabindex="-1" aria-hidden="true"></iframe>
           </div>
         </div>
       </div>
@@ -115,11 +119,13 @@
     <section class="onb-step" data-step="3" aria-label="Accent color">
       <h2 class="onb-step-title">Accent color</h2>
       <p class="onb-step-sub">Your highlight color: buttons, glows, logos and status dots.</p>
-      <div class="onb-swatches" id="onb-swatches"></div>
+      <div class="onb-custom-only">
+        <div class="onb-swatches" id="onb-swatches"></div>
+      </div>
       <div class="onb-accent-preview">
         <div class="onb-bg-preview-label"><i class="fa-solid fa-eye"></i> Live preview</div>
         <div class="onb-bg-preview-frame onb-accent-frame">
-          <iframe id="onb-accent-frame" src="bg.html" title="Accent preview" tabindex="-1" aria-hidden="true"></iframe>
+          <iframe id="onb-accent-frame" src="bg-default.html" title="Accent preview" tabindex="-1" aria-hidden="true"></iframe>
           <div class="onb-accent-ui" aria-hidden="true">
             <div class="onb-accent-panel">
               <img class="onb-accent-logo-img" id="onb-accent-logo-img" alt="" src="img/logos/icon-plutonium-pink.png">
@@ -172,8 +178,8 @@
   </footer>
 </main>
 
-<script src="js/theme-state.js"></script>
-<script src="js/theme.js"></script>
+<script src="js/theme-state.js?v=5"></script>
+<script src="js/theme.js?v=3"></script>
 <script src="js/sound.js"></script>
 <script src="js/cloud-store.js"></script>
 <script>
@@ -186,6 +192,6 @@
 <script src="js/announcement-banner.js"></script>
 <script src="js/presence-ui.js"></script>
 <script src="js/client-presence.js"></script>
-<script src="js/onboarding.js?v=2"></script>
+<script src="js/onboarding.js?v=4"></script>
 </body>
 </html>

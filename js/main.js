@@ -107,6 +107,7 @@ if (gridPopup) {
 const customizeWrap = document.getElementById('customize-wrap')
 const customizeBtn = document.getElementById('btn-customize')
 const customizeMenu = document.getElementById('customize-menu')
+const customizeSource = document.getElementById('customize-source')
 const customizeEffects = document.getElementById('customize-effects')
 const customizeAccent = document.getElementById('customize-accent')
 const customizeWallpapers = document.getElementById('customize-wallpapers')
@@ -156,14 +157,50 @@ function themeApi() {
   return typeof Theme !== 'undefined' ? Theme : null
 }
 
+function bgSource(state) {
+  if (!window.BrowserThemeState) return 'default'
+  return (state && state.bgSource) || BrowserThemeState.DEFAULT_THEME_STATE.bgSource
+}
+
+function buildCustomizeSource() {
+  if (!customizeSource || !window.BrowserThemeState) return
+  const source = bgSource(currentThemeState())
+  customizeSource.innerHTML = ''
+  Object.entries(BrowserThemeState.BG_SOURCES).forEach(([key, meta]) => {
+    const btn = document.createElement('button')
+    btn.type = 'button'
+    btn.className = 'customize-source-btn' + (source === key ? ' active' : '')
+    btn.title = meta.label
+    btn.innerHTML = `<i class="${meta.icon}"></i><span>${meta.label}</span>`
+    btn.addEventListener('click', () => {
+      if (themeApi()) Theme.setBackgroundSource(key)
+      requestAnimationFrame(syncCustomizeMenu)
+    })
+    customizeSource.appendChild(btn)
+  })
+  const note = document.createElement('div')
+  note.className = 'customize-source-note'
+  note.textContent = source === 'default'
+    ? 'Using the stock background and theme. Pick Custom to choose your own.'
+    : 'Choose an effect, wallpaper and accent color below.'
+  customizeSource.appendChild(note)
+}
+
+// In default mode the stock background/theme are in use, so the custom controls are hidden.
+function applyCustomizeMode() {
+  const isDefault = bgSource(currentThemeState()) === 'default'
+  if (customizeMenu) customizeMenu.classList.toggle('is-default', isDefault)
+}
+
 function buildCustomizeEffects() {
   if (!customizeEffects || !window.BrowserThemeState) return
   const state = currentThemeState()
+  const active = bgSource(state) !== 'default'
   customizeEffects.innerHTML = ''
   Object.entries(BrowserThemeState.BG_EFFECTS).forEach(([key, effect]) => {
     const btn = document.createElement('button')
     btn.type = 'button'
-    btn.className = 'customize-effect' + (state.bgEffect === key ? ' active' : '')
+    btn.className = 'customize-effect' + (active && state.bgEffect === key ? ' active' : '')
     btn.title = effect.label
     btn.innerHTML = `<i class="fa-solid ${effect.icon}"></i><span>${effect.label}</span>`
     btn.addEventListener('click', () => {
@@ -177,11 +214,12 @@ function buildCustomizeEffects() {
 function buildCustomizeAccent() {
   if (!customizeAccent) return
   const state = currentThemeState()
+  const active = bgSource(state) !== 'default'
   customizeAccent.innerHTML = ''
   ACCENT_SWATCHES.forEach(({ color, label }) => {
     const btn = document.createElement('button')
     btn.type = 'button'
-    btn.className = 'customize-swatch' + (state.accentColor === color ? ' active' : '')
+    btn.className = 'customize-swatch' + (active && state.accentColor === color ? ' active' : '')
     btn.title = label
     btn.style.background = color
     btn.dataset.color = color
@@ -196,13 +234,14 @@ function buildCustomizeAccent() {
 function buildCustomizeWallpapers() {
   if (!customizeWallpapers || !window.BrowserThemeState) return
   const state = currentThemeState()
+  const active = bgSource(state) !== 'default'
   const currentImage = state.bgImage || ''
   customizeWallpapers.innerHTML = ''
 
   BrowserThemeState.BACKGROUND_IMAGES.forEach(function (img) {
     const btn = document.createElement('button')
     btn.type = 'button'
-    btn.className = 'customize-wallpaper' + (currentImage === img.id ? ' active' : '')
+    btn.className = 'customize-wallpaper' + (active && currentImage === img.id ? ' active' : '')
     btn.title = img.label
 
     if (img.file) {
@@ -246,10 +285,12 @@ function buildCustomizeSound() {
 }
 
 function syncCustomizeMenu() {
+  buildCustomizeSource()
   buildCustomizeEffects()
   buildCustomizeWallpapers()
   buildCustomizeAccent()
   buildCustomizeSound()
+  applyCustomizeMode()
 }
 
 const customizeScrim = document.getElementById('customize-scrim')

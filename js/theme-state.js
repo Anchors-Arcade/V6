@@ -7,6 +7,14 @@ const BrowserThemeState = (() => {
     bgPreset: 'minimal',
     bgEffect: 'particles',
     bgImage: '',
+    bgSource: 'default',
+  }
+
+  // `default` renders bg-default.html with the stock theme; `custom` renders bg.html with the
+  // effect/wallpaper/preset the user picks.
+  const BG_SOURCES = {
+    default: { label: 'Default', icon: 'fa-solid fa-circle-half-stroke' },
+    custom:  { label: 'Custom',  icon: 'fa-solid fa-sliders' },
   }
 
   const BG_EFFECTS = {
@@ -47,6 +55,58 @@ const BrowserThemeState = (() => {
     if (value === '') return ''
     const match = BACKGROUND_IMAGES.find(img => img.id === value || img.file === value)
     return match ? match.id : ''
+  }
+
+  function normalizeBgSource(value, fallback) {
+    const source = typeof value === 'string' ? value.trim().toLowerCase() : ''
+    if (BG_SOURCES[source]) return source
+    return fallback && BG_SOURCES[fallback] ? fallback : DEFAULT_THEME_STATE.bgSource
+  }
+
+  function getBackgroundSourceURL(source) {
+    return normalizeBgSource(source) === 'custom' ? 'bg.html' : 'bg-default.html'
+  }
+
+  // The default background page and its stock accent live in data/bg-default.json so they can change
+  // without a code edit. Everything falls back to the built-in defaults when the file is unavailable.
+  const DEFAULT_CONFIG_URL = 'data/bg-default.json'
+  let _defaultConfig = null
+
+  // Today's page + accent from data/bg-default.json, which groups each month's days under
+  // months.<1-12>.days.<1-31>. Any field a day leaves blank falls back to the config's `default`
+  // block, and an absent config falls back to the built-in stock values.
+  function resolveDailyBackground(config, date) {
+    const cfg = config && typeof config === 'object' ? config : {}
+    const fallback = cfg.default && typeof cfg.default === 'object' ? cfg.default : {}
+    const d = date instanceof Date ? date : new Date()
+    const months = cfg.months && typeof cfg.months === 'object' ? cfg.months : {}
+    const month = months[String(d.getMonth() + 1)]
+    const days = month && month.days && typeof month.days === 'object' ? month.days : {}
+    const entry = days[String(d.getDate())] || {}
+    const pick = (value, fallbackValue) => {
+      const chosen = value || fallbackValue
+      return typeof chosen === 'string' ? chosen : (chosen && chosen.src) || ''
+    }
+    return {
+      iframe: pick(entry.iframe, fallback.iframe),
+      accentColor: pick(entry.accentColor, fallback.accentColor),
+    }
+  }
+
+  function defaultThemeAccent() {
+    const resolved = resolveDailyBackground(_defaultConfig)
+    return isHexColor(resolved.accentColor) ? resolved.accentColor.trim().toLowerCase() : DEFAULT_THEME_STATE.accentColor
+  }
+
+  function loadDefaultBackgroundConfig() {
+    if (_defaultConfig || !window.fetch) return Promise.resolve(_defaultConfig)
+    return fetch(DEFAULT_CONFIG_URL, { cache: 'no-cache' })
+      .then(res => (res.ok ? res.json() : null))
+      .then(cfg => {
+        if (cfg && typeof cfg === 'object') _defaultConfig = cfg
+        return _defaultConfig
+      })
+      .catch(() => null)
   }
 
   const BACKGROUND_PRESETS = {
@@ -143,7 +203,18 @@ const BrowserThemeState = (() => {
       bgPreset: normalizeBgPreset(next.bgPreset),
       bgEffect: image ? 'none' : effect,
       bgImage: effect !== 'none' ? '' : image,
+      bgSource: normalizeBgSource(next.bgSource),
     }
+  }
+
+  // A theme saved before background sources existed belongs to the custom system. A brand-new
+  // visitor has no stored theme at all and should start on the default background.
+  function inferBgSource(rawTheme, extra) {
+    if (rawTheme && rawTheme.bgSource !== undefined) return rawTheme.bgSource
+    if (extra && extra.bgSource !== undefined) return extra.bgSource
+    if (rawTheme && Object.keys(rawTheme).length) return 'custom'
+    if (extra && Object.keys(extra).length) return 'custom'
+    return DEFAULT_THEME_STATE.bgSource
   }
 
   const LEGACY_THEME_KEY = 'cg_theme'
@@ -215,6 +286,7 @@ const BrowserThemeState = (() => {
       bgPreset: legacyTheme.bgPreset || legacyTheme.bgStyle || legacySettings.bgPreset || legacySettings.bgStyle,
       bgEffect: legacyTheme.bgEffect || legacySettings.bgStyle,
       bgImage: legacyTheme.bgImage || legacySettings.bgImage,
+      bgSource: inferBgSource(legacyTheme, legacySettings),
     })
     }
 
@@ -224,7 +296,20 @@ const BrowserThemeState = (() => {
       bgPreset: rawTheme.bgPreset || rawTheme.bgStyle || rawSettings.bgPreset || rawSettings.bgStyle,
       bgEffect: rawTheme.bgEffect || rawSettings.bgStyle,
       bgImage: rawTheme.bgImage || rawSettings.bgImage,
+      bgSource: inferBgSource(rawTheme),
     })
+  }
+
+  // In default mode the stock background and colour theme are in use, so the rendered look ignores
+  // any previously customised accent/preset without discarding it (switching back to custom restores it).
+  function getEffectiveThemeState(state) {
+    const current = state && typeof state === 'object' ? state : loadThemeState()
+    if (normalizeBgSource(current.bgSource) !== DEFAULT_THEME_STATE.bgSource) return current
+    return {
+      ...current,
+      accentColor: defaultThemeAccent(),
+      bgPreset: DEFAULT_THEME_STATE.bgPreset,
+    }
   }
 
   function getDefaultAccent(mode, presetKey) {
@@ -262,6 +347,7 @@ const BrowserThemeState = (() => {
       bgStyle: next.bgEffect,
       bgPreset: next.bgPreset,
       bgImage: next.bgImage || '',
+      bgSource: next.bgSource,
     }))
 
     if (window.accountManager && typeof window.accountManager.scheduleSettingsSync === 'function') {
@@ -289,7 +375,7 @@ const BrowserThemeState = (() => {
   }
 
   function getAccentIconFile() {
-    return ACCENT_ICON_MAP[normalizeAccentColor(loadThemeState().accentColor)] || 'plutonium-pink'
+    return ACCENT_ICON_MAP[normalizeAccentColor(getEffectiveThemeState().accentColor)] || 'plutonium-pink'
   }
 
   function getAccentIconPath() {
@@ -303,15 +389,21 @@ const BrowserThemeState = (() => {
     BACKGROUND_PRESETS,
     BACKGROUND_IMAGES,
     BG_EFFECTS,
+    BG_SOURCES,
     loadThemeState,
     saveThemeState,
     getDefaultAccent,
     normalizeThemeState,
+    getEffectiveThemeState,
+    getBackgroundSourceURL,
     getBackgroundPreset,
     getBackgroundImageURL,
     getBackgroundImageTint,
     getAccentIconFile,
     getAccentIconPath,
+    loadDefaultBackgroundConfig,
+    resolveDailyBackground,
+    getDefaultThemeAccent: defaultThemeAccent,
   }
 })()
 

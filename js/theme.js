@@ -191,9 +191,23 @@ const Theme = (() => {
     }
   }
 
-  function notifyBackgroundFrame(state) {
+  function backgroundSourceURL(source) {
+    if (window.BrowserThemeState && BrowserThemeState.getBackgroundSourceURL) {
+      return BrowserThemeState.getBackgroundSourceURL(source)
+    }
+    return source === 'custom' ? 'bg.html' : 'bg-default.html'
+  }
+
+  function syncBackgroundFrame(state) {
     const frame = document.getElementById('browser-bg-frame')
-    if (!frame || !frame.contentWindow) return
+    if (!frame) return
+    const url = backgroundSourceURL(state.bgSource)
+    // A source swap means a whole new document; it reads the saved state itself, so don't post to it.
+    if ((frame.getAttribute('src') || '') !== url) {
+      frame.setAttribute('src', url)
+      return
+    }
+    if (state.bgSource !== 'custom' || !frame.contentWindow) return
     frame.contentWindow.postMessage({ type: 'plu_bg_preset', preset: state.bgPreset }, '*')
     frame.contentWindow.postMessage({ type: 'plu_bg_effect', effect: state.bgEffect }, '*')
     frame.contentWindow.postMessage({ type: 'plu_bg_image', bgImage: state.bgImage }, '*')
@@ -212,25 +226,35 @@ const Theme = (() => {
       bgPreset: state.bgPreset || DEFAULT_STATE.bgPreset,
       bgEffect: state.bgEffect || DEFAULT_STATE.bgEffect || 'particles',
       bgImage: 'bgImage' in state ? (state.bgImage || '') : (loadState().bgImage || ''),
+      bgSource: state.bgSource || loadState().bgSource || DEFAULT_STATE.bgSource,
     }
 
-    const preset = getBackgroundPreset(nextState.bgPreset)
-    if (nextState.mode === 'light') {
-      applyVars(buildVarsFromPalette(preset.light, 'light', nextState.accentColor))
+    // In default mode the stock background/theme win, so paint from the effective look.
+    const look = window.BrowserThemeState && BrowserThemeState.getEffectiveThemeState
+      ? BrowserThemeState.getEffectiveThemeState(nextState)
+      : nextState
+    const preset = getBackgroundPreset(look.bgPreset)
+    if (look.mode === 'light') {
+      applyVars(buildVarsFromPalette(preset.light, 'light', look.accentColor))
     } else {
-      applyVars(buildVarsFromPalette(preset.dark, 'dark', nextState.accentColor))
+      applyVars(buildVarsFromPalette(preset.dark, 'dark', look.accentColor))
     }
 
-    document.documentElement.dataset.theme = nextState.mode
-    document.documentElement.dataset.bgPreset = nextState.bgPreset
+    document.documentElement.dataset.theme = look.mode
+    document.documentElement.dataset.bgPreset = look.bgPreset
     document.documentElement.dataset.bgEffect = nextState.bgEffect
     document.documentElement.dataset.bgImage = nextState.bgImage
+    document.documentElement.dataset.bgSource = nextState.bgSource
 
     if (!options.skipSave) {
       saveState(nextState)
     }
 
-    notifyBackgroundFrame(nextState)
+    if (window.PageTheme && typeof window.PageTheme.apply === 'function') {
+      window.PageTheme.apply()
+    }
+
+    syncBackgroundFrame(nextState)
     return nextState
   }
 
@@ -264,12 +288,23 @@ const Theme = (() => {
     return applyState({ ...state, bgImage: bgImage || '', bgEffect: bgImage ? 'none' : state.bgEffect })
   }
 
+  async function setBackgroundSource(bgSource) {
+    const state = loadState()
+    return applyState({ ...state, bgSource })
+  }
+
   async function refresh() {
     return applyState(loadState(), { skipSave: true })
   }
 
   async function init() {
     await refresh()
+    // The stock default accent is read from data/bg-default.json, so repaint once it has loaded.
+    if (window.BrowserThemeState && BrowserThemeState.loadDefaultBackgroundConfig) {
+      BrowserThemeState.loadDefaultBackgroundConfig().then(cfg => {
+        if (cfg) refresh()
+      })
+    }
   }
 
   window.addEventListener('message', event => {
@@ -325,6 +360,7 @@ const Theme = (() => {
     setBackgroundPreset,
     setBackgroundEffect,
     setBackgroundImage,
+    setBackgroundSource,
     getState: loadState,
   }
 })()
