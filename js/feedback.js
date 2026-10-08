@@ -21,7 +21,7 @@
 
   var ENDPOINT = 'https://stelena.plutoniumnet.work/feedback';
   var TYPES_URL = 'https://stelena.plutoniumnet.work/feedback/types';
-  var DISCORD = 'https://discord.gg/sQvNX6SVfA';
+  var DISCORD = 'https://discord.gg/R3dJ7hpUXX';
   var SLOW_HINT_MS = 6000;
   var TIMEOUT_MS = 60000;
   var DRAFT_KEY = 'plu_feedback_draft';

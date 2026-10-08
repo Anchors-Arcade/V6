@@ -72,7 +72,7 @@ We may update these terms. When we do, we will change the effective date at the 
 
 ### 13. Contact
 
-Questions about these terms, or reports of illegal content or rights infringement, can be sent to us through our Discord server: <https://discord.gg/sQvNX6SVfA>.
+Questions about these terms, or reports of illegal content or rights infringement, can be sent to us through our Discord server: <https://discord.gg/R3dJ7hpUXX>.
 
 ## Privacy Policy
 
@@ -429,4 +429,4 @@ Your continued use of Plutonium after an updated policy becomes effective means 
 
 For privacy questions, data-access requests, deletion requests, complaints, or other privacy concerns, contact Plutonium Network through our official Discord server:
 
-https://discord.gg/sQvNX6SVfA
+https://discord.gg/R3dJ7hpUXX

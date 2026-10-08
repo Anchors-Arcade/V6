@@ -722,7 +722,7 @@ function openAboutDialog() {
       </div>
 
       <div class="about-dialog__contact">
-        <a href="https://discord.gg/sQvNX6SVfA" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;display:flex;align-items:center">
+        <a href="https://discord.gg/R3dJ7hpUXX" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;display:flex;align-items:center">
           <i class="fab fa-discord"></i>
           <span>.    Have questions or suggestions? Find us on Discord!</span>
         </a>
