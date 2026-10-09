@@ -1,7 +1,7 @@
 const Theme = (() => {
   const DEFAULT_STATE = window.BrowserThemeState
     ? BrowserThemeState.DEFAULT_THEME_STATE
-    : { mode: 'dark', accentColor: '#4285f4', bgPreset: 'minimal' }
+    : { mode: 'dark', accentColor: '#7C5CFF', bgPreset: 'minimal' }
 
   function loadState() {
     return window.BrowserThemeState
@@ -23,7 +23,7 @@ const Theme = (() => {
           label: 'Minimal',
           url: '',
           preview: '',
-          dark: { base: '#16181b', surface: '#22262b', surface2: '#1c2024', accent: '#7dd3fc' },
+          dark: { base: '#080B18', surface: '#151D35', surface2: '#10162A', accent: '#7C5CFF' },
           light: { base: '#eef2f7', surface: '#ffffff', surface2: '#e8edf4', accent: '#3b82f6' },
         }
   }

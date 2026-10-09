@@ -1,17 +1,17 @@
 
 (() => {
   const THEME_KEY = 'plu_theme'
-  const DEFAULT_ACCENT = '#e8175d'
+  const DEFAULT_ACCENT = '#7C5CFF'
 
   const PRESET_BASE = {
-    minimal: '#16181b',
-    aurora: '#0d1b2a',
+    minimal: '#080B18',
+    aurora: '#080B18',
     dusk: '#1c1232',
     ember: '#20110b',
     ocean: '#081c2d',
     ash: '#141414',
     rose: '#1d0d19',
-    none: '#16181b',
+    none: '#080B18',
   }
 
   function loadState() {

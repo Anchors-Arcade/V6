@@ -721,7 +721,7 @@
     els['pg-details-controls'].innerHTML = '';
     els['pg-details-controls-wrap'].hidden = true;
     els['pg-details-chips'].innerHTML =
-      '<span class="pg-details__chip"><i class="fa-solid fa-server"></i> Plutonium-GCDN</span>' +
+      '<span class="pg-details__chip"><i class="fa-solid fa-server"></i> Anchors-GCDN</span>' +
       cloudChipHtml(game, { cloudSync: null });
     renderDetailsPin();
 
@@ -751,7 +751,7 @@
       els['pg-details-desc'].textContent = details.description ||
         'No description has been added for this game yet.';
 
-      let chips = '<span class="pg-details__chip"><i class="fa-solid fa-server"></i> Plutonium-GCDN</span>';
+      let chips = '<span class="pg-details__chip"><i class="fa-solid fa-server"></i> Anchors-GCDN</span>';
       chips += cloudChipHtml(game, details);
       details.tags.forEach(tag => {
         chips += '<span class="pg-details__chip">' + escapeHtml(tag) + '</span>';
@@ -1539,20 +1539,22 @@
       }
     } catch (_) {}
     const map = {
-      '#e8175d': 'plutonium-pink',
+      '#7C5CFF': 'violet',
+      '#28D7C5': 'teal',
       '#7c3aed': 'violet',
       '#3c5085': 'blue',
       '#059669': 'emerald',
       '#d97706': 'amber',
       '#dc2626': 'red',
       '#0891b2': 'cyan',
-      '#c026d3': 'fuchsia'
+      '#c026d3': 'fuchsia',
+      '#e8175d': 'violet'
     };
     try {
       const state = JSON.parse(localStorage.getItem('plu_theme') || '{}');
-      return map[String(state.accentColor || '').trim().toLowerCase()] || 'plutonium-pink';
+      return map[String(state.accentColor || '').trim().toLowerCase()] || 'violet';
     } catch (_) {
-      return 'plutonium-pink';
+      return 'violet';
     }
   }
 

@@ -87,11 +87,11 @@
     var card = make('div', [
       'max-width:440px', 'width:100%', 'box-sizing:border-box',
       'background:#101018', 'border:1px solid #23232f',
-      'border-top:3px solid #e8175d', 'border-radius:14px',
+      'border-top:3px solid #7C5CFF', 'border-radius:14px',
       'padding:22px', 'box-shadow:0 20px 60px rgba(0,0,0,.6)',
     ].join(';'));
 
-    card.appendChild(make('div', 'font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b9c;margin-bottom:8px', 'Message from Plutonium'));
+    card.appendChild(make('div', 'font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b9c;margin-bottom:8px', 'Message from Anchors Arcade X'));
     card.appendChild(make('div', 'font-size:17px;font-weight:700;margin-bottom:8px', payload.title || 'Message'));
     card.appendChild(make('div', 'font-size:14px;line-height:1.65;color:#b9b9c7;white-space:pre-wrap', payload.body || ''));
 

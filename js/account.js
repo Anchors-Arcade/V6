@@ -1,5 +1,5 @@
 
-const HOME_SIGNIN_TITLE = 'Welcome to<br>Plutonium Network'
+const HOME_SIGNIN_TITLE = 'Welcome to<br>Anchors Arcade X'
 
 const GREETING_NAME_TOKEN = '{name}'
 

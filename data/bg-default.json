@@ -1,8 +1,8 @@
 {
   "default": {
     "image": "img/bg-default/default.png",
-    "accentColor": "#e8175d",
-    "logo": "plutonium-pink",
+    "accentColor": "#7C5CFF",
+    "logo": "violet",
     "tint": 0
   },
   "months": {
@@ -376,7 +376,7 @@
         "3": {
           "name": "Dusky Magenta",
           "accentColor": "#b96297",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "4": {
           "name": "Rose Dusk",
@@ -563,17 +563,17 @@
         "3": {
           "name": "Blossom Pink",
           "accentColor": "#d98ba8",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "4": {
           "name": "Cherry Blossom",
           "accentColor": "#db8fae",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "5": {
           "name": "Late Blossom",
           "accentColor": "#cf7fa6",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         }
       },
       "days": {
@@ -1109,12 +1109,12 @@
         "2": {
           "name": "Hot Magenta",
           "accentColor": "#d94f96",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "3": {
           "name": "Orchid Sunset",
           "accentColor": "#c94baa",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "4": {
           "name": "Violet Sunset",
@@ -1301,7 +1301,7 @@
         "3": {
           "name": "Dusky Magenta",
           "accentColor": "#b96297",
-          "logo": "plutonium-pink"
+          "logo": "fuchsia"
         },
         "4": {
           "name": "Rose Dusk",

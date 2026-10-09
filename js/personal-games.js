@@ -485,8 +485,11 @@
       }
     }
 
+    // Resolve against this page rather than assuming the site root, so the
+    // route also works when the app is served from a subpath
+    // (e.g. user.github.io/repo/).
     const url =
-      `/pg-game/${meta.id}/index.html`;
+      new URL(`pg-game/${meta.id}/index.html`, location.href).href;
 
     if (window.PGViewer) {
       window.PGViewer.open(

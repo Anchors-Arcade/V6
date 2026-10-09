@@ -12,7 +12,7 @@
   const CACHE_KEY = 'plutonium-bg-v2';
   const GAMES_CACHE_KEY = 'plutonium-games-v1';
   const CLOUD_CACHE_KEY = 'plutonium-cloud-v1';
-  const LOGOS_CACHE_KEY = 'plutonium-logos-v2';
+  const LOGOS_CACHE_KEY = 'plutonium-logos-v3';
   const PGCDN_BASE = 'https://g.cdn.plutoniumnet.work';
   const BG_IMAGES = [
     'img/backgrounds/coast.jpg',
@@ -30,7 +30,7 @@
     'img/backgrounds/swirls.png',
   ];
 
-  const LOGO_COLORS = ['plutonium-pink', 'violet', 'blue', 'emerald', 'amber', 'red', 'cyan', 'fuchsia', 'white'];
+  const LOGO_COLORS = ['violet', 'teal', 'blue', 'emerald', 'amber', 'red', 'cyan', 'fuchsia', 'white'];
   const LOGO_VARIANTS = ['brand-logo', 'logo', 'icon'];
   const LOGO_IMAGES = ['img/logos/stelena.svg?v=2'];
   LOGO_VARIANTS.forEach(function (variant) {
@@ -39,7 +39,7 @@
     });
   });
 
-  let accent = '#e8175d';
+  let accent = '#7C5CFF';
   try {
     const state = window.BrowserThemeState
       ? BrowserThemeState.loadThemeState()
@@ -48,7 +48,7 @@
   } catch (_) {}
 
   function hexToRgbTriple(hex) {
-    const h = (hex || '#e8175d').replace('#', '');
+    const h = (hex || '#7C5CFF').replace('#', '');
     return parseInt(h.substring(0, 2), 16) + ',' +
            parseInt(h.substring(2, 4), 16) + ',' +
            parseInt(h.substring(4, 6), 16);
@@ -85,11 +85,11 @@
   const title = document.createElement('div');
   title.style.cssText =
     'display:flex;color:' + accent + ";font-family:'Curly',cursive;" +
-    'font-size:clamp(42px,8vw,80px);letter-spacing:2px;z-index:1;position:relative;';
+    'font-size:clamp(28px,6vw,64px);letter-spacing:2px;z-index:1;position:relative;';
 
-  'Plutonium'.split('').forEach(function (ch, i) {
+  'Anchors Arcade X'.split('').forEach(function (ch, i) {
     const span = document.createElement('span');
-    span.textContent = ch;
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
     span.style.cssText =
       'display:inline-block;animation:boot-letter 3s ease-in-out ' + (i * 0.18) + 's infinite;';
     title.appendChild(span);

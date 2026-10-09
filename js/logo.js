@@ -8,7 +8,7 @@
 
   function accentColor() {
     const v = getComputedStyle(document.documentElement).getPropertyValue('--ui-accent').trim()
-    return /^#[0-9a-f]{6}$/i.test(v) ? v : '#e8175d'
+    return /^#[0-9a-f]{6}$/i.test(v) ? v : '#7C5CFF'
   }
 
   function mixHex(a, b, t) {
@@ -37,8 +37,12 @@
     ctx.textBaseline = 'alphabetic'
     if ('letterSpacing' in ctx) ctx.letterSpacing = '-2px'
 
-    const TEXT = 'Plutonium'
-    const fontPx = 200
+    const TEXT = 'Anchors Arcade X'
+    // Auto-fit: probe the text at the base size, then shrink the font until the
+    // wordmark fits comfortably inside the canvas instead of overflowing it.
+    ctx.font = '200px "Curly", sans-serif'
+    const probeWidth = ctx.measureText(TEXT).width || 1
+    const fontPx = Math.min(200, Math.floor((W * 0.92 / probeWidth) * 200))
     ctx.font = fontPx + 'px "Curly", sans-serif'
 
     const x = W / 2

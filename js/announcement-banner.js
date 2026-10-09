@@ -210,7 +210,7 @@
 
     if (maintenanceEl) return; // already shown; just leave it up
 
-    var message = config.maintenance.message || 'Plutonium is undergoing maintenance.';
+    var message = config.maintenance.message || 'Anchors Arcade X is undergoing maintenance.';
     var eta = config.maintenance.eta || '';
 
     maintenanceEl = document.createElement('div');

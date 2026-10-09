@@ -3,7 +3,7 @@ const BrowserThemeState = (() => {
   const SETTINGS_KEY = 'plu_settings'
   const DEFAULT_THEME_STATE = {
     mode: 'dark',
-    accentColor: '#e8175d',
+    accentColor: '#7C5CFF',
     bgPreset: 'minimal',
     bgEffect: 'particles',
     bgImage: '',
@@ -162,14 +162,14 @@ const BrowserThemeState = (() => {
   const BACKGROUND_PRESETS = {
     minimal: {
       label: 'Minimal',
-      preview: 'linear-gradient(135deg,#0a0e14,#050709)',
-      dark: { base: '#16181b', surface: '#22262b', surface2: '#1c2024', accent: '#7dd3fc' },
+      preview: 'linear-gradient(135deg,#080B18,#151D35)',
+      dark: { base: '#080B18', surface: '#151D35', surface2: '#10162A', accent: '#7C5CFF' },
       light: { base: '#eef2f7', surface: '#ffffff', surface2: '#e8edf4', accent: '#3b82f6' },
     },
     aurora: {
       label: 'Aurora',
-      preview: 'linear-gradient(135deg,#0d1b2a,#1b4332)',
-      dark: { base: '#0d1b2a', surface: '#143042', surface2: '#173b35', accent: '#72efdd' },
+      preview: 'linear-gradient(135deg,#080B18,#1d1040)',
+      dark: { base: '#080B18', surface: '#151D35', surface2: '#1a2140', accent: '#28D7C5' },
       light: { base: '#ecf8f5', surface: '#ffffff', surface2: '#dff4ec', accent: '#1c9c88' },
     },
     dusk: {
@@ -204,8 +204,8 @@ const BrowserThemeState = (() => {
     },
     none: {
       label: 'None',
-      preview: 'linear-gradient(135deg,#101010,#1a1a1a)',
-      dark: { base: '#16181b', surface: '#22262b', surface2: '#1c2024', accent: '#7dd3fc' },
+      preview: 'linear-gradient(135deg,#080B18,#10162A)',
+      dark: { base: '#080B18', surface: '#151D35', surface2: '#10162A', accent: '#7C5CFF' },
       light: { base: '#eef2f7', surface: '#ffffff', surface2: '#e8edf4', accent: '#3b82f6' },
     },
   }
@@ -213,7 +213,7 @@ const BrowserThemeState = (() => {
   // Brand logo colourways that ship in img/logos (icon-<id>.png). The daily background config
   // names one of these per entry so the logo can follow the season's palette.
   const LOGO_IDS = [
-    'plutonium-pink', 'violet', 'blue', 'emerald', 'amber', 'red', 'cyan', 'fuchsia', 'white',
+    'violet', 'teal', 'blue', 'emerald', 'amber', 'red', 'cyan', 'fuchsia', 'white',
   ]
 
   // An unknown or missing name returns '' so callers can fall back to the accent-derived logo.
@@ -433,7 +433,8 @@ const BrowserThemeState = (() => {
   }
 
   const ACCENT_ICON_MAP = {
-    '#e8175d': 'plutonium-pink',
+    '#7C5CFF': 'violet',
+    '#28D7C5': 'teal',
     '#7c3aed': 'violet',
     '#3c5085': 'blue',
     '#059669': 'emerald',
@@ -442,6 +443,8 @@ const BrowserThemeState = (() => {
     '#0891b2': 'cyan',
     '#c026d3': 'fuchsia',
     '#ffffff': 'white',
+    // Legacy upstream accents keep resolving to a shipped colourway.
+    '#e8175d': 'violet',
   }
 
   function getAccentIconFile() {
@@ -452,7 +455,7 @@ const BrowserThemeState = (() => {
       const daily = defaultThemeLogo()
       if (daily) return daily
     }
-    return ACCENT_ICON_MAP[normalizeAccentColor(state.accentColor)] || 'plutonium-pink'
+    return ACCENT_ICON_MAP[normalizeAccentColor(state.accentColor)] || 'violet'
   }
 
   function getAccentIconPath() {

@@ -197,7 +197,7 @@
   const swatchesEl = document.getElementById('onb-swatches')
 
   const ACCENT_SWATCHES = [
-    { color: '#e8175d', label: 'Plutonium Pink' },
+    { color: '#e8175d', label: 'Arcade Pink' },
     { color: '#7c3aed', label: 'Violet' },
     { color: '#3c5085', label: 'Blue' },
     { color: '#059669', label: 'Emerald' },

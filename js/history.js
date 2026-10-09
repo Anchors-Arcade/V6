@@ -457,7 +457,7 @@
       msg.className = 'history-empty__text';
       msg.textContent = entries.length
         ? 'No history matches that search.'
-        : 'Nothing here yet. Searches, games, media, AI chats and VMs show up here as you use Plutonium.';
+        : 'Nothing here yet. Searches, games, media, AI chats and VMs show up here as you use Anchors Arcade X.';
       empty.appendChild(msg);
       list.appendChild(empty);
       return;

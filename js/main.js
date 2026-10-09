@@ -114,7 +114,7 @@ const customizeWallpapers = document.getElementById('customize-wallpapers')
 const customizeSound = document.getElementById('customize-sound')
 
 const ACCENT_SWATCHES = [
-  { color: '#e8175d', label: 'Plutonium Pink' },
+  { color: '#e8175d', label: 'Arcade Pink' },
   { color: '#7c3aed', label: 'Violet' },
   { color: '#3c5085', label: 'Blue' },
   { color: '#059669', label: 'Emerald' },
@@ -681,7 +681,7 @@ function openAboutDialog() {
       <button class="about-dialog__close" id="about-dialog-close"><i class="fas fa-xmark"></i></button>
     </div>
     <div class="about-dialog__body">
-      <p>Plutonium Network is a web platform providing access to games, applications, AI services, virtual machines, and more, all directly through your browser.</p>
+      <p>Anchors Arcade X is a web platform providing access to games, applications, AI services, virtual machines, and more, all directly through your browser. It is an independently modified build based on the open-source Plutonium project.</p>
       <p>This platform is also meant for internet freedom. With the on-going, rising censorship in this world. From GoGuardian on a school Chromebook to Europe's Digital Services Act, this site will help you evade that.</p>
 
 <div class="about-dialog__section">
@@ -741,7 +741,7 @@ function openAboutDialog() {
         <div class="about-dialog__section-label">Services &amp; Workers</div>
         <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-gamepad"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Games CDN</div><div class="about-dialog__row-sub">Cloud-hosted game catalog with save sync</div></div></div>
         <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-cloud"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Cloud Gaming</div><div class="about-dialog__row-sub">On-demand cloud game sessions</div></div></div>
-        <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-robot"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Plutonium AI (Stelena)</div><div class="about-dialog__row-sub">Groq-backed chat worker</div></div></div>
+        <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-robot"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Anchors AI (Stelena)</div><div class="about-dialog__row-sub">Groq-backed chat worker</div></div></div>
         <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-desktop"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Virtual Machines</div><div class="about-dialog__row-sub">Remote cloud sessions</div></div></div>
         <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-user-circle"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Accounts</div><div class="about-dialog__row-sub">OAuth sign-in with cloud sync</div></div></div>
         <div class="about-dialog__row"><div class="about-dialog__row-icon pink"><i class="fas fa-clapperboard"></i></div><div class="about-dialog__row-body"><div class="about-dialog__row-title">Streaming</div><div class="about-dialog__row-sub">Movies, TV &amp; anime</div></div></div>
