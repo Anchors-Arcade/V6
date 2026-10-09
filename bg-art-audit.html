@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Background art audit — Plutonium</title>
+<style>
+  :root{
+    --bg:#0b0d10;--panel:#14171b;--panel2:#181c21;--line:#262b31;
+    --text:#e7e9ec;--muted:#8b949e;--dim:#6f7883;
+    --ok:#4bbf73;--bad:#e0524d;--warn:#d9a441;--pending:#3a424b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);
+    font:12px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  a{color:#8fb7e8}
+  code,.mono{font:11px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace}
+
+  header{position:sticky;top:0;z-index:5;background:rgba(11,13,16,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);padding:13px 16px 12px}
+  .hdrow{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  h1{margin:0;font-size:14px;letter-spacing:.2px}
+  .sub{color:var(--dim);font-size:11px}
+  .stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:6px 10px;min-width:78px}
+  .stat b{display:block;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.2}
+  .stat span{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+  .stat.ok b{color:var(--ok)}.stat.bad b{color:var(--bad)}.stat.warn b{color:var(--warn)}
+  .controls{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:11px}
+  button{border:1px solid #333941;background:#22262b;color:#e7e9ec;border-radius:7px;
+    padding:5px 10px;font:11px/1.2 inherit;cursor:pointer}
+  button:hover{background:#2b3138}
+  button.primary{border-color:#3f6ea8;background:#1d2a3a}
+  button.primary:hover{background:#233448}
+  button[aria-pressed=true]{border-color:var(--bad);color:#ffd9d7}
+  input[type=number]{width:74px;background:#181b20;color:var(--text);border:1px solid #333941;
+    border-radius:7px;padding:5px 7px;font:11px/1.2 inherit;font-variant-numeric:tabular-nums}
+  label.chk{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:11px;cursor:pointer}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:11px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+  .banner{margin:14px 16px 0;padding:9px 11px;border-radius:9px;border:1px solid #4a3a1c;
+    background:#241d0f;color:#e7c97a;font-size:11.5px}
+  .banner code{background:#000;padding:1px 5px;border-radius:4px;color:#e7c97a}
+
+  main{padding:16px}
+  .months{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px}
+  .month{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px}
+  .month.hidden{display:none}
+  .mhead{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  .mhead b{font-size:12.5px;flex:1}
+  .mhead .mc{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .mhead .mc.bad{color:var(--bad)}
+  .mhead .mc.ok{color:var(--ok)}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+  .wd{color:var(--dim);font-size:9px;text-align:center;text-transform:uppercase;letter-spacing:.3px;padding-bottom:2px}
+  .d{position:relative;aspect-ratio:1/1;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--muted);display:flex;align-items:center;justify-content:center;
+    font-size:10.5px;font-variant-numeric:tabular-nums;cursor:default;overflow:hidden}
+  .d.blank{border:0;background:transparent}
+  .d.pending{border-style:dashed;border-color:var(--pending);color:var(--dim)}
+  .d.present{border-color:rgba(75,191,115,.55);background:rgba(75,191,115,.13);color:#cdead8;cursor:pointer}
+  .d.missing{border-color:rgba(224,82,77,.6);background:rgba(224,82,77,.15);color:#ffd9d7;cursor:pointer}
+  .d.missing::after{content:"";position:absolute;left:12%;right:12%;top:50%;height:1px;background:rgba(224,82,77,.7)}
+  .d.na{border-style:dotted;color:var(--dim);opacity:.5}
+  .d.sel{outline:2px solid #8fb7e8;outline-offset:1px}
+  .d.noimg{border-color:rgba(217,164,65,.6);background:rgba(217,164,65,.14);color:#f0dcae}
+
+  .panel{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px}
+  .panel h2{margin:0 0 8px;font-size:12.5px}
+  .panel .hint{color:var(--dim);font-size:11px;margin:0 0 9px}
+  #detail .dt{color:var(--muted);font-size:11px;margin-top:3px}
+  #detail .dt b{color:var(--text);font-weight:600}
+  #preview{margin-top:9px;max-width:100%;border-radius:9px;border:1px solid var(--line);display:none}
+  textarea{width:100%;height:190px;resize:vertical;background:#0e1114;color:#cfd6dd;border:1px solid var(--line);
+    border-radius:9px;padding:9px;font:10.5px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}
+  .runs{color:var(--muted);font-size:11px;margin:0 0 9px}
+  .runs b{color:var(--bad)}
+  .done{color:var(--dim);font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdrow">
+    <h1>Background art audit</h1>
+    <span class="sub">every day in <code>data/bg-default.json</code>, checked against the files on disk</span>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <button id="recheck" class="primary" type="button">Recheck</button>
+    <button id="gaps-only" type="button" aria-pressed="false">Only months with gaps</button>
+    <button id="copy" type="button">Copy missing list</button>
+    <label class="chk" title="Weekday placement only — the config itself is year-independent">Weekday year
+      <input type="number" id="year" min="1970" max="2999" step="1">
+    </label>
+    <span class="done" id="progress"></span>
+  </div>
+  <div class="legend">
+    <span><i style="background:rgba(75,191,115,.6)"></i>photo present</span>
+    <span><i style="background:rgba(224,82,77,.7)"></i>missing file</span>
+    <span><i style="background:rgba(217,164,65,.7)"></i>day has no <code>image</code> key</span>
+    <span><i style="background:var(--pending)"></i>not checked yet</span>
+  </div>
+</header>
+
+<div id="warn" class="banner" hidden></div>
+
+<main>
+  <div class="months" id="months"></div>
+
+  <div class="panel">
+    <h2>Selected day</h2>
+    <p class="hint">Click any day square for its path, accent, tint and preview.</p>
+    <div id="detail"><div class="dt">Nothing selected.</div></div>
+    <img id="preview" alt="">
+  </div>
+
+  <div class="panel">
+    <h2>Missing files checklist</h2>
+    <p class="hint">One path per line, grouped by month. Unpadded day numbers, matching the folder convention.<br>
+      Checking a missing file over HTTP logs an expected <code>404</code> in the browser console — that is the probe
+      reporting the gap, not a fault in this page.</p>
+    <p class="runs" id="runs"></p>
+    <textarea id="missing" readonly spellcheck="false"></textarea>
+  </div>
+</main>
+
+<script src="js/theme-state.js?v=15"></script>
+<script>
+(function () {
+  'use strict';
+
+  // The config names one image per day as img/bg-default/<month>/<day>.png, and a day whose file is
+  // absent is not a soft fallback - the day entry always supplies a string, so the background page
+  // shows a plain black screen rather than the `default` image. This page exists to make that
+  // invisible gap visible: it asks the filesystem about every day and shows the result as a calendar.
+  var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var MONTH_DIRS  = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+  var WEEKDAYS    = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  var CONCURRENCY = 12;   // in-flight HEAD requests; keeps the dev server from being flooded
+
+  var cfg = null;
+  var cells = {};         // path -> { el, status, meta }
+  var queue = [];
+  var fallbackStatus = 'pending';
+  var year = new Date().getFullYear();
+
+  var $ = function (id) { return document.getElementById(id) };
+
+  function daysInMonth(y, m) { return new Date(y, m, 0).getDate() }   // m is 1-12
+  function firstWeekday(y, m) { return new Date(y, m - 1, 1).getDay() }
+
+  // HEAD is the cheap question ("does this exist?"). A server that refuses it (405/501) gets a real
+  // request instead, and on file:// - where every fetch rejects - we fall straight through to loading
+  // the image, which also proves the bytes actually decode.
+  function probe(url) {
+    return fetch(url, { method: 'HEAD', cache: 'no-store' }).then(function (res) {
+      if (res.status === 405 || res.status === 501) return probeImage(url);
+      return res.ok ? 'present' : 'missing';
+    }).catch(function () { return probeImage(url) });
+  }
+
+  function probeImage(url) {
+    return new Promise(function (resolve) {
+      var img = new Image();
+      img.onload = function () { resolve(img.naturalWidth > 0 ? 'present' : 'error') };
+      img.onerror = function () { resolve('missing') };
+      img.src = url;
+    });
+  }
+
+  function runPool(items, worker) {
+    return new Promise(function (done) {
+      var i = 0, active = 0;
+      function next() {
+        if (i >= items.length && active === 0) return done();
+        while (active < CONCURRENCY && i < items.length) {
+          var item = items[i++];
+          active++;
+          worker(item).then(function () { active--; next() }, function () { active--; next() });
+        }
+      }
+      next();
+    });
+  }
+
+  function build() {
+    var host = $('months');
+    host.innerHTML = '';
+    cells = {};
+    queue = [];
+
+    for (var m = 1; m <= 12; m++) {
+      var month = (cfg.months && cfg.months[String(m)]) || {};
+      var days  = month.days || {};
+      var card  = document.createElement('section');
+      card.className = 'month';
+      card.dataset.month = String(m);
+
+      var head = document.createElement('div');
+      head.className = 'mhead';
+      head.innerHTML = '<b>' + MONTH_NAMES[m - 1] + '</b><span class="mc" id="mc-' + m + '">—</span>';
+      card.appendChild(head);
+
+      var grid = document.createElement('div');
+      grid.className = 'grid';
+      WEEKDAYS.forEach(function (w) {
+        var h = document.createElement('div');
+        h.className = 'wd';
+        h.textContent = w;
+        grid.appendChild(h);
+      });
+
+      var pad = firstWeekday(year, m);
+      for (var p = 0; p < pad; p++) {
+        var blank = document.createElement('div');
+        blank.className = 'd blank';
+        grid.appendChild(blank);
+      }
+
+      var total = daysInMonth(year, m);
+      for (var day = 1; day <= total; day++) {
+        var entry = days[String(day)];
+        var el = document.createElement('div');
+        el.className = 'd pending';
+        el.textContent = String(day);
+        el.title = 'checking…';
+        grid.appendChild(el);
+
+        if (!entry) {
+          // A day the calendar has but the config does not: not a missing photo, just not in scope.
+          el.className = 'd na';
+          el.title = 'day ' + day + ' is not in the config';
+          continue;
+        }
+        if (!entry.image) {
+          el.className = 'd noimg';
+          el.title = 'day ' + day + ': config has no image key';
+          cells['__noimg__' + m + '_' + day] = { el: el, status: 'noimg', meta: { month: m, day: day, image: '' } };
+          continue;
+        }
+        var rec = { el: el, status: 'pending', meta: { month: m, day: day, image: entry.image,
+          accent: entry.accentColor || '', tint: entry.tint == null ? '' : entry.tint } };
+        cells[entry.image] = rec;
+        queue.push(entry.image);
+        el.dataset.path = entry.image;
+      }
+      card.appendChild(grid);
+      host.appendChild(card);
+    }
+  }
+
+  function paint(rec) {
+    var el = rec.el;
+    el.classList.remove('pending', 'present', 'missing', 'error');
+    el.classList.add(rec.status === 'error' ? 'missing' : rec.status);
+    if (rec.status === 'present') el.title = rec.meta.image + ' — present';
+    else if (rec.status === 'missing') el.title = rec.meta.image + ' — MISSING';
+    else el.title = rec.meta.image + ' — could not check';
+  }
+
+  function stats() {
+    var present = 0, missing = 0, pending = 0, noimg = 0;
+    Object.keys(cells).forEach(function (k) {
+      var s = cells[k].status;
+      if (s === 'present') present++;
+      else if (s === 'pending') pending++;
+      else if (s === 'noimg') noimg++;
+      else missing++;                       // missing and error both mean "no usable file"
+    });
+    var total = present + missing + pending;
+    var s = $('stats');
+    s.innerHTML = '';
+    function add(cls, value, label) {
+      var d = document.createElement('div');
+      d.className = 'stat ' + cls;
+      d.innerHTML = '<b>' + value + '</b><span>' + label + '</span>';
+      s.appendChild(d);
+    }
+    add('ok', present + '/' + total, 'photos present');
+    add(missing ? 'bad' : 'ok', String(missing), 'missing');
+    add(pending ? 'warn' : '', pending ? String(pending) : '0', 'unchecked');
+    if (noimg) add('warn', String(noimg), 'no image key');
+    add(fallbackStatus === 'present' ? 'ok' : 'bad',
+        fallbackStatus === 'present' ? 'ok' : (fallbackStatus === 'pending' ? '…' : 'missing'),
+        'default.png fallback');
+    $('progress').textContent = pending ? 'checking ' + pending + ' left…' : 'done';
+    return { present: present, missing: missing, pending: pending, total: total, noimg: noimg };
+  }
+
+  function monthCounts() {
+    for (var m = 1; m <= 12; m++) {
+      var present = 0, missing = 0, pending = 0, total = 0;
+      Object.keys(cells).forEach(function (k) {
+        var c = cells[k];
+        if (c.meta.month !== m) return;
+        if (c.status === 'noimg') return;
+        total++;
+        if (c.status === 'present') present++;
+        else if (c.status === 'pending') pending++;
+        else missing++;
+      });
+      var label = $('mc-' + m);
+      if (!label) continue;
+      label.textContent = present + '/' + total + (missing ? ' · ' + missing + ' missing' : (pending ? ' · checking' : ' · complete'));
+      label.className = 'mc ' + (missing ? 'bad' : (pending ? '' : 'ok'));
+      var card = document.querySelector('.month[data-month="' + m + '"]');
+      if (card) card.classList.toggle('complete', missing === 0 && pending === 0);
+    }
+  }
+
+  // Contiguous runs read better than a flat list: a month with 3-21 gone is one gap, not 19.
+  function runs(month, missingDays) {
+    if (!missingDays.length) return '';
+    missingDays.sort(function (a, b) { return a - b });
+    var out = [], start = missingDays[0], prev = start;
+    for (var i = 1; i <= missingDays.length; i++) {
+      var d = missingDays[i];
+      if (d !== prev + 1) {
+        out.push(start === prev ? String(start) : start + '–' + prev);
+        start = d;
+      }
+      prev = d;
+    }
+    return out.join(', ');
+  }
+
+  function checklist() {
+    var lines = [], anyMissing = false, allRuns = [];
+    MONTH_NAMES.forEach(function (name, idx) {
+      var m = idx + 1;
+      var miss = Object.keys(cells).filter(function (k) {
+        return cells[k].meta.month === m && cells[k].status !== 'present' && cells[k].status !== 'pending'
+          && cells[k].status !== 'noimg';
+      }).map(function (k) { return cells[k].meta.day }).sort(function (a, b) { return a - b });
+      if (!miss.length) { lines.push('## ' + name + ' — complete'); lines.push(''); return; }
+      anyMissing = true;
+      allRuns.push(name + ': ' + runs(m, miss));
+      lines.push('## ' + name + ' — ' + miss.length + ' missing');
+      miss.forEach(function (day) {
+        lines.push('img/bg-default/' + MONTH_DIRS[idx] + '/' + day + '.png');
+      });
+      lines.push('');
+    });
+    $('missing').value = lines.join('\n');
+    $('runs').innerHTML = anyMissing ? allRuns.map(function (r) {
+      return '<span class="mono">' + r.replace(/: /, ': </span><b>').replace(/$/, '</b>') + '</span>';
+    }).join('<br>') : 'Nothing missing — every configured day has a file.';
+  }
+
+  function select(rec) {
+    Object.keys(cells).forEach(function (k) { cells[k].el.classList.remove('sel') });
+    rec.el.classList.add('sel');
+    var m = rec.meta.month;
+    var status = rec.status === 'present' ? 'present' : (rec.status === 'missing' ? 'MISSING' : rec.status);
+    $('detail').innerHTML =
+      '<div class="dt">Day <b>' + MONTH_NAMES[m - 1] + ' ' + rec.meta.day + '</b></div>' +
+      '<div class="dt mono">' + (rec.meta.image || '(no image key)') + '</div>' +
+      '<div class="dt">status <b>' + status + '</b></div>' +
+      '<div class="dt">accent <b>' + (rec.meta.accent || '—') + '</b> · tint <b>' +
+        (rec.meta.tint === '' ? '—' : rec.meta.tint + '%') + '</b></div>';
+    var img = $('preview');
+    if (rec.status === 'present' && rec.meta.image) {
+      img.src = rec.meta.image;
+      img.style.display = 'block';
+    } else {
+      img.removeAttribute('src');
+      img.style.display = 'none';
+    }
+  }
+
+  function check() {
+    $('progress').textContent = 'checking…';
+    Object.keys(cells).forEach(function (k) {
+      if (cells[k].status === 'noimg') return;
+      cells[k].status = 'pending';
+      paint(cells[k]);
+    });
+    fallbackStatus = 'pending';
+    stats(); monthCounts();
+
+    runPool(queue, function (url) {
+      return probe(url).then(function (status) {
+        var rec = cells[url];
+        rec.status = status;
+        paint(rec);
+        stats(); monthCounts();
+      });
+    }).then(function () {
+      checklist();
+      stats(); monthCounts();
+    });
+
+    var fb = cfg['default'] && cfg['default'].image;
+    if (fb) {
+      probe(fb).then(function (status) {
+        fallbackStatus = status;
+        stats();
+      });
+    } else {
+      fallbackStatus = 'missing';
+      stats();
+    }
+  }
+
+  function buildAndCheck() {
+    build();
+    stats();
+    monthCounts();
+    check();
+  }
+
+  // ---- wiring ------------------------------------------------------------------------------------
+
+  $('year').value = String(year);
+  $('year').addEventListener('change', function () {
+    var v = parseInt(this.value, 10);
+    if (!v || v < 1970 || v > 2999) { this.value = String(year); return }
+    year = v;
+    buildAndCheck();
+  });
+
+  $('recheck').addEventListener('click', function () { buildAndCheck() });
+
+  $('gaps-only').addEventListener('click', function () {
+    var on = this.getAttribute('aria-pressed') === 'true';
+    this.setAttribute('aria-pressed', String(!on));
+    document.querySelectorAll('.month').forEach(function (card) {
+      if (!on) card.classList.toggle('hidden', card.classList.contains('complete'));
+      else card.classList.remove('hidden');
+    });
+  });
+
+  $('copy').addEventListener('click', function () {
+    var area = $('missing');
+    area.select();
+    var done = function () {
+      var b = $('copy'), old = b.textContent;
+      b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = old }, 1200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(area.value).then(done, function () { document.execCommand('copy'); done() });
+    } else {
+      document.execCommand('copy');
+      done();
+    }
+  });
+
+  $('months').addEventListener('click', function (e) {
+    var el = e.target.closest('.d');
+    if (!el) return;
+    var rec = cells[el.dataset.path] ||
+      Object.keys(cells).map(function (k) { return cells[k] }).filter(function (c) { return c.el === el })[0];
+    if (rec) select(rec);
+  });
+
+  // ---- boot --------------------------------------------------------------------------------------
+
+  if (location.protocol === 'file:') {
+    show('<b>Serve this over HTTP.</b> Reading <code>data/bg-default.json</code> and probing image files ' +
+      'both fail on <code>file://</code> due to browser CORS rules. From the project root run ' +
+      '<code>python3 -m http.server 8000</code> and open <code>http://localhost:8000/bg-art-audit.html</code>.');
+  }
+
+  function show(html) {
+    var w = $('warn');
+    w.innerHTML = html;
+    w.hidden = false;
+  }
+
+  if (!window.BrowserThemeState || !BrowserThemeState.loadDefaultBackgroundConfig) {
+    show('Could not load <code>js/theme-state.js</code>, so the config cannot be read.');
+  } else {
+    BrowserThemeState.loadDefaultBackgroundConfig().then(function (c) {
+      if (!c) {
+        show('Could not read <code>data/bg-default.json</code>. If this page is open via ' +
+          '<code>file://</code>, serve the folder over HTTP instead.');
+        return;
+      }
+      cfg = c;
+      buildAndCheck();
+    });
+  }
+})();
+</script>
+</body>
+</html>
