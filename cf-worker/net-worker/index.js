@@ -35,24 +35,18 @@ export default {
   },
 };
 
-function resolveAllowedOrigin(origin, setting) {
-  if (!setting || setting === '*') return '*';
-  const entries = setting.split(',').map(s => s.trim());
-  for (const entry of entries) {
-    if (entry === origin) return origin;
-    if (entry.startsWith('*.')) {
-      const base = entry.slice(2);
-      if (origin === `https://${base}` || origin.endsWith(`.${base}`)) return origin;
-    }
-  }
-  return entries[0];
+// Open access: every origin (any domain, IP, scheme or null origin) is allowed.
+// The ALLOWED_ORIGIN var is intentionally ignored so no deployment can lock
+// browser clients out.
+function resolveAllowedOrigin() {
+  return '*';
 }
 
 function corsHeaders(allowed, extra = {}) {
   return {
     'Access-Control-Allow-Origin':  allowed,
     'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Max-Age':       '86400',
     ...extra,
   };

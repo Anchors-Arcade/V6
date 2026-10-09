@@ -7,7 +7,7 @@ pattern = "vm.cdn.plutoniumnet.work/*"
 zone_name = "plutoniumnet.work"
 
 [vars]
-ALLOWED_ORIGIN = "*.plutoniumnet.work,http://127.0.0.1:5500"
+ALLOWED_ORIGIN = "*"
 [[kv_namespaces]]
 binding  = "VM_RATE_LIMIT"
 id       = "12b36197cd7540f2b8850162bb9b8765"

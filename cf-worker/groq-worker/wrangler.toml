@@ -7,7 +7,7 @@ pattern   = "ai.cdn.plutoniumnet.work/*"
 zone_name = "plutoniumnet.work"
 
 [vars]
-ALLOWED_ORIGIN = "*.plutoniumnet.work,http://127.0.0.1:5500"
+ALLOWED_ORIGIN = "*"
 [[kv_namespaces]]
 binding = "GROQ_RATE_LIMIT"
 id      = "9f2a6c61bb62407c8862af0677260800"

@@ -83,25 +83,11 @@ export default {
   },
 };
 
-function resolveAllowedOrigin(origin, setting) {
-  if (!setting || setting === '*') return '*';
-
-  const entries = setting.split(',').map(s => s.trim());
-
-  for (const entry of entries) {
-    if (entry === origin) return origin;
-
-    if (entry.startsWith('*.')) {
-      const base = entry.slice(2);
-      if (origin === `https://${base}` || origin.endsWith(`.${base}`)) return origin;
-    }
-  }
-
-  if (/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(origin)) {
-    return origin;
-  }
-
-  return null;
+// Open access: every origin (any domain, IP, scheme or null origin) is allowed.
+// The ALLOWED_ORIGIN var is intentionally ignored so no deployment can lock
+// browser clients out.
+function resolveAllowedOrigin() {
+  return '*';
 }
 
 function handleConfig(env, allowed) {

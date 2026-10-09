@@ -7,4 +7,4 @@ pattern   = "net.cdn.plutoniumnet.work/*"
 zone_name = "plutoniumnet.work"
 
 [vars]
-ALLOWED_ORIGIN = "*.plutoniumnet.work,http://127.0.0.1:5500"
+ALLOWED_ORIGIN = "*"
