@@ -1846,180 +1846,180 @@
       "weeks": {
         "1": {
           "name": "Copper",
-          "accentColor": "#c07a3a",
+          "accentColor": "#ffffff",
           "logo": "amber"
         },
         "2": {
           "name": "Amber Brown",
-          "accentColor": "#b06a33",
+          "accentColor": "#ffffff",
           "logo": "amber"
         },
         "3": {
           "name": "Chestnut",
-          "accentColor": "#a05e2f",
+          "accentColor": "#ffffff",
           "logo": "amber"
         },
         "4": {
           "name": "Warm Brown",
-          "accentColor": "#9a5a34",
+          "accentColor": "#ffffff",
           "logo": "amber"
         },
         "5": {
           "name": "Deep Bark",
-          "accentColor": "#8f5530",
+          "accentColor": "#ffffff",
           "logo": "amber"
         }
       },
       "days": {
         "1": {
           "image": "img/bg-default/november/1.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "2": {
           "image": "img/bg-default/november/2.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "3": {
           "image": "img/bg-default/november/3.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "4": {
           "image": "img/bg-default/november/4.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "5": {
           "image": "img/bg-default/november/5.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "6": {
           "image": "img/bg-default/november/6.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "7": {
           "image": "img/bg-default/november/7.png",
-          "accentColor": "#c07a3a",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "8": {
           "image": "img/bg-default/november/8.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "9": {
           "image": "img/bg-default/november/9.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "10": {
           "image": "img/bg-default/november/10.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "11": {
           "image": "img/bg-default/november/11.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "12": {
           "image": "img/bg-default/november/12.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "13": {
           "image": "img/bg-default/november/13.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "14": {
           "image": "img/bg-default/november/14.png",
-          "accentColor": "#b06a33",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "15": {
           "image": "img/bg-default/november/15.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "16": {
           "image": "img/bg-default/november/16.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "17": {
           "image": "img/bg-default/november/17.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "18": {
           "image": "img/bg-default/november/18.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "19": {
           "image": "img/bg-default/november/19.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "20": {
           "image": "img/bg-default/november/20.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "21": {
           "image": "img/bg-default/november/21.png",
-          "accentColor": "#a05e2f",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "22": {
           "image": "img/bg-default/november/22.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "23": {
           "image": "img/bg-default/november/23.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "24": {
           "image": "img/bg-default/november/24.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "25": {
           "image": "img/bg-default/november/25.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "26": {
           "image": "img/bg-default/november/26.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "27": {
           "image": "img/bg-default/november/27.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "28": {
           "image": "img/bg-default/november/28.png",
-          "accentColor": "#9a5a34",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "29": {
           "image": "img/bg-default/november/29.png",
-          "accentColor": "#8f5530",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         },
         "30": {
           "image": "img/bg-default/november/30.png",
-          "accentColor": "#8f5530",
-          "tint": 0
+          "accentColor": "#ffffff",
+          "tint": 50
         }
       }
     },
