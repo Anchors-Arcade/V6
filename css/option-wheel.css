@@ -42,7 +42,7 @@
 .option-wheel__item--selected{
   color:var(--ow-active-color, #fff);
   font-weight:600;
-  text-shadow:0 0 26px rgba(var(--ui-accent-rgb, 232, 23, 93), 0.55), 0 2px 14px rgba(var(--ui-shadow-rgb, 0, 0, 0), 0.85);
+  text-shadow:0 0 26px rgba(var(--ui-accent-rgb, 124,92,255), 0.55), 0 2px 14px rgba(var(--ui-shadow-rgb, 0, 0, 0), 0.85);
 }
 
 .option-wheel__item--selected::after{
@@ -54,6 +54,6 @@
   height:3px;
   border-radius:2px;
   transform:translateX(-50%);
-  background:rgba(var(--ui-accent-rgb, 232, 23, 93), 0.9);
-  box-shadow:0 0 12px rgba(var(--ui-accent-rgb, 232, 23, 93), 0.65);
+  background:rgba(var(--ui-accent-rgb, 124,92,255), 0.9);
+  box-shadow:0 0 12px rgba(var(--ui-accent-rgb, 124,92,255), 0.65);
 }

@@ -11,16 +11,16 @@ let ScramjetServiceWorker = null;
 let coreSW = null;
 
 try {
-	importScripts("/core/bundle.js");
-	importScripts("/core/config.js");
-	importScripts("/core/sw-handler.js");
+	importScripts("./core/bundle.js");
+	importScripts("./core/config.js");
+	importScripts("./core/sw-handler.js");
 	coreSW = new UVServiceWorker();
 } catch (e) {
 	console.warn("[sw] UV scripts failed to load: Core engine disabled:", e);
 }
 
 try {
-	importScripts("/runtime/all.js");
+	importScripts("./runtime/all.js");
 	({ ScramjetServiceWorker } = $scramjetLoadWorker());
 } catch (e) {
 	console.warn("[sw] Scramjet scripts failed to load: Runtime engine disabled:", e);
@@ -299,7 +299,14 @@ const PG_ROUTE_RE = /^\/pg-game\/([^/]+)\/(.*)$/;
 
 function handlePersonalGameFetch(event) {
 	const url = new URL(event.request.url);
-	const m   = PG_ROUTE_RE.exec(url.pathname);
+	// The app may be served from a subpath (user.github.io/repo/), in which
+	// case the route is <scope>/pg-game/... Strip the scope prefix (it ends
+	// with a slash) before matching the root-relative pattern.
+	const scopePath = new URL(self.registration.scope).pathname.replace(/\/+$/, "");
+	const path = scopePath && url.pathname.startsWith(scopePath + "/")
+		? url.pathname.slice(scopePath.length)
+		: url.pathname;
+	const m = PG_ROUTE_RE.exec(path);
 	if (!m) return false;
 
 	const gameId   = m[1];
@@ -342,7 +349,7 @@ const CACHE_NAMES = {
 	bg:    "plutonium-bg-v2",
 	games: "plutonium-games-v1",
 	cloud: "plutonium-cloud-v1",
-	logos: "plutonium-logos-v2",
+	logos: "plutonium-logos-v3",
 };
 const MANAGED_CACHE_RE = /^plutonium-(bg|games|cloud|logos)-v\d+$/;
 

@@ -1,6 +1,6 @@
 :root {
-  --ui-accent: #e8175d;
-  --ui-accent-rgb: 232, 23, 93;
+  --ui-accent: #7C5CFF;
+  --ui-accent-rgb: 124,92,255;
 }
 
 .onboarding-body {
@@ -801,7 +801,7 @@
 .device-block-icon {
   font-size: 42px;
   line-height: 1;
-  color: var(--ui-accent, #e8175d);
+  color: var(--ui-accent, #7C5CFF);
   margin-bottom: 20px;
   opacity: 0;
   transform: translateY(12px);

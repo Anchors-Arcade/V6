@@ -1,7 +1,7 @@
 
 :root {
-  --workspace-accent: var(--pink, var(--ui-accent, #e8175d));
-  --workspace-accent-rgb: var(--pink-rgb, var(--ui-accent-rgb, 232,23,93));
+  --workspace-accent: var(--pink, var(--ui-accent, #7C5CFF));
+  --workspace-accent-rgb: var(--pink-rgb, var(--ui-accent-rgb, 124,92,255));
   --workspace-panel: rgba(16, 16, 20, 0.68);
   --workspace-panel-strong: rgba(18, 18, 23, 0.86);
   --workspace-line: rgba(255,255,255,0.11);
@@ -138,7 +138,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   border: 2px solid var(--ui-accent);
   border-radius: 999px;
   background: transparent;
-  box-shadow: 0 0 8px rgba(var(--ui-accent-rgb, 232,23,93), .35);
+  box-shadow: 0 0 8px rgba(var(--ui-accent-rgb, 124,92,255), .35);
   opacity: 0;
   pointer-events: none;
   transition: left .28s cubic-bezier(.22,1,.36,1), width .28s cubic-bezier(.22,1,.36,1), opacity .15s;
@@ -153,7 +153,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   border: 2px solid var(--ui-accent);
   border-radius: 999px;
   background: transparent;
-  box-shadow: 0 0 8px rgba(var(--ui-accent-rgb, 232,23,93), .35);
+  box-shadow: 0 0 8px rgba(var(--ui-accent-rgb, 124,92,255), .35);
   pointer-events: none;
   z-index: 0;
   transition: left .28s cubic-bezier(.22,1,.36,1), width .28s cubic-bezier(.22,1,.36,1);
@@ -288,7 +288,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .history-toolbar .history-sort-group::after { display: none; }
 .history-toolbar .history-sort-btn.active {
   background: transparent;
-  box-shadow: inset 0 0 0 2px var(--ui-accent), 0 0 8px rgba(var(--ui-accent-rgb, 232,23,93), .35);
+  box-shadow: inset 0 0 0 2px var(--ui-accent), 0 0 8px rgba(var(--ui-accent-rgb, 124,92,255), .35);
 }
 .history-toolbar + .history-list {
   margin-top: 0;

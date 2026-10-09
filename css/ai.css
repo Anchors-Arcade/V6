@@ -171,8 +171,8 @@ html,body{
 #workspace-root .workspace-view.workspace-ai{
   display:flex;align-items:stretch;height:100%;
   --ai-sidebar-w:264px;
-  --ui-accent-rgb:var(--workspace-accent-rgb,232,23,93);
-  --ui-shadow-rgb:12,12,14;
+  --ui-accent-rgb:var(--workspace-accent-rgb,124,92,255);
+  --ui-shadow-rgb:22,17,46;
 }
 #workspace-root .workspace-view.workspace-ai #main-content{
   flex:1;min-width:0;height:100%;min-height:0;

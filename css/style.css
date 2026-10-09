@@ -1,25 +1,26 @@
 :root {
-  --ui-base:        #1a1a1a;
-  --ui-base-rgb:    26,26,26;
-  --ui-surface:     #2e2e2e;
-  --ui-surface-2:   #252525;
-  --ui-surface-3:   rgba(40,40,40,0.94);
-  --ui-surface-4:   rgba(38,38,38,0.97);
-  --ui-surface-5:   rgba(32,32,32,0.97);
-  --ui-overlay:     rgba(18,18,18,0.72);
+  /* Static fallbacks; theme.js repaints these from the active preset at runtime. */
+  --ui-base:        #080B18;
+  --ui-base-rgb:    8,11,24;
+  --ui-surface:     #151D35;
+  --ui-surface-2:   #10162A;
+  --ui-surface-3:   rgba(21,29,53,0.94);
+  --ui-surface-4:   rgba(16,22,42,0.97);
+  --ui-surface-5:   rgba(21,29,53,0.97);
+  --ui-overlay:     rgba(8,11,24,0.72);
   --ui-border:      rgba(255,255,255,0.12);
   --ui-border-sub:  rgba(255,255,255,0.08);
-  --ui-addr-bg:     rgba(60,60,60,0.55);
-  --ui-addr-focus:  rgba(75,75,75,0.65);
-  --ui-icon-bg:     rgba(60,60,60,0.92);
+  --ui-addr-bg:     rgba(21,29,53,0.55);
+  --ui-addr-focus:  rgba(29,40,72,0.65);
+  --ui-icon-bg:     rgba(21,29,53,0.92);
   --ui-hover:       rgba(255,255,255,0.1);
   --ui-hover-2:     rgba(255,255,255,0.08);
-  --ui-active:      rgba(255,255,255,0.2);
-  --ui-pin-remove:  rgba(40,40,40,0.95);
-  --ui-toast-bg:    rgba(50,50,50,0.95);
-  --ui-search-bg:   rgba(40,40,40,0.3);
-  --ui-accent:      #4285f4;
-  --ui-accent-rgb:  66,133,244;
+  --ui-active:      rgba(124,92,255,0.2);
+  --ui-pin-remove:  rgba(21,29,53,0.95);
+  --ui-toast-bg:    rgba(16,22,42,0.95);
+  --ui-search-bg:   rgba(8,11,24,0.3);
+  --ui-accent:      #7C5CFF;
+  --ui-accent-rgb:  124,92,255;
   --ui-text:        #ffffff;
   --ui-text-sub:    rgba(255,255,255,0.7);
   --ui-text-muted:  rgba(255,255,255,0.45);
@@ -33,17 +34,16 @@
   --ui-success-rgb: 129,201,149;
   --ui-warn:        #f5c542;
   --ui-warn-rgb:    245,197,66;
-  --ui-accent-rgb:  66,133,244;
-  --ui-shadow-rgb:  12,18,34;
+  --ui-shadow-rgb:  22,17,46;
 
-  --row-0: #c49de8; --row-0-rgb: 196,157,232;
-  --row-1: #fba865; --row-1-rgb: 251,168,101;
-  --row-2: #f28b82; --row-2-rgb: 242,139,130;
-  --row-3: #fcd96b; --row-3-rgb: 252,217,107;
-  --row-4: #5ed3d7; --row-4-rgb: 94,211,215;
-  --row-5: #f472b6; --row-5-rgb: 244,114,182;
-  --row-6: #7ab3f8; --row-6-rgb: 122,179,248;
-  --row-7: #7ec986; --row-7-rgb: 126,201,134;
+  --row-0: #8873de; --row-0-rgb: 136,115,222;
+  --row-1: #d873de; --row-1-rgb: 216,115,222;
+  --row-2: #de7393; --row-2-rgb: 222,115,147;
+  --row-3: #dea373; --row-3-rgb: 222,163,115;
+  --row-4: #c9de73; --row-4-rgb: 201,222,115;
+  --row-5: #78de73; --row-5-rgb: 120,222,115;
+  --row-6: #73debd; --row-6-rgb: 115,222,189;
+  --row-7: #73aede; --row-7-rgb: 115,174,222;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -102,12 +102,12 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
 }
 .chrome-tabs .chrome-tab .chrome-tab-background>svg{width:100%;height:100%}
 .chrome-tabs .chrome-tab .chrome-tab-background>svg .chrome-tab-geometry{
-  fill:#4d5d7a;
+  fill:#3A4666;
   stroke:none;
 }
 .chrome-tabs .chrome-tab[active]{z-index:5}
 .chrome-tabs .chrome-tab[active] .chrome-tab-background>svg .chrome-tab-geometry{
-  fill:#5a6a88;
+  fill:#4C5B85;
   stroke:none;
 }
 .chrome-tabs .chrome-tab .chrome-tab-background{transition:opacity .2s ease;opacity:0.18}
@@ -628,7 +628,7 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
 }
 .new-tab-page .logo{
   position:relative;z-index:2;pointer-events:none;
-  width:520px;max-width:90vw;aspect-ratio:26/9;
+  width:560px;max-width:92vw;aspect-ratio:2000/512;
   background-repeat:no-repeat;background-position:center;background-size:contain;
   opacity:0;transition:opacity .35s ease;
   margin-bottom:-24px;
@@ -680,6 +680,8 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
 }
 @media (prefers-reduced-motion:reduce){
   .new-tab-page .online-count__dot{animation:none}
+  .new-tab-page .logo.rendered{animation:none}
+  .page-loading-letter{animation:none}
   .engine-relay{
     transition:opacity .18s ease, visibility 0s linear 0s;
   }
@@ -1028,7 +1030,7 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
   border:2px solid var(--ui-accent);
   border-radius:999px;
   background:transparent;
-  box-shadow:0 0 8px rgba(var(--ui-accent-rgb, 232,23,93),0.35);
+  box-shadow:0 0 8px rgba(var(--ui-accent-rgb, 124,92,255),0.35);
   transition:left .28s cubic-bezier(0.22,1,0.36,1),width .28s cubic-bezier(0.22,1,0.36,1);
 }
 .engine-switch.dragging .engine-slider{transition:none}
@@ -1223,7 +1225,7 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
   display:flex;
   color:rgb(var(--ui-accent-rgb));
   font-family:'Curly',cursive;
-  font-size:clamp(42px,8vw,80px);
+  font-size:clamp(38px,7vw,68px);
   letter-spacing:2px;
   margin-bottom:40px;
   z-index:1;
@@ -1760,7 +1762,7 @@ html,body{height:100%;background:transparent;font-family:-apple-system,BlinkMacS
 .device-block-box{max-width:480px}
 .device-block-icon{
   font-size:42px;line-height:1;
-  color:var(--ui-accent,#e8175d);
+  color:var(--ui-accent,#7C5CFF);
   margin-bottom:20px;
   opacity:0;transform:translateY(12px);
   animation:device-block-in .45s ease forwards;

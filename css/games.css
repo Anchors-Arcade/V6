@@ -1,16 +1,16 @@
 :root {
-  --pink: #e8175d;
-  --pink-rgb: 232, 23, 93;
-  --pink-muted: #971040;
-  --pink-soft: #f9a8c0;
+  --pink: #7C5CFF;
+  --pink-rgb: 124,92,255;
+  --pink-muted: #4b3a9e;
+  --pink-soft: #c9baff;
   --ui-danger: #f28b82;
   --ui-danger-rgb: 242,139,130;
   --ui-success: #7ec986;
   --ui-success-rgb: 126,201,134;
   --ui-warn: #f5c542;
   --ui-warn-rgb: 245,197,66;
-  --ui-accent-rgb: 232,23,93;
-  --ui-shadow-rgb: 12,12,14;
+  --ui-accent-rgb: 124,92,255;
+  --ui-shadow-rgb: 22,17,46;
   --text: #ffffff;
   --muted: #a0a0a0;
   --surface-1: rgba(255,255,255,0.02);

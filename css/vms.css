@@ -15,8 +15,8 @@
   --ui-danger-rgb:242,139,130;
   --ui-success:#7ec986;
   --ui-success-rgb:126,201,134;
-  --ui-accent-rgb:232,23,93;
-  --ui-shadow-rgb:12,12,14;
+  --ui-accent-rgb:124,92,255;
+  --ui-shadow-rgb:22,17,46;
   --success:var(--ui-success);
   --danger:var(--ui-danger);
   --radius:18px;

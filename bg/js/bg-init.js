@@ -207,7 +207,7 @@
   function init() {
     var s       = (window.BrowserThemeState && BrowserThemeState.loadThemeState()) || {};
     var style   = s.bgEffect   || 'particles';
-    var color   = s.accentColor || '#e8175d';
+    var color   = s.accentColor || '#7C5CFF';
     var ptEl    = document.getElementById('particles-js');
     var vantaEl = document.getElementById('vanta-bg');
     var hasImage = !!(s.bgImage && BrowserThemeState.getBackgroundImageURL(s.bgImage));
